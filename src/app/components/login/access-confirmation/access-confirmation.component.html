@@ -1,3 +1,25 @@
+<div class="row">
+    <div class="col-xs-8">
+        <a (click)="changeView('login')" routerLinkActive="active"
+            role="button" class="btn btn-cancel btn-block">
+            Regresar
+        </a>
+    </div>
+</div>
+<h3>Nombre usuario</h3>
 <p>
-  access-confirmation works!
+  Second layout contained in the layout father
 </p>
+<div class="row">
+    <div class="col-xs-10 offset-xs-1">
+        <a routerLink="/home" routerLinkActive="active"
+            role="button" class="btn btn-confirm btn-block">
+            Entrar
+        </a>
+    </div>
+    <div class="col-xs-10 offset-xs-1">
+        <a role="button" class="btn btn-cancel btn-block">
+            Olvidé mi contraseña
+        </a>
+    </div>
+</div>

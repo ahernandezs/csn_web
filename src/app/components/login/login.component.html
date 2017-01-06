@@ -1,11 +1,33 @@
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-xs-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <div class="card text-xs-center shadow-second">
-                <h1>Bienvenido</h1>
-                <h3>Acceso</h3>
-                <a role="button" class="btn btn-first">Continuar</a>
+        <div class="col-xs-12 col-md-6">
+            <div class="card shadow-second">
+                <h1>Logo</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <p class="text-xs-center">
+                    <small>Descarga aplicación IOS/Android</small>
+                </p>
             </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="card text-xs-center shadow-second">
+                <p>
+                    <small>Layout container</small>
+                </p>
+                <div *ngIf="myUrl == 'login'">
+                    <app-access (routeView)="changeViewHandler($event)"></app-access>
+                </div>
+                <div *ngIf="myUrl == 'confirmation'">
+                    <app-access-confirmation (routeView)="changeViewHandler($event)"></app-access-confirmation>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <app-footer></app-footer>
         </div>
     </div>
 </div>
