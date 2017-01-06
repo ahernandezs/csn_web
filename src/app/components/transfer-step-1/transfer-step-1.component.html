@@ -1,3 +1,34 @@
-<p>
-  transfer-step-1 works!
-</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <app-navbar></app-navbar>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="card">
+                <span><strong>Paso 1</strong></span>
+                <span>Paso 2</span>
+                <span>Paso 3</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div *ngIf="myUrl == 'transfer'">
+                <app-transfer-step-1-1 (routeView)="changeViewHandler($event)"></app-transfer-step-1-1>
+            </div>
+            <div *ngIf="myUrl == 'transferstep2'">
+                <app-transfer-step-2 (routeView)="changeViewHandler($event)"></app-transfer-step-2>
+            </div>
+            <div *ngIf="myUrl == 'transferstep3'">
+                <app-transfer-step-3 (routeView)="changeViewHandler($event)"></app-transfer-step-3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <app-footer></app-footer>
+        </div>
+    </div>
+</div>

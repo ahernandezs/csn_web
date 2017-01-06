@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { TabsModule } from 'ng2-bootstrap';
 import { LoginComponent } from './components/login/index';
 import { PageNotFoundComponent } from './components/share/page-not-found/index';
 import { AccessComponent } from './components/login/access/index';
@@ -22,8 +23,9 @@ import { MapContactComponent } from './components/map/map-contact/index';
 import { SearchMapComponent } from './components/map/search-map/index';
 import { ContactComponent } from './components/contact/index';
 import { TransferStep1Component } from './components/transfer-step-1/index';
-import { TransferStep2Component } from './components/transfer-step-2/index';
-import { TransferStep3Component } from './components/transfer-step-3/index';
+import { TransferStep2Component } from './components/transfer-step-1/transfer-step-2/index';
+import { TransferStep3Component } from './components/transfer-step-1/transfer-step-3/index';
+import { TransferStep11Component } from './components/transfer-step-1/transfer-step-1-1/index';
 
 @NgModule({
   declarations: [
@@ -45,13 +47,15 @@ import { TransferStep3Component } from './components/transfer-step-3/index';
     ContactComponent,
     TransferStep1Component,
     TransferStep2Component,
-    TransferStep3Component
+    TransferStep3Component,
+    TransferStep11Component
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    TabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
