@@ -1,11 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-access-confirmation',
-  templateUrl: './access-confirmation.component.html',
-  styleUrls: ['./access-confirmation.component.sass']
+  selector: 'app-transfer-step-1-1',
+  templateUrl: './transfer-step-1-1.component.html',
+  styleUrls: ['./transfer-step-1-1.component.sass']
 })
-export class AccessConfirmationComponent implements OnInit {
+export class TransferStep11Component implements OnInit {
 
   constructor() { }
 

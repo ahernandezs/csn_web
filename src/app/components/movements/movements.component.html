@@ -1,3 +1,42 @@
-<p>
-  movements works!
-</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <app-navbar></app-navbar>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="card">
+                <a routerLink="/home" routerLinkActive="active"
+                    role="button" class="btn btn-cancel">
+                    Regresar
+                </a>
+                <span>Movimientos</span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="card">
+                        <h5>Cuenta Mexicana</h5>
+                        <p>
+                            $ 47,000.00
+                            <small>Saldo actual</small>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-9">
+                    <!-- Movements table -->
+                    <app-movements-table></app-movements-table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <app-footer></app-footer>
+        </div>
+    </div>
+</div>
