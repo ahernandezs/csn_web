@@ -1,18 +1,23 @@
+<div class="loginBox">
 <h3>Bienvenido</h3>
 <p>
-  First layout contained in the layout father
+  Ingresa a Cooperativa Financiera
 </p>
 <div class="row">
-    <div class="col-xs-10 offset-xs-1">
+    <div class="col-xs-10 offset-xs-1 padding">
+        <input class="user" type="text" placeholder="Usuario" /><br/>
         <a (click)="changeView('confirmation')" routerLinkActive="active"
-            role="button" class="btn btn-confirm btn-block">
+            role="button" class="btn btn-block buttonCfm margin">
             Continuar
         </a>
     </div>
-    <div class="col-xs-10 offset-xs-1">
+</div>
+<div class="row">
+    <div class="col-xs-10 offset-xs-1 padding">
         <a routerLink="/" routerLinkActive="active"
-            role="button" class="btn btn-cancel btn-block">
+            class="btn btn-block register">
             Registrate aquí
         </a>
     </div>
+</div>
 </div>
