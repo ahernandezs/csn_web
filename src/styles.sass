@@ -1,12 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import variables
 
-*
-    color:black
+//MIXINS
+=border-radius($radius)
+    border-radius: $radius
+    -webkit-border-radius: $radius
+    -moz-border-radius: $radius
 
-i
-    font-size: 3em
-
+=animation-ease($seconds)
+    transition: all $seconds ease
+    -ms-transition: all $seconds ease
+    -webkit-transition: all $seconds ease
+    -o-transition: all $seconds ease
+    -moz-transition: all $seconds ease
 
 /*
  * General
@@ -39,25 +45,22 @@ html, body
     -moz-box-shadow: 0px 3px 4px -2px rgba(135,135,135,1)
     box-shadow: 0px 3px 4px -2px rgba(135,135,135,1)
     color: $primary-color-text !important
-.paps
-    color: $_ads
-.back
-    -webkit-background-size: cover
-    -moz-background-size: cover
-    -o-background-size: cover
-    background-image: url('assets/images/bg.jpg')
-    background-size: cover
-    margin: 0 auto
-    background-color: #483D8B
-    color:white
 /*
  * Buttons
  * ========================================================================== */
+
+.btn
+    margin: 1em 0
+    +border-radius(2em)
+    +animation-ease(200ms)
 .btn-confirm
-    @extend .shadow-btn
-    background-color: $primary-color
+    @extend .btn
+    color: $primary-color
+    background-color: white
+    border: 1px solid $primary-color
     &:hover, &:active, &:focus
-        background-color: rgba($primary-color, 0.5)
+        color: white
+        background-color: $primary-color
 .btn-cancel
     color: $primary-color !important
     background-color: $primary-color-text
