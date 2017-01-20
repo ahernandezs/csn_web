@@ -1,22 +1,22 @@
-<div class="back login card">
-    <div class="row head">
-        <br/>
-    </div>
-    <div class="row logoBox">
-        <div class="col-xs-12 col-md-1"><br/></div>
-        <div class="col-xs-12 col-md-4">
-            <div>
-                <img class="logo" src="assets/images/logo.svg" alt="logo" />
-            </div>
-            <div>
-                <br/><br/>
-                <span><b>Confianza que se comparte, confianza que se distingue</b></span><br/>
-                <p>Con más de <b>115 mil socios y 39 sucursales</b> distribuidoras en el noreste del pa&iacute;s, nos consolidamos como una de las cooperativas de mayor crecimiento</p>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 col-md-6">
+            <div class="welcome-msg">
+                <h1 class="logo"></h1>
+                <p><strong>Confianza que se comparte, confianza que se distingue.</strong></p>
+                <p>Con más de <strong>115 mil socios y 39 sucursales</strong> distribuidoras en el noreste del pais, nos consolidamos como una de las cooperativas de mayor crecimiento.</p>
+                <p><strong>Cooperativa Financiera,</strong> siempre contigo.</p>
+                <p>Descarga nuestra aplicación.</p>
+                <a href="">
+                    <img src="assets/images/googleplay.svg" alt="Descarga la aplicaci&oacute;n para Android" />
+                </a>
+                <a href="">
+                    <img src="assets/images/appstore.svg" alt="Descarga la aplicaci&oacute;n para iPhone" />
+                </a>
             </div>
         </div>
-        <div class="col-xs-12 col-md-1"><br/></div>
-        <div class="col-xs-12 col-md-4 loginBox">
-            <div>
+        <div class="col-xs-12 col-md-6">
+            <div class="card text-xs-center shadow-second">
                 <div *ngIf="myUrl == 'login'">
                     <app-access (routeView)="changeViewHandler($event)"></app-access>
                 </div>
@@ -25,21 +25,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-md-2"><br/></div>
     </div>
-    <div class="row download">
-        <div class="col-xs-12 col-md-1"><br/></div>
-        <div class="col-xs-12 col-md-5">
-            <span class="text-xs-center"><b>Cooperativa Financiera</b> siempre contigo.</span><br/>
-            <span class="text-xs-center">Descarga nuestra aplicación.</span><br/>
-            <img src="assets/images/googleplay.svg" alt="googleplay" />
-            <img src="assets/images/appstore.svg" alt="applestore" />
-        </div>
-        <div class="col-xs-12 col-md-6"><br/></div>
-    </div>
-</div>
-<div class="row footer">
-        <div class="col-xs-12 col-md-12">
-            <app-footer></app-footer>
-        </div>
+    <app-footer></app-footer>
 </div>
