@@ -1,18 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import variables
-
-//MIXINS
-=border-radius($radius)
-    border-radius: $radius
-    -webkit-border-radius: $radius
-    -moz-border-radius: $radius
-
-=animation-ease($seconds)
-    transition: all $seconds ease
-    -ms-transition: all $seconds ease
-    -webkit-transition: all $seconds ease
-    -o-transition: all $seconds ease
-    -moz-transition: all $seconds ease
+@import mixins
 
 /*
  * General
@@ -51,6 +39,8 @@ html, body
 
 .btn
     margin: 1em 0
+    padding: 0.7em
+    cursor: pointer
     +border-radius(2em)
     +animation-ease(200ms)
 .btn-confirm
@@ -66,3 +56,16 @@ html, body
     background-color: $primary-color-text
     &:hover, &:active, &:focus
         background-color: rgba($divider_2, 0.5)
+.btn-green
+    @extend .btn
+    color: white
+    background-color: $primary-color
+    border: 1px solid $primary-color
+    &:hover, &:active, &:focus
+        background-color: $primary-color-dark
+
+//INPUTS RESET
+input
+    &:active,&:focus
+        outline: none
+        box-shadow: none

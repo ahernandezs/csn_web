@@ -1,20 +1,22 @@
-<div class="loginBox">
-<h3>Bienvenido</h3>
-<p>Ingresa a Cooperativa Financiera</p>
-<div class="row">
-    <div class="col-xs-10 offset-xs-1">
-       <i class="icon icon-user"></i>
-       <input class="user" type="text" placeholder="Usuario" />
+<div class="card text-xs-center loginBox">
+    <h3>Bienvenido</h3>
+    <h5>Ingresa a Cooperativa Financiera</h5>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+           <label class="input-with-icon">
+            <i class="icon icon-user"></i>
+            <input class="user" type="text" placeholder="Usuario" />
+           </label>
+           <button (click)="changeView('confirmation')" routerLinkActive="active" class="btn-confirm btn-block">
+                Continuar
+            </button>
+            <a routerLink="/activation" routerLinkActive="active">Activaci&oacute;n de socio</a>
+        </div>
     </div>
-    <div class="col-xs-8 offset-xs-2">
-        <button (click)="changeView('confirmation')" routerLinkActive="active" class="btn btn-confirm btn-block">
-            Continuar
-        </button>
-        <a routerLink="/activation" routerLinkActive="active" class="small">Activaci&oacute;n de socio</a>
+    <div class="row reactivate-account-module">
+        <div class="col-md-12">
+            <p>¿Ya tenias cuenta anteriormente?</p>
+            <a routerLink="/reactivation" routerLinkActive="active" class="small">Reactivala aqu&iacute;</a>
+        </div>
     </div>
-    <div class="col-xs-8 offset-xs-2">
-        <p>¿Ya tenias cuenta anteriormente?</p>
-        <a routerLink="/reactivation" routerLinkActive="active" class="small">Reactivala aqu&iacute;</a>
-    </div>
-</div>
 </div>

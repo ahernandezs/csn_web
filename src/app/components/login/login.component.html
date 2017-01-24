@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xs-12 col-md-6">
+        <div class="col-md-6">
             <div class="welcome-msg">
                 <h1 class="logo"></h1>
                 <p><strong>Confianza que se comparte, confianza que se distingue.</strong></p>
@@ -15,14 +15,12 @@
                 </a>
             </div>
         </div>
-        <div class="col-xs-12 col-md-6">
-            <div class="card text-xs-center shadow-second">
-                <div *ngIf="myUrl == 'login'">
-                    <app-access (routeView)="changeViewHandler($event)"></app-access>
-                </div>
-                <div *ngIf="myUrl == 'confirmation'">
-                    <app-access-confirmation (routeView)="changeViewHandler($event)"></app-access-confirmation>
-                </div>
+        <div class="col-md-3 offset-md-2">
+            <div *ngIf="myUrl == 'login'">
+                <app-access (routeView)="changeViewHandler($event)"></app-access>
+            </div>
+            <div *ngIf="myUrl == 'confirmation'">
+                <app-access-confirmation (routeView)="changeViewHandler($event)"></app-access-confirmation>
             </div>
         </div>
     </div>
