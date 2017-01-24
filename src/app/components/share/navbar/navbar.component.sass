@@ -1,20 +1,19 @@
-.b-green
-	background-color: #66B360
-.b_pink
-	background-color: pink
-.b_trans
-	background-color: transparent
-.b_black
-	background-color: black
-.t_white
-	color: white
+@import ../../../../variables
+
+#header
+	.row
+		&:first-child
+			background-color: $primary-color
+.cont_menu
+    margin: 0 auto
+    width: 90%
 .img_logo
 	width: 100%
 	min-width: 80px
-.btn_menu
-	width: 23.5%
-	display: inline-block
-	padding: 1%
+    display: block
+.navbar-nav
+	.nav-item
+		color: $primary-color-text 
 	p
 		display: block
 		text-align: center
@@ -24,9 +23,28 @@
 		display: block
 		text-align: center
 		font-size: 1em
-
-.card
-	border: solid 1px red
-	width: 100%
 .sub_menu
 	padding: .5rem 1rem
+.btn_log
+    display: inline-block
+    width: auto
+    height: 50%
+    margin: 0
+    border-radius: 50%
+    padding: 3%
+    background-color: $primary-color-text
+    color: $accent-color!important
+.cont_log
+    display: inline-block
+    border-right: solid 1px $primary-color-text
+    padding-right: 1%;
+    p:first-child
+	    font-size: .9em
+    p
+	    color: $primary-color-text
+	    font-size: .65em
+    	margin: 0
+    	text-align: right
+    	width: 100%
+.exit
+	width: 20%
