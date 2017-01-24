@@ -1,0 +1,27 @@
+<div>
+	<div class="col-md-12">
+		<app-navbar-activation></app-navbar-activation>
+	</div>
+	<div class="col-md-12">
+		<span>Reactivaci&oacute;n de Socio</span>
+	</div>
+	<div class="row">
+		<div class="col-md-1"><br/></div>
+		<div class="col-md-10">
+			<div>
+				<div *ngIf="myUrl == 'reactivation'">
+					<app-activation-step-1 (routeView)="changeViewHandler($event)"></app-activation-step-1>
+				</div>
+				<div *ngIf="myUrl == 'step-2'">
+					<app-reactivation-step-2 (routeView)="changeViewHandler($event)"></app-reactivation-step-2>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-1"><br/></div>
+	</div>
+	<div class="row footer">
+		<div class="col-xs-12 col-md-12">
+			<app-footer></app-footer>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,1 @@
+export * from './activation-step-2.component';

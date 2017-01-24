@@ -1,0 +1,30 @@
+<div>
+	<div class="col-md-12">
+		<span>Ingresa el c&oacute;digo de activaci&oacute;n que obtuviste del call center y tu n&uacute;mero de socio para continuar</span>
+	</div>
+	<div class="row">
+		<div class="col-md-1"><br/></div>
+		<div class="col-md-10">
+			<div class="col-md-12">
+				<span>C&oacute;digo de Activaci&oacute;n</span>
+				<input type="text" placeholder="Código de Activación"/>
+			</div>
+			<div class="col-md-12">
+				<span>N&uacute;mero de Socio</span>
+				<input type="text" placeholder="Número de socio" />
+			</div>
+			<div class="col-md-12">
+				<span>Si no tienes o no haz recibido tu c&oacute;digo de activaci&oacute;n, puedes marcar a este número <span>01 800 1234 5678</span> y obtener tu c&oacute;digo de activaci&oacute;n.</span>
+			</div>
+			<div>
+				<a routerLink="/login" routerLinkActive="active" role="button" class="btn btn-confirm btn-block">
+					Cancelar
+				</a>
+				<a (click)="changeView('step-2')" routerLinkActive="active" role="button" class="btn btn-block buttonCfm margin">
+					Continuar
+				</a>
+			</div>
+		</div>
+		<div class="col-md-1"><br/></div>
+	</div>
+</div>
