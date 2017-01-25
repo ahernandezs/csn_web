@@ -1,43 +1,63 @@
 @import ../../../../variables
 
 #header
+	background-color: $primary-color
 	.row
 		&:first-child
 			background-color: $primary-color
+			height: 75px		    
 .cont_menu
     margin: 0 auto
     width: 90%
 .img_logo
 	width: 100%
 	min-width: 80px
-    display: block
+	display: block
+	margin: .5em 0 .5em 1em
 .navbar-nav
+	width: 80%
 	.nav-item
-		color: $primary-color-text 
+		color: $primary-color-text
+		width: 100%
 	p
 		display: block
 		text-align: center
 		font-size: 12px
-	    font-weight: 300
+		font-weight: 300
+		&:active
+			text-transform: uppercase
 	i
 		display: block
 		text-align: center
 		font-size: 1em
+	i:active
+		height: 2.5em
+		width: 2.5em
+		background-color: $primary-color-text
+		color: $primary-color-light
+		border-radius: 50%
+		margin: 0 auto
+		padding: 7%
 .sub_menu
 	padding: .5rem 1rem
 .btn_log
     display: inline-block
-    width: auto
-    height: 50%
+    position: relative
+    top: -5px
+    width: 2.5em
+    height: 2.5em
     margin: 0
     border-radius: 50%
-    padding: 3%
+    padding: 2.5%
     background-color: $primary-color-text
     color: $accent-color!important
+    i
+    	padding: 3px
 .cont_log
     display: inline-block
     border-right: solid 1px $primary-color-text
-    padding-right: 1%;
+    padding-right: 1%
+    width: 65%
     p:first-child
 	    font-size: .9em
     p
@@ -48,3 +68,8 @@
     	width: 100%
 .exit
 	width: 20%
+	padding: 0
+	margin: 1.5% 0% 0 1%
+	position: absolute
+.cont_user
+	padding: .8em 0
