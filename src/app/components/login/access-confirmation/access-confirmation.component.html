@@ -1,52 +1,70 @@
-<div class="confirmationBox">
-<div class="row">
-    <div class="col-xs-8 padding">
-        <a (click)="changeView('login')" routerLinkActive="active"
-            role="button" class="btn btn-cancel btn-block">
-            Regresar
-        </a>
+<div class="card text-xs-center confirmationBox">
+    <div class="row">
+        <div class="col-md-12 text-xs-left">
+            <p (click)="changeView('login')" routerLinkActive="active">
+                <span class="text-xs-center"><i class="icon icon-back"></i></span>
+                <span>Regresar</span>
+            </p>
+        </div>
     </div>
-</div>
-<br/>
-<h3>Alan Zamora</h3>
-<p class="sndText">
-  Elige tu imagen de seguridad para continuar
-</p>
-<div class="row">
-    <div class="table row">
-        <table>
-            <tr>
-                <td><img class="img" src="assets/images/tmp/img1.png" alt="img1" /></td>
-                <td><img class="img" src="assets/images/tmp/img2.png" alt="img2" /></td>
-                <td><img class="img" src="assets/images/tmp/img3.png" alt="img3" /></td>
-                <td><img class="img" src="assets/images/tmp/img4.png" alt="img4" /></td>
-                <td><img class="img" src="assets/images/tmp/img5.png" alt="img5" /></td>
-            </tr>
-        </table>
-        <table class="table2">
-            <tr>
-                <td><img class="img" src="assets/images/tmp/img6.png" alt="img6" /></td>
-                <td><img class="img" src="assets/images/tmp/img7.png" alt="img7" /></td>
-                <td><img class="img" src="assets/images/tmp/img8.png" alt="img8" /></td>
-                <td><img class="img" src="assets/images/tmp/img9.png" alt="img9" /></td>
-                <td><img class="img" src="assets/images/tmp/img10.png" alt="img0" /></td>
-            </tr>
-        </table>
-</div>
-<div class="row">
-    <div class="col-xs-10 col-md-10">
-        <input class="pass" type="text" placeholder="Contraseña" /><br/>
+    <h3>Alan Zamora</h3>
+    <h5>Elige tu imagen de seguridad para continuar</h5>
+    <div class="row">
+        <div class="col-md-12">
+            <ul>
+                <li class="active">
+                    <span><i class="icon icon-thick"></i></span>
+                    <img class="img" src="assets/images/tmp/img1.png" alt="img1" />
+                </li>
+                <li>
+                    <span><i class="icon icon-thick"></i></span>
+                    <img class="img" src="assets/images/tmp/img2.png" alt="img1" />
+                </li>
+                <li>
+                    <span><i class="icon icon-thick"></i></span>
+                    <img class="img" src="assets/images/tmp/img3.png" alt="img1" />
+                </li>
+                <li>
+                    <span><i class="icon icon-thick"></i></span>
+                    <img class="img" src="assets/images/tmp/img4.png" alt="img1" />
+                </li>
+                <li>
+                    <span><i class="icon icon-thick"></i></span>
+                    <img class="img" src="assets/images/tmp/img5.png" alt="img1" />
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <span><i class="icon icon-thick"></i></span>
+                    <img class="img" src="assets/images/tmp/img6.png" alt="img1" />
+                </li>
+                <li>
+                    <span><i class="icon icon-thick"></i></span>
+                    <img class="img" src="assets/images/tmp/img7.png" alt="img1" />
+                </li>
+                <li>
+                    <span><i class="icon icon-thick"></i></span>
+                    <img class="img" src="assets/images/tmp/img8.png" alt="img1" />
+                </li>
+                <li>
+                    <span><i class="icon icon-thick"></i></span>
+                    <img class="img" src="assets/images/tmp/img9.png" alt="img1" />
+                </li>
+                <li>
+                    <span><i class="icon icon-thick"></i></span>
+                    <img class="img" src="assets/images/tmp/img10.png" alt="img1" />
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="col-xs-10 col-md-10">
-        <a role="button" class="btn btn-block forget">
-            Olvidé mi contraseña
-        </a>
-    </div><br/>
-    <div class="col-xs-10 col-md-10">
-        <a routerLink="/home" routerLinkActive="active"
-            role="button" class="btn btnIn btn-block">
-            Entrar
-        </a>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <label class="input-with-icon">
+                <i class="icon icon-lock"></i>
+                <input type="password" placeholder="Contraseña" />
+            </label>
+            <a class="text-xs-right">Olvidé mi contraseña</a>
+            <button routerLink="/home" routerLinkActive="active" class="btn-confirm btn-block">Entrar</button>
+        </div>
     </div>
-</div>
 </div>

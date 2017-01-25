@@ -29,4 +29,5 @@ export class LoginComponent implements OnInit {
     changeViewHandler(view: String) {
         this.myUrl = view;
     }
+
 }
