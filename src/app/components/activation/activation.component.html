@@ -2,7 +2,7 @@
 
 <div class="container activation">
 	<div class="row">
-		<div class="col-md-10">
+		<div class="col-md-10 offset-md-1">
 			<div class="card shadow-second">
 				<div *ngIf="myUrl == 'activation'">
 					<app-activation-step-1 (routeView)="changeViewHandler($event)"></app-activation-step-1>
