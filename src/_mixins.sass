@@ -23,6 +23,11 @@
     box-sizing: $default
 
 =box-shadow($shadow: rgba($color, $alpha))
-	-moz-box-shadow: 0 0 3px $shadow
-	-webkit-box-shadow: 0 0 3px $shadow
-	box-shadow: 0 0 3px $shadow
+	-moz-box-shadow: 0 0 5px $shadow
+	-webkit-box-shadow: 0 0 5px $shadow
+	box-shadow: 0 0 5px $shadow
+
+=transform-translate-y($var)
+    -ms-transform: translateY($var)
+    -webkit-transform: translateY($var)
+    transform: translateY($var)

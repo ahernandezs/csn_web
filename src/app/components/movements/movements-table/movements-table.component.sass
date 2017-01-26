@@ -1,0 +1,45 @@
+@import ../../../../variables
+@import ../../../../mixins
+
+.card
+	padding: 0
+	border: none
+	background: white
+	font-size: 0.9em
+	color: $secondary-text-color
+	overflow: hidden
+	label
+		margin: 0
+		padding: 1em
+		display: block
+		i
+			font-size: 1.2em
+			width: 5%
+			color: $primary-color
+			vertical-align: middle
+		input
+			width: 93%
+			margin: 0 1% 0
+			border: none
+			background: none
+	.table
+		margin: 0
+		thead
+			tr
+				background: $divider-color
+		tbody
+			tr
+				&.month-change
+					background: $accent-color
+				td
+					border-color: $divider-color
+					&.negative
+						color: $red
+					h6
+						text-transform: uppercase
+						font-weight: normal
+						font-size: 0.7em
+						text-align: center
+						span
+							display: block
+							font-size: 1.8em
