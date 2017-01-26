@@ -1,34 +1,47 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12">
-            <app-navbar></app-navbar>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="card">
-                <span><strong>Paso 1</strong></span>
-                <span>Paso 2</span>
-                <span>Paso 3</span>
+<app-navbar></app-navbar>
+<div class="subheader">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <p class="active">Mis cuentas CSN</p>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <div *ngIf="myUrl == 'transfer'">
-                <app-transfer-step-1-1 (routeView)="changeViewHandler($event)"></app-transfer-step-1-1>
+            <div class="col-md-2">
+                <p>Otro socio de CSN</p>
             </div>
-            <div *ngIf="myUrl == 'transferstep2'">
-                <app-transfer-step-2 (routeView)="changeViewHandler($event)"></app-transfer-step-2>
-            </div>
-            <div *ngIf="myUrl == 'transferstep3'">
-                <app-transfer-step-3 (routeView)="changeViewHandler($event)"></app-transfer-step-3>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <app-footer></app-footer>
         </div>
     </div>
 </div>
+<div class="container transfer">
+    <div class="row text-xs-center steps">
+        <div class="progress"><div></div></div>
+        <div class="col-md-4 active-step">
+            <span></span>
+            <p>Datos de la transferencia</p>
+        </div>
+        <div class="col-md-4">
+            <span></span>
+            <p>Revisar datos</p>
+        </div>
+        <div class="col-md-4">
+            <span></span>
+            <p>Transferencia aplicada</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div *ngIf="myUrl == 'transfer'">
+                    <app-transfer-step-1-1 (routeView)="changeViewHandler($event)"></app-transfer-step-1-1>
+                </div>
+                <div *ngIf="myUrl == 'transferstep2'">
+                    <app-transfer-step-2 (routeView)="changeViewHandler($event)"></app-transfer-step-2>
+                </div>
+                <div *ngIf="myUrl == 'transferstep3'">
+                    <app-transfer-step-3 (routeView)="changeViewHandler($event)"></app-transfer-step-3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

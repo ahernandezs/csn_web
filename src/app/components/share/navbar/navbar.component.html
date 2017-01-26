@@ -1,53 +1,65 @@
-    <div id="header">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-1">
-                    <img src="assets/images/logo-small.svg" class="img_logo">
-                </div>
-
-                <div class="col-md-7">
-                    <nav class="navbar navbar-toggleable-md">
-                        <ul class="navbar-nav">
-                            <li class="active nav-item">
-                                <div routerLink="/home" routerLinkActive="active" role="" class="nav-link active">
-                                    <i  class="icon-card icon "></i>
-                                    <p>Cuentas</p>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <div routerLink="/transfer" routerLinkActive="active" role="" class="nav-link">
-                                    <i  class="icon-bills icon"></i>
-                                    <p>Transferencias</p>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <div routerLink="/map" routerLinkActive="active" role="" class="nav-link">
-                                    <i  class="icon-medal icon"></i>
-                                    <p>Promociones</p>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <div routerLink="/map" routerLinkActive="active" role="" class="nav-link">
-                                    <i  class="icon-bank icon"></i>
-                                    <p>Sucursales</p>
-                                </div>
-                            </li>
-                          </ul>
-                    </nav>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="cont_user">
-                        <div class="cont_log">
-                            <p>Alan Silva Zamora</p>
-                            <p>Último acceso: 26 marzo 2016 | 17:10 por web</p>
-                        </div>
-                        <a class="btn_log">
+<div id="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+                <img src="assets/images/logo-small.svg" class="logo">
+            </div>
+            <div class="col-md-7">
+                <ul class="main-menu">
+                    <li routerLink="/home" routerLinkActive="active" class="active">
+                        <span><i  class="icon-card icon"></i></span>
+                        <p>Cuentas</p>
+                    </li>
+                    <li routerLink="/transfer" routerLinkActive="active">
+                        <span><i  class="icon-bills icon"></i></span>
+                        <p>Transferencias</p>
+                    </li>
+                    <li routerLink="/promotions" routerLinkActive="active">
+                        <span><i  class="icon-medal icon"></i></span>
+                        <p>Promociones</p>
+                    </li>
+                    <li routerLink="/map" routerLinkActive="active">
+                        <span><i  class="icon-bank icon"></i></span>
+                        <p>sucursales</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <div class="user-log">
+                   <p>
+                        Alan Silva Zamora
+                        <span>Último acceso: 26 marzo 2016 | 17:10 por web</span>
+                    </p>
+                    <div>
+                        <span class="profile">
                             <i class="icon-profile icon"></i>
-                        </a>
-                         <button routerLink="/login" routerLinkActive="active" class="btn-confirm exit">Salir</button>
-                     </div>
-                </div>
+                            <img src="assets/images/profile.jpg">
+                        </span>
+                    </div>
+                    <ul class="user-menu">
+                            <li>
+                                <i class="icon icon-user"></i>
+                                Administracu&oacute;n
+                            </li>
+                            <li>
+                                <i class="icon icon-user"></i>
+                                Activar cuentas
+                            </li>
+                            <li>
+                                <i class="icon icon-user"></i>
+                                Contacto
+                            </li>
+                            <li>
+                                <i class="icon icon-user"></i>
+                                Ayuda
+                            </li>
+                            <li>
+                                <i class="icon icon-user"></i>
+                                Cerrar sesi&oacute;n
+                            </li>
+                        </ul>
+                 </div>
             </div>
         </div>
     </div>
+</div>

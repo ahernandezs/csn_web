@@ -1,11 +1,39 @@
-<div class="card">
-    <h3>Datos de la transferencia</h3>
-    <div class="row">
-        <div class="col-xs-12 col-md-4 offset-md-8">
-            <a (click)="changeView('transferstep2')" routerLinkActive="active"
-                role="button" class="btn btn-confirm btn-block">
-                Continuar
-            </a>
-        </div>
-    </div>
+<h3>Ingresa los datos para realizar la transferencia y presiona continuar</h3>
+<div class="row">
+	<div class="col-md-8 offset-md-2">
+		<label class="options">
+			<span>Cuenta retiro</span>
+			<p>Cuenta retiro</p>
+			<i class="icon icon-triangle-down"></i>
+			<ul class="shadow-second">
+			    <li>Cuenta 1</li>
+			    <li>Cuenta 2</li>
+			    <li>Cuenta 3</li>
+			</ul>
+		</label>
+		<label class="options">
+			<span>Cuenta de d&eacute;posito</span>
+			<p>Cuenta de d&eacute;posito</p>
+			<i class="icon icon-triangle-down"></i>
+			<ul class="shadow-second">
+			    <li>Cuenta 1</li>
+			    <li>Cuenta 2</li>
+			    <li>Cuenta 3</li>
+			</ul>
+		</label>
+		<label>
+			<span>Importe</span>
+			<input type="number" placeholder="Importe">
+		</label>
+		<label>
+			<span>Concepto de pago</span>
+			<input type="text" placeholder="Concepto de pago">
+		</label>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-8 offset-md-2 text-xs-right">
+		<button class="btn-confirm">Cancelar</button>
+		<button (click)="changeView('transferstep2')" routerLinkActive="active" class="btn-green">Continuar</button>
+	</div>
 </div>

@@ -1,0 +1,66 @@
+@import ../../../../variables
+@import ../../../../mixins
+
+h3
+	font-size: 1.2em
+	font-weight: normal
+	margin: 0 -15px
+	padding: 1em 1em 2em
+	border-bottom: 1px solid $divider-color
+label
+	position: relative
+	margin: 2em 0
+	display: block
+	color: $secondary-text-color
+	border-bottom: 1px solid $divider-color
+	span
+		display: none
+		position: absolute
+		top: -1.5em
+		left: 0.5em
+		color: $primary-color
+	input
+		width: 100%
+		margin: 0
+		padding: 0.5em
+		border: none
+		background: none
+	&.active
+		span
+			display: block
+	&.options
+		p
+			display: inline-block
+			width: 95%
+			margin: 0
+			padding: 0.5em
+		i
+			color: black
+			font-size: 0.8em
+			cursor: pointer
+		ul
+			display: none
+			position: absolute
+			z-index: 20
+			padding: 0
+			margin: 0
+			width: 100%
+			max-height: 300px
+			overflow: auto
+			background: white
+			list-style: none
+			border: 1px solid $divider-color
+			+border-radius(0.5em)
+			li
+				padding: 1em
+				border-bottom: 1px solid $divider-color
+				&:last-child
+					border: none
+		&.selected
+			ul
+				display: block
+
+.btn-confirm,.btn-green
+	min-width: 150px
+	font-size: 1em
+	margin: 1em
