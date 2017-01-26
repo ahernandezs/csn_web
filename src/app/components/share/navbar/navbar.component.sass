@@ -24,20 +24,22 @@
 		text-align: center
 		font-size: 12px
 		font-weight: 300
-		&:active
-			text-transform: uppercase
+	.nav-link.active
+		text-transform: uppercase
+		color: $primary-color-text
+		i
+			height: 2.5em
+			width: 2.5em
+			background-color: $primary-color-text
+			color: $primary-color-light
+			border-radius: 50%
+			margin: 0 auto
+			padding: 7%
 	i
 		display: block
 		text-align: center
 		font-size: 1em
-	i:active
-		height: 2.5em
-		width: 2.5em
-		background-color: $primary-color-text
-		color: $primary-color-light
-		border-radius: 50%
-		margin: 0 auto
-		padding: 7%
+	
 .sub_menu
 	padding: .5rem 1rem
 .btn_log
