@@ -1,0 +1,65 @@
+@import ../../../variables
+@import ../../../mixins
+
+.transfer
+	padding-top: 155px
+	.steps
+		position: relative
+		.progress
+			position: absolute
+			width: 66%
+			height: 1px
+			background: $divider-color
+			top: 5px
+			left: 50%
+			margin-left: -33%
+			div
+				background: black
+				height: 1px
+				width: 0
+			&.confirm
+				div
+					width: 50%
+			&.success
+				div
+					width: 100%
+
+		span
+			display: block
+			width: 10px
+			height: 10px
+			margin: 0 auto 1em
+			background: $divider-color
+			+border-radius(50%)
+		p
+			font-size: 0.8em
+			color: $divider-color
+		.active-step
+			span
+				background: black
+			p
+				color: black
+	.card
+		padding: 1.2em 1em
+		overflow: hidden
+		border: none
+		background: white
+		font-size: 0.9em
+		+border-radius(0.7em)
+.subheader
+	position: fixed
+	top: 75px
+	left: 0
+	right: 0
+	background: black
+	color: $divider-color
+	p
+		font-size: 1.1em
+		text-align: center
+		margin: 0
+		padding: 0.5em 0
+		cursor: pointer
+		&.active
+			color: white
+			font-weight: bold
+			border-bottom: 4px solid $primary-color

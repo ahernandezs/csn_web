@@ -1,11 +1,32 @@
-<div class="card">
-    <h3>Transferencia aplicada</h3>
-    <div class="row">
-        <div class="col-xs-12 col-md-4 offset-md-8">
-            <a (click)="changeView('transfer')" routerLinkActive="active"
-                role="button" class="btn btn-confirm btn-block">
-                Otra transferencia
-            </a>
-        </div>
+<h3><span><i class="icon icon-thick"></i></span>Revisa los datos de la transferencia, si son correctos ingresa tu contraseña para continuar</h3>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+       <table class="table">
+           <tbody>
+               <tr>
+                   <td>Cuenta de retiro:</td>
+                   <td>Cuenta Mexicana ***270</td>
+               </tr>
+               <tr>
+                   <td>Cuenta de dep&oacute;sito:</td>
+                   <td>Servicuenta ***386</td>
+               </tr>
+               <tr>
+                   <td>Importe:</td>
+                   <td>$12,000.00</td>
+               </tr>
+               <tr>
+                   <td>Concepto de pago:</td>
+                   <td>Pago renta</td>
+               </tr>
+           </tbody>
+       </table>
+       <p>Número de autorización: <span>#12345678</span></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 offset-md-2 text-xs-center">
+        <button class="btn-confirm">Ir a mis cuentas</button>
+        <button (click)="changeView('transfer')" routerLinkActive="active" class="btn-green">Realizar otra transferencia</button>
     </div>
 </div>

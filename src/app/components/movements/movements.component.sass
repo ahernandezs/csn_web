@@ -2,7 +2,39 @@
 @import ../../../mixins
 
 .movs
-	padding-top: 1.5em
+	padding-top: 155px
+.subheader
+	position: fixed
+	top: 75px
+	left: 0
+	right: 0
+	background: black
+	color: $divider-color
+	h6
+		cursor: pointer
+		color: $divider-color
+		margin: 0.6em 0 0
+		span
+			display: inline-block
+			vertical-align: middle
+			text-align: center
+			width: 25px;
+			height: 25px;
+			border: 1px solid $divider-color
+			overflow: hidden
+			+border-radius(50%)
+			i
+				font-size: 0.8em
+				&:before
+					line-height: 1.8em
+	p
+		font-size: 1.1em
+		text-align: center
+		margin: 0
+		padding: 0.5em 0
+		cursor: pointer
+		color: white
+		font-weight: bold
 .card
 	padding: 1.2em 1em
 	border: none
