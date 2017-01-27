@@ -28,6 +28,7 @@ import { MapComponent } from './components/map/index';
 import { MapContactComponent } from './components/map/map-contact/index';
 import { SearchMapComponent } from './components/map/search-map/index';
 import { ContactComponent } from './components/contact/index';
+import { ActivateAccountComponent } from './components/activateAccount/index';
 import { PromotionsComponent } from './components/promotions/index';
 import { TransferStep1Component } from './components/transfer-step-1/index';
 import { TransferStep2Component } from './components/transfer-step-1/transfer-step-2/index';
@@ -58,6 +59,7 @@ import { TransferStep11Component } from './components/transfer-step-1/transfer-s
     MapContactComponent,
     SearchMapComponent,
     ContactComponent,
+    ActivateAccountComponent,
     PromotionsComponent,
     TransferStep1Component,
     TransferStep2Component,

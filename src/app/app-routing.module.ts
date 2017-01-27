@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/index';
 import { MovementsComponent } from './components/movements/index';
 import { MapComponent } from './components/map/index';
 import { ContactComponent } from './components/contact/index';
+import { ActivateAccountComponent } from './components/activateAccount/index';
 import { PromotionsComponent } from './components/promotions/index';
 import { TransferStep1Component } from './components/transfer-step-1/index';
 
@@ -20,6 +21,7 @@ const routes: Routes = [
 	{ path: 'movements', component: MovementsComponent },
 	{ path: 'map', component: MapComponent },
 	{ path: 'contact', component: ContactComponent },
+	{ path: 'activateAccount', component: ActivateAccountComponent },
 	{ path: 'promotions', component: PromotionsComponent },
 	{ path: 'transfer', component: TransferStep1Component },
 	{ path: '**', component: PageNotFoundComponent }
