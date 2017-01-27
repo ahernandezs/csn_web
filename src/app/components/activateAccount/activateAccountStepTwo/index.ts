@@ -1,0 +1,1 @@
+export * from './activateAccountStepTwo.component';

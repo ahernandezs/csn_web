@@ -1,38 +1,46 @@
 @import ../../../variables
-.cont_gral
-	background-color: $divider_2
-#subtitle
-	background-color: $primary-text-color
-h6
-	color: $primary-color-text
-	padding-top: 1em
-	padding-bottom: 1em
-.cont
-	background-color: $primary-color-text
-	span
-	text-align: center
-	font-size: .8em
-	width: 100%
-	padding: 1em
-	.row
-		margin: 2em
-.strong
+@import ../../../mixins
+
+.subheader
+	position: fixed
+	top: 75px
+	left: 0
+	right: 0
+	background: black
+	color: white
+	font-size: 1.1em
 	text-align: center
 	font-weight: bold
-	font-size: 1.2em
-	padding: 1em
 	margin: 0
-.cont_item
-	padding: 1em 0
-	i, div 
-		display: inline-block
-	i
-	    padding-right: 1em
-	    font-size: 2em
-	    color: $primary-color-light
-	.p_contact
-		text-align: left
-		margin: 0
-		font-weight: 600
-.borde
-	border-right: solid 1px $primary-color-light
+	padding: 0.5em 0
+.contact
+	padding-top: 155px
+	.card
+		padding: 1.2em 1em
+		border: none
+		background: white
+		font-size: 0.9em
+		+border-radius(0.7em)
+		h3
+			font-size: 1.2em
+			margin: 0.8em 0
+		p
+			color: $secondary-text-color
+			margin: 0 0 2em
+		.table
+			td
+				position: relative
+				border-top: none
+				&:last-child
+					border-left: 1px solid $primary-color
+					padding-left: 2em
+				i
+					color: $primary-color
+					font-size: 2em
+					vertical-align: middle
+					margin-right: 0.5em
+				span
+					display: inline-block
+					vertical-align: middle
+				a
+					color: black

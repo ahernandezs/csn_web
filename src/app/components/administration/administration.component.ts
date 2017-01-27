@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-activateAccount',
-  templateUrl: './activateAccount.component.html',
-  styleUrls: ['./activateAccount.component.sass']
+  selector: 'app-administration',
+  templateUrl: './administration.component.html',
+  styleUrls: ['./administration.component.sass']
 })
-export class ActivateAccountComponent implements OnInit {
+export class AdministrationComponent implements OnInit {
     private myUrl:any;
 
     constructor(private route: ActivatedRoute) {

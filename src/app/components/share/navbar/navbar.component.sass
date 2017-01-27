@@ -44,6 +44,7 @@
 					font-weight: bold
 	.user-log
 		margin-top: 0.5em
+		position: relative
 		p,div
 			display: inline-block
 			vertical-align: middle
@@ -74,4 +75,37 @@
 				height: 100%
 				object-fit: cover
 	.user-menu
-		display: none
+		position: absolute
+		right: 0.5em
+		top: 50px
+		background: white
+		color: $secondary-text-color
+		list-style: none
+		margin: 0
+		padding: 0
+		+box-shadow(rgba(0,0,0,0.4))
+		+border-radius(0.5em)
+		li
+			font-size: 0.9em
+			padding: 0.5em 1em
+			cursor: pointer
+			i
+				margin-right: 10px
+				color: $primary-color
+				&:before
+					line-height: 0.8em
+			&:hover,&:active
+				color: $primary-color
+			&:last-child
+				border-top: 1px solid $divider-color
+		&:before
+			content: ""
+			display: block
+			position: absolute
+			top: -7px
+			right: 29px
+			width: 0
+			height: 0
+			border-left: 8px solid transparent
+			border-right: 8px solid transparent
+			border-bottom: 8px solid white	

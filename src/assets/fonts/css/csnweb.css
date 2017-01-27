@@ -11,7 +11,8 @@
   font-style: normal;}
 
 
-[data-icon]:before{
+
+[data-icon]:before {
   font-family: "csnweb" !important;
   content: attr(data-icon);
   font-style: normal !important;
@@ -21,10 +22,11 @@
   speak: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;}
+  -moz-osx-font-smoothing: grayscale;
+}
 
 [class^="icon-"]:before,
-[class*=" icon-"]:before{
+[class*=" icon-"]:before {
   font-family: "csnweb" !important;
   font-style: normal !important;
   font-weight: normal !important;
@@ -33,65 +35,84 @@
   speak: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;}
+  -moz-osx-font-smoothing: grayscale;
+}
 
-
-.icon-arrow-down:before{
-  content: "\61";}
-
-.icon-atm:before{
-  content: "\62";}
-
-.icon-back:before{
-  content: "\63";}
-
-.icon-call:before{
-  content: "\64";}
-
+.icon-arrow-down:before {
+  content: "\61";
+}
+.icon-atm:before {
+  content: "\62";
+}
+.icon-back:before {
+  content: "\63";
+}
+.icon-call:before {
+  content: "\64";
+}
 .icon-card:before {
-  content: "\65";}
-
-.icon-clock:before{ 
-  content: "\66";}
-
+  content: "\65";
+}
+.icon-clock:before {
+  content: "\66";
+}
 .icon-eye:before {
-  content: "\68";}
-
-.icon-facebook:before{ 
-  content: "\69";}
-
+  content: "\68";
+}
+.icon-facebook:before {
+  content: "\69";
+}
 .icon-lock:before {
-  content: "\6c";}
-
+  content: "\6c";
+}
 .icon-mail:before {
-  content: "\6d";}
-
-.icon-profile:before{ 
-  content: "\6e";}
-
+  content: "\6d";
+}
+.icon-profile:before {
+  content: "\6e";
+}
 .icon-bank:before {
-  content: "\6a";}
-
-.icon-thick:before{ 
-  content: "\6f";}
-
-.icon-bills:before{ 
-  content: "\70";}
-
+  content: "\6a";
+}
+.icon-thick:before {
+  content: "\6f";
+}
+.icon-bills:before {
+  content: "\70";
+}
 .icon-triangle-down:before {
-  content: "\71";}
-
-.icon-twitter:before{ 
-  content: "\72";}
-
+  content: "\71";
+}
+.icon-twitter:before {
+  content: "\72";
+}
 .icon-zoom:before {
-  content: "\6b";}
-
-.icon-close:before{ 
-  content: "\67";}
-
-.icon-medal:before{ 
-  content: "\73";}
-
+  content: "\6b";
+}
+.icon-close:before {
+  content: "\67";
+}
+.icon-medal:before {
+  content: "\73";
+}
 .icon-user:before {
-  content: "\74";}
+  content: "\74";
+}
+.icon-friends:before {
+  content: "\75";
+}
+.icon-hold:before {
+  content: "\76";
+}
+.icon-logout:before {
+  content: "\77";
+}
+.icon-padlock:before {
+  content: "\78";
+}
+.icon-settings:before {
+  content: "\79";
+}
+.icon-help:before {
+  content: "\7a";
+}
