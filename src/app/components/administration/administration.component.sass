@@ -1,0 +1,42 @@
+@import ../../../mixins
+@import ../../../variables
+
+.subheader
+	position: fixed
+	top: 75px
+	left: 0
+	right: 0
+	background: black
+	color: $divider-color
+	p
+		font-size: 1.1em
+		text-align: center
+		margin: 0
+		padding: 0.5em 0
+		cursor: pointer
+		color: white
+		font-weight: bold
+
+.administration
+	padding-top: 155px
+	.card
+		padding: 1.2em 1em
+		overflow: hidden
+		border: none
+		background: white
+		font-size: 0.9em
+		+border-radius(0.7em)
+		h3
+			font-size: 1.4em
+			font-weight: bold
+			margin: 0 -15px 2em
+			padding: 0 0 0.8em
+			border-bottom: 1px solid $divider-color
+		i
+			display: block
+			font-size: 5em
+			color: $divider-color
+		.btn-green
+			font-size: 1em
+			width: 60%
+			margin-bottom: 2em

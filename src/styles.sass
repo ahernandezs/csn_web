@@ -46,6 +46,9 @@ html, body
     font-size: 1.15em
     +border-radius(2em)
     +animation-ease(200ms)
+    &:active,&:focus
+        outline: none
+        box-shadow: none
 .btn-confirm
     @extend .btn
     color: $primary-color

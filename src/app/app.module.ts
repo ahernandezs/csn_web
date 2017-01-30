@@ -28,6 +28,14 @@ import { MapComponent } from './components/map/index';
 import { MapContactComponent } from './components/map/map-contact/index';
 import { SearchMapComponent } from './components/map/search-map/index';
 import { ContactComponent } from './components/contact/index';
+import { ActivateAccountComponent } from './components/activateAccount/index';
+import { ActivateAccountListComponent } from './components/activateAccount/activateAccountList/index';
+import { ActivateAccountStepOneComponent } from './components/activateAccount/activateAccountStepOne/index';
+import { ActivateAccountStepTwoComponent } from './components/activateAccount/activateAccountStepTwo/index';
+import { AdministrationComponent } from './components/administration/index';
+import { ChangePassStepOneComponent } from './components/administration/changePassStepOne/index';
+import { ChangePassStepTwoComponent } from './components/administration/changePassStepTwo/index';
+import { PromotionsComponent } from './components/promotions/index';
 import { TransferStep1Component } from './components/transfer-step-1/index';
 import { TransferStep2Component } from './components/transfer-step-1/transfer-step-2/index';
 import { TransferStep3Component } from './components/transfer-step-1/transfer-step-3/index';
@@ -57,6 +65,14 @@ import { TransferStep11Component } from './components/transfer-step-1/transfer-s
     MapContactComponent,
     SearchMapComponent,
     ContactComponent,
+    ActivateAccountComponent,
+    ActivateAccountListComponent,
+    ActivateAccountStepOneComponent,
+    ActivateAccountStepTwoComponent,
+    AdministrationComponent,
+    ChangePassStepOneComponent,
+    ChangePassStepTwoComponent,
+    PromotionsComponent,
     TransferStep1Component,
     TransferStep2Component,
     TransferStep3Component,
