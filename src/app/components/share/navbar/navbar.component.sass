@@ -12,7 +12,11 @@
 	padding: 0.5em 0		
 	.logo
 		width: 90px
-		height: auto   
+		height: auto
+	.icon-menu
+		display: none
+		font-size: 2em
+		margin: 10px 0 0 1.5em;
 	.main-menu
 		list-style: none
 		margin: 0
@@ -76,7 +80,9 @@
 				object-fit: cover
 	.user-menu
 		position: absolute
-		right: 0.5em
+		z-index: 990
+		min-width: 170px
+		right: 0
 		top: 50px
 		background: white
 		color: $secondary-text-color
@@ -86,6 +92,7 @@
 		+box-shadow(rgba(0,0,0,0.4))
 		+border-radius(0.5em)
 		li
+			text-align: left
 			font-size: 0.9em
 			padding: 0.5em 1em
 			cursor: pointer
@@ -98,14 +105,76 @@
 				color: $primary-color
 			&:last-child
 				border-top: 1px solid $divider-color
+			&.user
+				display: none
+				font-size: 0.7em
+				cursor: default
+				&:hover,&:active
+					color: $secondary-text-color
+				span
+					display: block
 		&:before
 			content: ""
 			display: block
 			position: absolute
 			top: -7px
-			right: 29px
+			right: 10px
 			width: 0
 			height: 0
 			border-left: 8px solid transparent
 			border-right: 8px solid transparent
 			border-bottom: 8px solid white	
+
+//Responsive
+@media screen and (max-width: 1201px)
+	#header
+		.main-menu
+			li
+				margin: 0 0.5em
+@media screen and (max-width: 993px)
+	#header
+		.icon-menu
+			display: block 
+		.main-menu
+			position: absolute
+			top: 60px
+			left: 50px
+			background: white
+			color: $secondary-text-color
+			padding: 1em
+			+box-shadow(rgba(0,0,0,0.4))
+			+border-radius(0.5em)
+			li
+				display: block
+				&.active
+					color: $primary-color
+			&:before
+				content: ""
+				display: block
+				position: absolute
+				top: -7px
+				left: 20px
+				width: 0
+				height: 0
+				border-left: 8px solid transparent
+				border-right: 8px solid transparent
+				border-bottom: 8px solid white	
+		.user-log
+			p
+				display: none
+		.user-menu
+			li.user
+				display: block
+@media screen and (max-width: 769px)
+	#header
+		.col-md-1
+			width: 30%
+			float: left
+		.col-md-6,
+		.col-md-5
+			float: left
+			width: 35%
+			.icon-menu
+				margin-left: 0;
+			.main-menu
+				left: 0

@@ -2,24 +2,28 @@
 
 #activation-header
 	position: fixed
+	z-index: 100
 	top: 0
 	left: 0
 	right: 0
 	background: $primary-color
 	font-size: 0.9em
 	img
+		display: block
 		margin: 0.6em 0
-	a
-		display: inline-block
-		margin: 0 1.5em
-		color: white
-		text-decoration: none
-		&:hover,&:active
-			text-decoration: underline
-	.btn-white
-		font-size: 1em
-		min-width: 150px
-		margin: 1.2em 1.5em
+	.col-md-10
+		text-align: right	
+		a
+			display: inline-block
+			margin: 0 1.5em
+			color: white
+			text-decoration: none
+			&:hover,&:active
+				text-decoration: underline
+		.btn-white
+			font-size: 1em
+			min-width: 150px
+			margin: 1.2em 1.5em
 	.activation-subtitle
 		color: white
 		background: black
@@ -27,3 +31,18 @@
 			font-size: 1.2em
 			padding: 1em 0
 			margin: 0;
+
+//Responsive
+@media screen and (max-width: 769px)
+	#activation-header
+		img
+			margin: 0.6em auto
+		.col-md-10
+			text-align: center
+			a
+				font-size: 0.8em
+				margin: 0 0.5em
+			.btn-white
+				font-size: 0.8em
+				min-width: auto
+				margin: 1.2em 0.5em

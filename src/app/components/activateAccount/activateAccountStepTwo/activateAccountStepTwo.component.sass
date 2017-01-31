@@ -3,6 +3,7 @@
 
 .subheader
 	position: fixed
+	z-index: 10
 	top: 75px
 	left: 0
 	right: 0
@@ -10,7 +11,7 @@
 	color: $divider-color
 	p
 		font-size: 1.1em
-		text-align: center
+		text-align: left
 		margin: 0
 		padding: 0.5em 0
 		cursor: pointer
@@ -78,3 +79,14 @@
 			min-width: 150px
 			font-size: 1em
 			margin: 1em
+
+//Responsive
+@media screen and (max-width: 769px)
+	.activate
+		padding-bottom: 100px
+		.card
+			.btn-confirm,.btn-green
+				display: block
+				width: 100%
+				margin-left: 0
+				margin-right: 0

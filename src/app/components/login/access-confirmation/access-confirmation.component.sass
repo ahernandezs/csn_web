@@ -2,7 +2,8 @@
 @import ../../../../mixins
 
 .card
-	margin-top: 10em
+	width: 50%
+	margin: 10em auto 0
 	padding: 1.2em 1em
 	border: none
 	background: rgba(255,255,255,0.8)
@@ -88,3 +89,16 @@
 				+box-shadow(rgba(0,0,0,0.6))
 				span
 					display: block
+
+//Responsive
+@media screen and (max-width: 1200px)
+	.card
+		width: 70%
+@media screen and (max-width: 1023px)
+	.card
+		width: 90%
+		margin: 4em auto 0
+@media screen and (max-width: 769px)
+	.card
+		width: 100%
+		margin: 2em auto 100px

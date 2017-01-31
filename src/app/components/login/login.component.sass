@@ -4,16 +4,27 @@
 	height: 100vh
 	background: url(assets/images/bg.jpg) no-repeat center center
 	background-size: cover
-
 .welcome-msg
 	margin: 10em 5em 0
 	img
 		width: 100px
 		margin-right: 1em
-
 .logo
 	height: 3em
 	margin-bottom: 1em
 	background: url(assets/images/logo.svg) no-repeat left top
 	background-size: 100% auto
 	border-bottom: 1px solid $primary-color
+
+//Responsive
+@media screen and (max-width: 1023px)
+	.logo
+		height: 2em
+	.welcome-msg
+		margin: 4em 4em 0
+@media screen and (max-width: 769px)
+	.logo
+		background: url(assets/images/logo.svg) no-repeat center center
+		background-size: 60%
+	.welcome-msg
+		margin: 0
