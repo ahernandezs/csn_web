@@ -3,6 +3,7 @@
 
 .subheader
 	position: fixed
+	z-index: 10
 	top: 75px
 	left: 0
 	right: 0
@@ -58,3 +59,12 @@
 			margin: 0
 			span
 				color: white
+
+//Responsive
+@media screen and (max-width: 769px)
+	.subheader
+		h2
+			text-align: center
+	.active-account
+		padding-top: 230px
+		padding-bottom: 100px

@@ -48,6 +48,7 @@
 		+border-radius(0.7em)
 .subheader
 	position: fixed
+	z-index: 100
 	top: 75px
 	left: 0
 	right: 0
@@ -63,3 +64,12 @@
 			color: white
 			font-weight: bold
 			border-bottom: 4px solid $primary-color
+
+//Responsive
+@media screen and (max-width: 769px)
+	.transfer
+		padding-top: 180px
+		padding-bottom: 100px
+		.steps
+			.progress
+				display: none
