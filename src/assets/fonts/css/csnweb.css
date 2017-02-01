@@ -117,3 +117,9 @@
 .icon-menu:before {
   content: "\41";
 }
+.icon-youtube:before {
+  content: "\42";
+}
+.icon-world:before {
+  content: "\43";
+}
