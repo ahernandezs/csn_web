@@ -25,9 +25,27 @@
 			<div class="card shadow-second text-xs-center">
 				<h3>Bloqueo temporal</h3>
 				<i class="icon icon-hold"></i>
-				<button class="btn-green">Bloquear</button>
+				<button class="btn-green" (click)="staticModal.show()">Bloquear</button>
 			</div>
 		</div>
 	</div>
 </div>
 <app-footer></app-footer>
+
+<!-- <div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
+     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Static modal</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="staticModal.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        This is static modal, backdrop click will not close it.
+        Click <b>&times;</b> to close modal.
+      </div>
+    </div>
+  </div>
+</div> -->
