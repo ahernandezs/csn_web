@@ -5,8 +5,8 @@
                 <img src="assets/images/logo-small.svg" class="logo">
             </div>
             <div class="col-md-5">
-                <i class="icon icon-menu"></i>
-                <ul class="main-menu">
+                <i class="icon icon-menu" (click)="mainMenu = !mainMenu;"></i>
+                <ul class="main-menu" [ngClass]="{'active': mainMenu }">
                     <li routerLink="/home" routerLinkActive="active" class="active">
                         <span><i  class="icon-card icon"></i></span>
                         <p>Cuentas</p>
@@ -26,7 +26,7 @@
                 </ul>
             </div>
             <div class="col-md-6 text-xs-right">
-                <div class="user-log">
+                <div class="user-log" [ngClass]="{'active': userMenu }" (click)="userMenu = !userMenu;">
                     <p>
                         Alan Silva Zamora
                         <span>Último acceso: 26 marzo 2016 | 17:10 por web</span>
