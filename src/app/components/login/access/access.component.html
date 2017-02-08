@@ -5,7 +5,7 @@
         <div class="col-md-10 offset-md-1">
            <label class="input-with-icon">
             <i class="icon icon-user"></i>
-            <input class="user" type="text" placeholder="Usuario" />
+            <input class="user" type="text" placeholder="Usuario" id="user_login" name="user_login" required [(ngModel)] = "checkLoginRequest.user_login" />
            </label>
            <button (click)="changeView('confirmation')" routerLinkActive="active" class="btn-confirm btn-block">
                 Continuar

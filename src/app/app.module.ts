@@ -41,6 +41,8 @@ import { TransferStep2Component } from './components/transfer-step-1/transfer-st
 import { TransferStep3Component } from './components/transfer-step-1/transfer-step-3/index';
 import { TransferStep11Component } from './components/transfer-step-1/transfer-step-1-1/index';
 
+import { LoginService } from './services/login.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,7 +87,7 @@ import { TransferStep11Component } from './components/transfer-step-1/transfer-s
     AppRoutingModule,
     TabsModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

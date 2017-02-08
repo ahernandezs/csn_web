@@ -1,4 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { LoginService } from '../../../services/login.service';
+
+import { CheckLoginRequest } from '../../../models/check-login-request';
+import { CheckLoginResponse } from '../../../models/check-login-response';
 
 @Component({
   selector: 'app-access',
@@ -7,10 +11,15 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class AccessComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private loginService: LoginService
+  ) {}
 
   ngOnInit() {
   }
+
+  checkLoginRequest = new CheckLoginRequest('');
+  checkLoginResponse;
 
   /**
    * This event element will help to change the current view in the parent element <auth.component>.
@@ -21,6 +30,18 @@ export class AccessComponent implements OnInit {
    * This event is emitted to the parent element <auth.component>.
    */
   changeView(view: String): void {
-      this.routeView.emit(view);
+
+    this.loginService.checkLogin(this.checkLoginRequest).subscribe(
+      response => {
+        this.checkLoginResponse = response;
+        console.log(this.checkLoginResponse);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+
+    //TODO mandar a la siguiente vista la respuesta, el checkLoginResponse 
+    this.routeView.emit(view);
   }
 }
