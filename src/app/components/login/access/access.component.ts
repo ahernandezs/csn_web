@@ -35,13 +35,12 @@ export class AccessComponent implements OnInit {
       response => {
         this.checkLoginResponse = response;
         console.log(this.checkLoginResponse);
+        //TODO mandar a la siguiente vista la respuesta, el checkLoginResponse
+        this.routeView.emit(view);
       },
       err => {
         console.log(err);
       }
     );
-
-    //TODO mandar a la siguiente vista la respuesta, el checkLoginResponse 
-    this.routeView.emit(view);
   }
 }
