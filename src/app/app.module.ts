@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { TabsModule } from 'ng2-bootstrap';
+
 import { LoginComponent } from './components/login/index';
 import { ActivationComponent } from './components/activation/index';
 import { ActivationStep1Component } from './components/activation/activation-step-1/index';
@@ -42,6 +43,10 @@ import { TransferStep3Component } from './components/transfer-step-1/transfer-st
 import { TransferStep11Component } from './components/transfer-step-1/transfer-step-1-1/index';
 
 import { LoginService } from './services/login.service';
+import { AccountService } from './services/account.service';
+import { ThirdAccountService } from './services/third.account.service';
+import { TransferService } from './services/transfer.service';
+import { PromotionService } from './services/promotion.service';
 
 @NgModule({
   declarations: [
@@ -87,7 +92,13 @@ import { LoginService } from './services/login.service';
     AppRoutingModule,
     TabsModule
   ],
-  providers: [LoginService],
+  providers: [
+    LoginService,
+    AccountService,
+    ThirdAccountService,
+    TransferService,
+    PromotionService 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
