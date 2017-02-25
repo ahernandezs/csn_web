@@ -8,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { TabsModule } from 'ng2-bootstrap';
 
+import { Utils } from './utils/utils';
+
 import { LoginComponent } from './components/login/index';
 import { ActivationComponent } from './components/activation/index';
 import { ActivationStep1Component } from './components/activation/activation-step-1/index';
@@ -97,7 +99,8 @@ import { PromotionService } from './services/promotion.service';
     AccountService,
     ThirdAccountService,
     TransferService,
-    PromotionService 
+    PromotionService,
+    Utils
   ],
   bootstrap: [AppComponent]
 })
