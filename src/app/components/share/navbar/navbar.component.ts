@@ -16,4 +16,8 @@ export class NavbarComponent implements OnInit {
 
 	}
 
+	login(){
+	    localStorage.removeItem('x-auth-token'); 
+	}
+
 }

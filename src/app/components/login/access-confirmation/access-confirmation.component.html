@@ -1,4 +1,4 @@
-<div class="card shadow-second text-xs-center confirmationBox">
+s<div class="card shadow-second text-xs-center confirmationBox">
     <div class="row">
         <div class="col-md-12 text-xs-left">
             <p (click)="changeView('login')" routerLinkActive="active">
@@ -7,52 +7,52 @@
             </p>
         </div>
     </div>
-    <h3>Alan Zamora</h3>
+    <h3>{{checkLoginResponse.client_name}}</h3>
     <h5>Elige tu imagen de seguridad para continuar</h5>
     <div class="row">
         <div class="col-md-12">
             <ul>
-                <li class="active">
+                <li (click)="selectImage(checkLoginResponse.images_list[0].image_id)" [ngClass]="{'active': checkLoginResponse.images_list[0].image_id === imageId}">
                     <span><i class="icon icon-thick"></i></span>
-                    <img class="img" src="assets/images/tmp/img1.png" alt="img1" />
+                    <img class="img" src="{{environment.baseURL + checkLoginResponse.images_list[0].url}}" alt="img1" />
                 </li>
-                <li>
+                <li (click)="selectImage(checkLoginResponse.images_list[1].image_id)" [ngClass]="{'active': checkLoginResponse.images_list[1].image_id === imageId}">
                     <span><i class="icon icon-thick"></i></span>
-                    <img class="img" src="assets/images/tmp/img2.png" alt="img1" />
+                    <img class="img" src="{{environment.baseURL + checkLoginResponse.images_list[1].url}}" alt="img1" />
                 </li>
-                <li>
+                <li (click)="selectImage(checkLoginResponse.images_list[2].image_id)" [ngClass]="{'active': checkLoginResponse.images_list[2].image_id === imageId}">
                     <span><i class="icon icon-thick"></i></span>
-                    <img class="img" src="assets/images/tmp/img3.png" alt="img1" />
+                    <img class="img" src="{{environment.baseURL + checkLoginResponse.images_list[2].url}}" alt="img1" />
                 </li>
-                <li>
+                <li (click)="selectImage(checkLoginResponse.images_list[3].image_id)" [ngClass]="{'active': checkLoginResponse.images_list[3].image_id === imageId}">
                     <span><i class="icon icon-thick"></i></span>
-                    <img class="img" src="assets/images/tmp/img4.png" alt="img1" />
+                    <img class="img" src="{{environment.baseURL + checkLoginResponse.images_list[3].url}}" alt="img1" />
                 </li>
-                <li>
+                <li (click)="selectImage(checkLoginResponse.images_list[4].image_id)" [ngClass]="{'active': checkLoginResponse.images_list[4].image_id === imageId}">
                     <span><i class="icon icon-thick"></i></span>
-                    <img class="img" src="assets/images/tmp/img5.png" alt="img1" />
-                </li>
+                    <img class="img" src="{{environment.baseURL + checkLoginResponse.images_list[4].url}}" alt="img1" />
+                </li>        
             </ul>
             <ul>
-                <li>
+                <li (click)="selectImage(checkLoginResponse.images_list[5].image_id)" [ngClass]="{'active': checkLoginResponse.images_list[5].image_id === imageId}">
                     <span><i class="icon icon-thick"></i></span>
-                    <img class="img" src="assets/images/tmp/img6.png" alt="img1" />
+                    <img class="img" src="{{environment.baseURL + checkLoginResponse.images_list[5].url}}" alt="img1" />
                 </li>
-                <li>
+                <li (click)="selectImage(checkLoginResponse.images_list[6].image_id)" [ngClass]="{'active': checkLoginResponse.images_list[6].image_id === imageId}">
                     <span><i class="icon icon-thick"></i></span>
-                    <img class="img" src="assets/images/tmp/img7.png" alt="img1" />
+                    <img class="img" src="{{environment.baseURL + checkLoginResponse.images_list[6].url}}" alt="img1" />
                 </li>
-                <li>
+                <li (click)="selectImage(checkLoginResponse.images_list[7].image_id)" [ngClass]="{'active': checkLoginResponse.images_list[7].image_id === imageId}">
                     <span><i class="icon icon-thick"></i></span>
-                    <img class="img" src="assets/images/tmp/img8.png" alt="img1" />
+                    <img class="img" src="{{environment.baseURL + checkLoginResponse.images_list[7].url}}" alt="img1" />
                 </li>
-                <li>
+                <li (click)="selectImage(checkLoginResponse.images_list[8].image_id)" [ngClass]="{'active': checkLoginResponse.images_list[8].image_id === imageId}">
                     <span><i class="icon icon-thick"></i></span>
-                    <img class="img" src="assets/images/tmp/img9.png" alt="img1" />
+                    <img class="img" src="{{environment.baseURL + checkLoginResponse.images_list[8].url}}" alt="img1" />
                 </li>
-                <li>
+                <li (click)="selectImage(checkLoginResponse.images_list[9].image_id)" [ngClass]="{'active': checkLoginResponse.images_list[9].image_id === imageId}">
                     <span><i class="icon icon-thick"></i></span>
-                    <img class="img" src="assets/images/tmp/img10.png" alt="img1" />
+                    <img class="img" src="{{environment.baseURL + checkLoginResponse.images_list[9].url}}" alt="img1" />
                 </li>
             </ul>
         </div>
@@ -64,7 +64,7 @@
                 <input type="password" placeholder="Contraseña" />
             </label>
             <a class="text-xs-right" routerLink="/reactivation" routerLinkActive="active">Olvidé mi contraseña</a>
-            <button routerLink="/home" routerLinkActive="active" class="btn-confirm btn-block">Entrar</button>
+            <button (click)="login()" routerLinkActive="active" class="btn-confirm btn-block">Entrar</button>
         </div>
     </div>
 </div>
