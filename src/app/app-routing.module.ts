@@ -1,4 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './utils/auth.guards';
 
 import { PageNotFoundComponent } from './components/share/page-not-found/index';
 import { LoginComponent } from './components/login/index';
@@ -16,17 +17,17 @@ import { TransferStep1Component } from './components/transfer-step-1/index';
 const routes: Routes = [
 	{ path: '', redirectTo: 'login', pathMatch: 'full' },
 	{ path: 'login', component: LoginComponent },
-	{ path: 'activation', component: ActivationComponent },
-	{ path: 'reactivation', component: ReactivationComponent },
-	{ path: 'home', component: HomeComponent },
-	{ path: 'movements', component: MovementsComponent },
-	{ path: 'map', component: MapComponent },
-	{ path: 'contact', component: ContactComponent },
-	{ path: 'activateAccount', component: ActivateAccountComponent },
-	{ path: 'administration', component: AdministrationComponent },
-	{ path: 'promotions', component: PromotionsComponent },
-	{ path: 'transfer', component: TransferStep1Component },
-	{ path: '**', component: PageNotFoundComponent }
+	{ path: 'activation', component: ActivationComponent, canActivate:[AuthGuard] },
+	{ path: 'reactivation', component: ReactivationComponent, canActivate:[AuthGuard] },
+	{ path: 'home', component: HomeComponent, canActivate:[AuthGuard] },
+	{ path: 'movements', component: MovementsComponent, canActivate:[AuthGuard] },
+	{ path: 'map', component: MapComponent, canActivate:[AuthGuard] },
+	{ path: 'contact', component: ContactComponent, canActivate:[AuthGuard] },
+	{ path: 'activateAccount', component: ActivateAccountComponent, canActivate:[AuthGuard] },
+	{ path: 'administration', component: AdministrationComponent, canActivate:[AuthGuard] },
+	{ path: 'promotions', component: PromotionsComponent, canActivate:[AuthGuard] },
+	{ path: 'transfer', component: TransferStep1Component, canActivate:[AuthGuard] },
+	{ path: '**', redirectTo: 'login' }
 ];
 
 export const AppRoutingModule = RouterModule.forRoot(routes, { useHash: true });

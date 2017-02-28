@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./login.component.sass']
 })
 export class LoginComponent implements OnInit {
-    private myUrl:any;
+    private myUrl: any;
 
     constructor(private route: ActivatedRoute) {
       this.route.url.subscribe(
