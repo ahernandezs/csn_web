@@ -6,19 +6,37 @@ import { environment } from '../../environments/environment';
 export class Utils {
     constructor(){}
 
+	public nothing(res: Response){
+		return "";
+	}
+
 	public extractDataAndToken(res: Response){
 		let body = res.json();
 	    localStorage.setItem('x-auth-token', res.headers.get("X-AUTH-TOKEN"));
-		return body || { };
+		return body;
 	}
 
 	public extractData(res: Response){
-		let body = res.json();
-		return body || { };
+		return res.json();
 	}
 
 	public handleError(error: Response | any){
+
 		let errMsg: String;
+		console.log('Status del error: '+ error.status);
+		console.log('Error en utils.ts: '+ JSON.stringify(error));
+/*	TODO agregar el manejos de errores así todo bien bonito
+	if(error instanceof Response){
+		const body = error.json() || '';
+		const err = body.error || JSON.stringify(body);
+		errMsg = "${error.status} - ${error.statusText || ''} ${err}"
+	}else{
+		errMsg = error.message ? error.message : error.toString();
+	}
+	console.error(errMsg);
+	return Promise.reject(errMsg);
+*/
+
 		errMsg = JSON.stringify(error);
 		return Promise.reject("Error en la conexion");
 	}
