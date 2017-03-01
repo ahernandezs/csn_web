@@ -29,6 +29,7 @@ export class AccessConfirmationComponent implements OnInit {
   }
 
   user_login;
+  password;
   imageId;
   environment;
   checkLoginResponse: CheckLoginResponse;
@@ -52,13 +53,11 @@ export class AccessConfirmationComponent implements OnInit {
     if(localStorage.getItem("client_application_id")===null)
       localStorage.setItem("client_application_id", Math.floor(Math.random()*1000000)+'');
 
-    this.loginRequest = new LoginRequest(this.user_login, "tester431", localStorage.getItem("client_application_id"), "1591954");
+    this.loginRequest = new LoginRequest(this.user_login, this.password, localStorage.getItem("client_application_id"), this.imageId);
 
     this.loginService.login(this.loginRequest).subscribe(
       response => {
         this.loginResponse = response;
-        console.log("el response del login: "+this.loginResponse);
-        localStorage.setItem('x-auth-token','untoquen');
         this.router.navigate(['/home']); 
       },
       err => {

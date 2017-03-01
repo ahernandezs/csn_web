@@ -1,4 +1,4 @@
-s<div class="card shadow-second text-xs-center confirmationBox">
+<div class="card shadow-second text-xs-center confirmationBox">
     <div class="row">
         <div class="col-md-12 text-xs-left">
             <p (click)="changeView('login')" routerLinkActive="active">
@@ -61,7 +61,7 @@ s<div class="card shadow-second text-xs-center confirmationBox">
         <div class="col-md-10 offset-md-1">
             <label class="input-with-icon">
                 <i class="icon icon-lock"></i>
-                <input type="password" placeholder="Contraseña" />
+                <input type="password" placeholder="Contraseña" id="password" name="password" required [(ngModel)] = "password" />
             </label>
             <a class="text-xs-right" routerLink="/reactivation" routerLinkActive="active">Olvidé mi contraseña</a>
             <button (click)="login()" routerLinkActive="active" class="btn-confirm btn-block">Entrar</button>
