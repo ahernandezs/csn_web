@@ -6,6 +6,12 @@ import { environment } from '../../environments/environment';
 export class Utils {
     constructor(){}
 
+	public extractDataAndToken(res: Response){
+		let body = res.json();
+	    localStorage.setItem('x-auth-token', res.headers.get("X-AUTH-TOKEN"));
+		return body || { };
+	}
+
 	public extractData(res: Response){
 		let body = res.json();
 		return body || { };
@@ -13,15 +19,8 @@ export class Utils {
 
 	public handleError(error: Response | any){
 		let errMsg: String;
-		if(error instanceof Response){
-			const body = error.json() || '';
-			const err = body.error || JSON.stringify(body);
-			errMsg = "${error.status} - ${error.statusText || ''} ${err}"
-		}else{
-			errMsg = error.message ? error.message : error.toString();
-		}
-		console.error(errMsg);
-		return Promise.reject(errMsg);
+		errMsg = JSON.stringify(error);
+		return Promise.reject("Error en la conexion");
 	}
 
 	public getHeader(){

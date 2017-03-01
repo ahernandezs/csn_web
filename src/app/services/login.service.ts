@@ -43,7 +43,7 @@ export class LoginService {
 
 	login(loginRequest: LoginRequest): Observable<LoginResponse>{
 		return this.http.post(environment.baseURL + 'login', loginRequest, this.optionsWithOutToken)
-			.map(this.utils.extractData)
+			.map(this.utils.extractDataAndToken)
 			.catch(this.utils.handleError);
 	}
 
