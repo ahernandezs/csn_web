@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
 				localStorage.removeItem('x-auth-token');
 			},
 			err => {
-				localStorage.removeItem('x-auth-token');
+
 			}
 		);
         this.router.navigate(['/login']);
