@@ -6,11 +6,11 @@ import { PreregisterRequest } from '../../../models/preregister-request';
 import { PreregisterResponse } from '../../../models/preregister-response';
 
 @Component({
-  selector: 'app-activation-step-1',
-  templateUrl: './activation-step-1.component.html',
-  styleUrls: ['./activation-step-1.component.sass']
+  selector: 'app-reactivation-step-1',
+  templateUrl: './reactivation-step-1.component.html',
+  styleUrls: ['./reactivation-step-1.component.sass']
 })
-export class ActivationStep1Component {
+export class ReactivationStep1Component {
 
   constructor(
     private loginService: LoginService,
@@ -46,7 +46,7 @@ export class ActivationStep1Component {
             pwd.setAttribute("type","text");
         } else {
             pwd.setAttribute("type","password");
-        }
+        } 
     }
-
+    
 }

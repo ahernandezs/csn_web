@@ -49,12 +49,11 @@ export class LoginService {
 
 	logout(): Observable<any>{
 		return this.http.get(environment.baseURL + 'logout', this.options)
-			.map(this.utils.nothing)
 			.catch(this.utils.handleError);
 	}
 
 	preRegister(preregisterRequest: PreregisterRequest): Observable<PreregisterResponse>{
-		return this.http.post(environment.baseURL + 'preRegister', preregisterRequest, this.options)
+		return this.http.post(environment.baseURL + 'preregister', preregisterRequest, this.optionsWithOutToken)
 			.map(this.utils.extractData)
 			.catch(this.utils.handleError);
 	}

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { LoginService } from '../../../services/login.service';
 import { DOT } from '../../../utils/dot';
 
@@ -10,15 +10,12 @@ import { CheckLoginResponse } from '../../../models/check-login-response';
   templateUrl: './access.component.html',
   styleUrls: ['./access.component.sass']
 })
-export class AccessComponent implements OnInit {
+export class AccessComponent {
 
   constructor(
     private loginService: LoginService,
     private dot: DOT
   ) {}
-
-  ngOnInit() {
-  }
 
   checkLoginResponse: CheckLoginResponse;
   checkLoginRequest: CheckLoginRequest = new CheckLoginRequest('')
