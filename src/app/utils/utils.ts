@@ -6,10 +6,6 @@ import { environment } from '../../environments/environment';
 export class Utils {
     constructor(){}
 
-	public nothing(res: Response){
-		return "";
-	}
-
 	public extractDataAndToken(res: Response){
 		let body = res.json();
 	    localStorage.setItem('x-auth-token', res.headers.get("X-AUTH-TOKEN"));

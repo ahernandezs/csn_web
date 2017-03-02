@@ -1,3 +1,4 @@
+import { OnDestroy } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -18,6 +19,7 @@ import { ActivationStep1Component } from './components/activation/activation-ste
 import { ActivationStep2Component } from './components/activation/activation-step-2/index';
 import { ReactivationComponent } from './components/reactivation/index';
 import { ReactivationStep2Component } from './components/reactivation/reactivation-step-2/index';
+import { ReactivationStep1Component } from './components/reactivation/reactivation-step-1/index';
 import { PageNotFoundComponent } from './components/share/page-not-found/index';
 import { AccessComponent } from './components/login/access/index';
 import { AccessConfirmationComponent } from './components/login/access-confirmation/index';
@@ -60,6 +62,7 @@ import { PromotionService } from './services/promotion.service';
     ActivationStep1Component,
     ActivationStep2Component,
     ReactivationComponent,
+    ReactivationStep1Component,
     ReactivationStep2Component,
     PageNotFoundComponent,
     AccessComponent,
@@ -108,4 +111,8 @@ import { PromotionService } from './services/promotion.service';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule implements OnDestroy {
+  ngOnDestroy(){
+    window.alert('aquí avisar si se quieren salir, mandar el logout y borrar las variables del localstorage... creo');
+  }
+}
