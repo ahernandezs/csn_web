@@ -20,6 +20,9 @@ export class LoginComponent implements OnInit {
     }
 
     ngOnInit() {
+        localStorage.removeItem('x-auth-token');
+        localStorage.removeItem("client_application_id");
+        console.log("removiendo cosas");
     }
 
     /**

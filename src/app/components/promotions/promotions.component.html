@@ -1,44 +1,17 @@
 <app-navbar></app-navbar>
 <div class="container promotions">
-	<div class="row">
-		<div class="col-md-4">
-			<div class="card shadow-second">
-				<h3>Gana hasta el 10% con tus  compras</h3>
+	<div *ngFor="let linea of promotions" class="row">
+		<div *ngFor="let promotion of linea">
+			<div class="col-md-4">
+				<div class="card show-second">
+				<h3>{{promotion.title}}</h3>
 				<div class="promo-image">
-					<img src="assets/images/tmp/promo1.jpg">
+					<img width="352" height="130" src="{{promotion.url}}">
 				</div>
 				<div class="row">
 					<div class="col-md-10 offset-md-1">
-						<p>Gana hasta el 10% de tus compras mensuales. Limite $3,000.00 MXN</p>
-						<button class="btn-green btn-block">Ver detalles</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card shadow-second">
-				<h3>Premios de verano</h3>
-				<div class="promo-image">
-					<img src="assets/images/tmp/promo2.jpg">
-				</div>
-				<div class="row">
-					<div class="col-md-10 offset-md-1">
-						<p>Gana hasta el 10% de tus compras mensuales. Limite $3,000.00 MXN</p>
-						<button class="btn-green btn-block">Ver detalles</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card shadow-second">
-				<h3>Cupones 10%</h3>
-				<div class="promo-image">
-					<img src="assets/images/tmp/promo3.jpg">
-				</div>
-				<div class="row">
-					<div class="col-md-10 offset-md-1">
-						<p>Cupones de 10% en establecimientos participantes.</p>
-						<button class="btn-green btn-block">Ver detalles</button>
+						<p>{{promotion.description}}</p>
+						<button class="btn-green btn-block" (click)="window.open('google.com','_blank')">Ver detalles</button>
 					</div>
 				</div>
 			</div>

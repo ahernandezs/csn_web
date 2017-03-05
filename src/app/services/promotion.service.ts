@@ -23,8 +23,8 @@ export class PromotionService {
 	}
 
 	getPromotions(): Observable<Array<Promotion>>{
-		return this.http.get(environment.baseURL + '/promotions', this.options)
-			.map(this.utils.extractData)
+		return this.http.get(environment.baseURL + 'promotions', this.options)
+			.map(res => res.json().promotions)
 			.catch(this.utils.handleError);
 	}
 
