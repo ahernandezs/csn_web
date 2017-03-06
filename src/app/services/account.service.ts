@@ -25,7 +25,7 @@ export class AccountService {
 
 	getAccounts(): Observable<Array<Accounts>>{
 		return this.http.get(environment.baseURL + 'accounts', this.options)
-			.map(this.utils.extractData)
+			.map(res => res.json().accounts)
 			.catch(this.utils.handleError);
 	}
 
