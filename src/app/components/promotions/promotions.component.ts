@@ -18,16 +18,15 @@ export class PromotionsComponent implements OnInit {
   ngOnInit() {
     this.promotionService.getPromotions().subscribe(
       response => {
-         let tmp = response;
          let row: Array<any>;
-         for(var i = 0; i <= tmp.length; i++){
+         for(var i = 0; i <= response.length; i++){
             if(i%3 === 0 ){
               if(i!==0){
                 this.promotions.push(row);
               }
               row = new Array();
             }
-            row.push(tmp[i])
+            row.push(response[i])
          }
       },
       err => {
