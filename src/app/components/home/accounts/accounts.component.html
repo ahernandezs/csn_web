@@ -26,7 +26,7 @@
         </div>
         <div class="row">
             <div class="col-xs-10 offset-xs-1">
-                <button [routerLink]="['/movements', account._account_id]" routerLinkActive="active" class="btn-green btn-block">Movimientos</button>
+                <button [routerLink]="['/movements', account._account_id, account.description, account.total_balance]" routerLinkActive="active" class="btn-green btn-block">Movimientos</button>
             </div>
         </div>
     </div>

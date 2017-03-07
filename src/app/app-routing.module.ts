@@ -20,7 +20,7 @@ const routes: Routes = [
 	{ path: 'activation', component: ActivationComponent },
 	{ path: 'reactivation', component: ReactivationComponent },
 	{ path: 'home', component: HomeComponent, canActivate:[AuthGuard] },
-	{ path: 'movements/:id', component: MovementsComponent, canActivate:[AuthGuard] },
+	{ path: 'movements/:id/:name/:balance', component: MovementsComponent, canActivate:[AuthGuard] },
 	{ path: 'map', component: MapComponent },
 	{ path: 'contact', component: ContactComponent },
 	{ path: 'activateAccount', component: ActivateAccountComponent, canActivate:[AuthGuard] },

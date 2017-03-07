@@ -13,56 +13,25 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>
+        <tr *ngFor="let move of movements"> 
+          <td> 
             <h6>
-              Mayo
-              <span>18</span>
+              {{move.date | date:'MMMM d'}}
             </h6>
           </td>
-          <td>Cargo por transferencia</td>
-          <td>$ 100.00</td>
+          <td>{{move.description}}</td>
+          <td [ngClass]="{'negative': move.amount < 0 }">$ {{move.amount}}</td>
         </tr>
-        <tr>
-          <td>
-            <h6>
-              Mayo
-              <span>15</span>
-            </h6>
-          </td>
-          <td>Cargo por transferencia</td>
-          <td>$ 450.00</td>
-        </tr>
-        <tr>
-          <td>
-            <h6>
-              Mayo
-              <span>10</span>
-            </h6>
-          </td>
-          <td>Cargo por transferencia</td>
-          <td class="negative">-$159.00</td>
-        </tr>
-        <tr class="month-change">
-          <td>
+        <!--tr class="month-change">
+          <td>amount
             <h6>
               Abril
               <span>27</span>
             </h6>
           </td>
           <td>Cargo por transferencia</td>
-          <td>$ 450.00</td>
-        </tr>
-        <tr>
-          <td>
-            <h6>
-              Abril
-              <span>19</span>
-            </h6>
-          </td>
-          <td>Cargo por transferencia</td>
-          <td class="negative">-$159.00</td>
-        </tr>
+          <td class="negative">$ 450.00</td>
+        </tr-->
       </tbody>
     </table>
   </div>

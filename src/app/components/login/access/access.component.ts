@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LoginService } from '../../../services/login.service';
 import { DOT } from '../../../utils/dot';
 
@@ -10,7 +10,7 @@ import { CheckLoginResponse } from '../../../models/check-login-response';
   templateUrl: './access.component.html',
   styleUrls: ['./access.component.sass']
 })
-export class AccessComponent {
+export class AccessComponent implements OnInit {
 
   constructor(
     private loginService: LoginService,
@@ -24,6 +24,11 @@ export class AccessComponent {
    * This event element will help to change the current view in the parent element <auth.component>.
    */
   @Output() routeView: EventEmitter<String> = new EventEmitter();
+
+  ngOnInit() {
+    localStorage.removeItem('x-auth-token');
+    localStorage.removeItem("client_application_id");
+  }
 
   /**
    * This event is emitted to the parent element <auth.component>.
