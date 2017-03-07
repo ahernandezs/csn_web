@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.sass']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
     private myUrl: any;
 
     constructor(private route: ActivatedRoute) {
@@ -17,12 +17,6 @@ export class LoginComponent implements OnInit {
               }
           },
           (error: any) => console.debug("Error getting the path", error));
-    }
-
-    ngOnInit() {
-        localStorage.removeItem('x-auth-token');
-        localStorage.removeItem("client_application_id");
-        console.log("removiendo cosas");
     }
 
     /**

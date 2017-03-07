@@ -53,6 +53,8 @@ export class AccessConfirmationComponent implements OnInit {
     if(localStorage.getItem("client_application_id")===null)
       localStorage.setItem("client_application_id", Math.floor(Math.random()*1000000)+'');
 
+    localStorage.removeItem('x-auth-token');
+
     this.loginRequest = new LoginRequest(this.user_login, this.password, localStorage.getItem("client_application_id"), this.imageId);
 
     this.loginService.login(this.loginRequest).subscribe(
