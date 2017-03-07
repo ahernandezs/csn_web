@@ -62,7 +62,7 @@ export class LoginService {
 	}
 
 	updatePassword(updatePasswordRequest: UpdatePasswordRequest): Observable<any>{
-		return this.http.post(environment.baseURL + 'password', updatePasswordRequest, this.utils.getHeader())
+		return this.http.post(environment.baseURL + 'userInformation/password', updatePasswordRequest, this.utils.getHeader())
 			.map(this.utils.extractData)
 			.catch(this.utils.handleError);
 	}

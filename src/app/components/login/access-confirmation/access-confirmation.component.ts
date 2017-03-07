@@ -24,7 +24,7 @@ export class AccessConfirmationComponent implements OnInit {
   ngOnInit() {
     this.checkLoginResponse = this.dot.data[0];
     this.user_login = this.dot.data[1];
-    this.dot = null;
+    this.dot = new DOT();
     this.environment = environment;
   }
 
@@ -60,6 +60,7 @@ export class AccessConfirmationComponent implements OnInit {
     this.loginService.login(this.loginRequest).subscribe(
       response => {
         this.loginResponse = response;
+        this.dot.setData([this.loginResponse]);
         this.router.navigate(['/home']); 
       },
       err => {

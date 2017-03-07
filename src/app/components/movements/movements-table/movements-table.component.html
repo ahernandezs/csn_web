@@ -16,7 +16,10 @@
         <tr *ngFor="let move of movements"> 
           <td> 
             <h6>
-              {{move.date | date:'MMMM d'}}
+              {{move.date | date:'MMMM'}}
+              <span>
+                {{move.date | date:'d'}}
+              </span>
             </h6>
           </td>
           <td>{{move.description}}</td>
