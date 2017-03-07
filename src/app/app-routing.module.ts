@@ -12,7 +12,7 @@ import { ContactComponent } from './components/contact/index';
 import { ActivateAccountComponent } from './components/activateAccount/index';
 import { AdministrationComponent } from './components/administration/index';
 import { PromotionsComponent } from './components/promotions/index';
-import { TransferStep1Component } from './components/transfer-step-1/index';
+import { TransferComponent } from './components/transfer/index';
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -26,7 +26,7 @@ const routes: Routes = [
 	{ path: 'activateAccount', component: ActivateAccountComponent, canActivate:[AuthGuard] },
 	{ path: 'administration', component: AdministrationComponent, canActivate:[AuthGuard] },
 	{ path: 'promotions', component: PromotionsComponent, canActivate:[AuthGuard] },
-	{ path: 'transfer', component: TransferStep1Component, canActivate:[AuthGuard] },
+	{ path: 'transfer', component: TransferComponent, canActivate:[AuthGuard] },
 	{ path: '**', redirectTo: 'login' }
 ];
 

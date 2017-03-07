@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-transfer-step-1',
-  templateUrl: './transfer-step-1.component.html',
-  styleUrls: ['./transfer-step-1.component.sass']
+  selector: 'app-transfer',
+  templateUrl: './transfer.component.html',
+  styleUrls: ['./transfer.component.sass']
 })
-export class TransferStep1Component implements OnInit {
+export class TransferComponent implements OnInit {
     private myUrl:any;
 
     constructor(private route: ActivatedRoute) {

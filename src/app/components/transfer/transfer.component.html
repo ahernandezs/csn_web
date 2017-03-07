@@ -32,7 +32,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div *ngIf="myUrl == 'transfer'">
-                    <app-transfer-step-1-1 (routeView)="changeViewHandler($event)"></app-transfer-step-1-1>
+                    <app-transfer-step-1 (routeView)="changeViewHandler($event)"></app-transfer-step-1>
                 </div>
                 <div *ngIf="myUrl == 'transferstep2'">
                     <app-transfer-step-2 (routeView)="changeViewHandler($event)"></app-transfer-step-2>
