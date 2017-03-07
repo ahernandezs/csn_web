@@ -43,10 +43,10 @@ import { AdministrationComponent } from './components/administration/index';
 import { ChangePassStepOneComponent } from './components/administration/changePassStepOne/index';
 import { ChangePassStepTwoComponent } from './components/administration/changePassStepTwo/index';
 import { PromotionsComponent } from './components/promotions/index';
-import { TransferStep1Component } from './components/transfer-step-1/index';
-import { TransferStep2Component } from './components/transfer-step-1/transfer-step-2/index';
-import { TransferStep3Component } from './components/transfer-step-1/transfer-step-3/index';
-import { TransferStep11Component } from './components/transfer-step-1/transfer-step-1-1/index';
+import { TransferComponent } from './components/transfer/index';
+import { TransferStep1Component } from './components/transfer/transfer-step-1/index';
+import { TransferStep2Component } from './components/transfer/transfer-step-2/index';
+import { TransferStep3Component } from './components/transfer/transfer-step-3/index';
 
 import { LoginService } from './services/login.service';
 import { AccountService } from './services/account.service';
@@ -90,7 +90,7 @@ import { PromotionService } from './services/promotion.service';
     TransferStep1Component,
     TransferStep2Component,
     TransferStep3Component,
-    TransferStep11Component
+    TransferComponent
   ],
   imports: [
     BrowserModule,
