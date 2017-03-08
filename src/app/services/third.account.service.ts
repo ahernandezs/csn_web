@@ -26,14 +26,14 @@ export class ThirdAccountService {
 	}
 
 	activateThirdAccount(activateThirdAccountRequest: ActivateThirdAccountRequest): Observable<ActivateThirdAccountResponse>{
-		return this.http.post(environment.baseURL + '/externalaccounts/activate', activateThirdAccountRequest, this.options)
+		return this.http.post(environment.baseURL + '/externalaccounts/activate', activateThirdAccountRequest, this.utils.getHeader())
 			.map(this.utils.extractData)
 			.catch(this.utils.handleError);
 	}
 
 	getThirdAccounts(): Observable<Array<ThirdAccount>>{
-		return this.http.get(environment.baseURL + 'externalaccounts', this.options)
-			.map(this.utils.extractData)
+		return this.http.get(environment.baseURL + 'externalaccounts', this.utils.getHeader())
+			.map(res => res.json().third_accounts)
 			.catch(this.utils.handleError);
 	}
 

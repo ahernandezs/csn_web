@@ -7,5 +7,8 @@ export class DOT {
 	public setData(new_data: Array<any>){
 		this.data = new_data;
 	}
+	public removeData(){
+		this.data = null;
+	}
 
 }

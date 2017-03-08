@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ThirdAccountService } from '../../../services/third.account.service';
 
 @Component({
   selector: 'app-transfer-step-1',
@@ -7,9 +8,21 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class TransferStep1Component implements OnInit {
 
-  constructor() { }
+  constructor(
+    private thirdAccountService: ThirdAccountService
+  ) { }
+
+  thirdAccounts;
 
   ngOnInit() {
+    this.thirdAccountService.getThirdAccounts().subscribe(
+      response => {
+        this.thirdAccounts = response;
+      },
+      error => {
+        console.log('Error al traer las cuentas de terceros');
+      }
+    );
   }
 
   /**

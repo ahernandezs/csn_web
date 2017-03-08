@@ -26,7 +26,7 @@ export class TransferService {
 
 
 	transfer(sourceAccountId: string, transferRequest: TransferRequest): Observable<TransferResponse>{
-		return this.http.post(environment.baseURL + '/accounts/'+sourceAccountId+'/transactions', transferRequest, this.options)
+		return this.http.post(environment.baseURL + '/accounts/'+sourceAccountId+'/transactions', transferRequest, this.utils.getHeader())
 			.map(this.utils.extractData)
 			.catch(this.utils.handleError);;
 	}
