@@ -24,7 +24,7 @@ export class AccessConfirmationComponent implements OnInit {
   ngOnInit() {
     this.checkLoginResponse = this.dot.data[0];
     this.user_login = this.dot.data[1];
-    this.dot = new DOT();
+    this.dot.removeData();
     this.environment = environment;
   }
 

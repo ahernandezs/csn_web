@@ -16,9 +16,9 @@
 			<p>Cuenta de d&eacute;posito</p>
 			<i class="icon icon-triangle-down"></i>
 			<ul class="shadow-second">
-			    <li>Cuenta 1</li>
-			    <li>Cuenta 2</li>
-			    <li>Cuenta 3</li>
+				<li *ngFor="let thirdAccount of thirdAccounts">
+					{{thirdAccount.alias}}
+				</li>
 			</ul>
 		</label>
 		<label>

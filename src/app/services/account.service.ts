@@ -24,13 +24,13 @@ export class AccountService {
 	}
 
 	getAccounts(): Observable<Array<Accounts>>{
-		return this.http.get(environment.baseURL + 'accounts', this.options)
+		return this.http.get(environment.baseURL + 'accounts', this.utils.getHeader())
 			.map(res => res.json().accounts)
 			.catch(this.utils.handleError);
 	}
 
 	getTransactions(id: string): Observable<Array<Movements>>{
-		return this.http.get(environment.baseURL + 'accounts/'+ id +'/transactions', this.options)
+		return this.http.get(environment.baseURL + 'accounts/'+ id +'/transactions', this.utils.getHeader())
 			.map(this.utils.extractData)
 			.catch(this.utils.handleError);
 	}
