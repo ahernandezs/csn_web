@@ -15,10 +15,12 @@ export class AppComponent {
         res => {
           localStorage.removeItem("x-auth-token");
           localStorage.removeItem("client_application_id");
+          localStorage.removeItem('x-data-csn');
         },
         err => {
           localStorage.removeItem("x-auth-token");
           localStorage.removeItem("client_application_id");
+          localStorage.removeItem('x-data-csn');
         }
       );
     };

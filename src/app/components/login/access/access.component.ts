@@ -27,6 +27,7 @@ export class AccessComponent implements OnInit {
 
   ngOnInit() {
     localStorage.removeItem('x-auth-token');
+    localStorage.removeItem('x-data-csn');
     localStorage.removeItem("client_application_id");
   }
 
