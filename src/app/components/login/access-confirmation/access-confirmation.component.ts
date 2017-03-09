@@ -54,13 +54,14 @@ export class AccessConfirmationComponent implements OnInit {
       localStorage.setItem("client_application_id", Math.floor(Math.random()*1000000)+'');
 
     localStorage.removeItem('x-auth-token');
+    localStorage.removeItem('x-data-csn');
 
     this.loginRequest = new LoginRequest(this.user_login, this.password, localStorage.getItem("client_application_id"), this.imageId);
 
     this.loginService.login(this.loginRequest).subscribe(
       response => {
         this.loginResponse = response;
-        this.dot.setData([this.loginResponse]);
+        localStorage.setItem('x-data-csn', JSON.stringify(this.loginResponse));
         this.router.navigate(['/home']); 
       },
       err => {

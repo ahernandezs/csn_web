@@ -21,13 +21,13 @@ export class NavbarComponent implements OnInit {
 	) { }
 
 	ngOnInit() {
-	    this.dataForUser = this.dot.data[0];
-		this.dot.removeData();
+		this.dataForUser = JSON.parse(localStorage.getItem('x-data-csn'));
 	}
 
 	logout(){
 		this.loginService.logout().subscribe(
 			res => {
+				localStorage.removeItem('x-data-csn');
 				localStorage.removeItem("x-auth-token");
 				localStorage.removeItem("client_application_id");
 				this.router.navigate(['/login']);
