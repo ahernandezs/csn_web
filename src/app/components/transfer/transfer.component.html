@@ -11,34 +11,94 @@
         </div>
     </div>
 </div>
+
 <div class="container transfer">
     <div class="row text-xs-center steps">
         <div class="progress"><div></div></div>
-        <div class="col-md-4 active-step">
+        <div class="col-md-4" [ngClass]="{'active-step': step === 1}">
             <span></span>
             <p>Datos de la transferencia</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" [ngClass]="{'active-step': step === 2}">
             <span></span>
             <p>Revisar datos</p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4" [ngClass]="{'active-step': step === 3}">
             <span></span>
             <p>Transferencia aplicada</p>
         </div>
     </div>
-
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div *ngIf="myUrl == 'transfer'">
-                    <app-transfer-step-1 (routeView)="changeViewHandler($event)"></app-transfer-step-1>
+                <h3 *ngIf="step === 1" class="uno">Ingresa los datos para realizar la transferencia y presiona continuar</h3>
+                <h3 *ngIf="step === 2">Revisa los datos de la transferencia, si son correctos ingresa tu contraseña para continuar</h3>
+                <h3 *ngIf="step === 3"><span><i class="icon icon-thick"></i></span>Revisa los datos de la transferencia, si son correctos ingresa tu contraseña para continuar</h3>
+                <div class="row">
+                    <div *ngIf="step === 1" class="col-md-8 offset-md-2">
+                        <label class="options" [ngClass]="{ 'selected': dropOwn, '': !dropOwn}" (click)="dropOwn = !dropOwn;">
+                            <span>Cuenta retiro</span>
+                            <p>{{ownDescription}}</p>
+                            <i class="icon icon-triangle-down"></i>
+                            <ul class="shadow-second">
+                                <li *ngFor="let ownAccount of ownAccounts" (click)="selectOwn(ownAccount._account_id, ownAccount.description);">
+                                    {{ownAccount.description}}
+                                </li>
+                            </ul>
+                        </label>
+                        <label class="options" [ngClass]="{ 'selected': dropThird }" (click)="dropThird = !dropThird;">
+                            <span>Cuenta de deposito</span>
+                            <p>{{thirdDescription}}</p>
+                            <i class="icon icon-triangle-down"></i>
+                            <ul class="shadow-second">
+                                <li *ngFor="let thirdAccount of thirdAccounts" (click)="selectThird(thirdAccount._account_id, ownAccount.alias);">
+                                    {{thirdAccount.alias}}
+                                </li>
+                            </ul>
+                        </label>
+                        <label>
+                            <span>Importe</span>
+                            <input type="text" placeholder="Importe" id="amount" name="amount" required [(ngModel)] = "amount" />
+                        </label>
+                        <label>
+                            <span>Concepto de pago</span>
+                            <input type="text" placeholder="Concepto de pago" id="concept" name="concept" required [(ngModel)] = "concept" />
+                        </label>
+                    </div>
+
+                    <div *ngIf="step === 2 || step === 3" class="col-md-8 offset-md-2">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Cuenta de retiro:</td>
+                                    <td>{{sourceAccountId}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Cuenta de dep&oacute;sito:</td>
+                                    <td>{{account_id_destination}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Importe:</td>
+                                    <td>${{amount}}</td>
+                                </tr>
+                                <tr>
+                                    <td>Concepto de pago:</td>
+                                    <td>{{concept}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p *ngIf="step === 2"><input type="password" placeholder="contraseña"></p>
+                        <p *ngIf="step === 3">Número de autorización: <span>#12345678</span></p>
+                    </div>
                 </div>
-                <div *ngIf="myUrl == 'transferstep2'">
-                    <app-transfer-step-2 (routeView)="changeViewHandler($event)"></app-transfer-step-2>
-                </div>
-                <div *ngIf="myUrl == 'transferstep3'">
-                    <app-transfer-step-3 (routeView)="changeViewHandler($event)"></app-transfer-step-3>
+                <div class="row">
+                    <div class="col-md-8 offset-md-2 text-xs-right">
+                        <button (click)="cancelar()" class="btn-confirm" *ngIf="step === 1 || step === 2">Cancelar</button>
+                        <button (click)="validate()" routerLinkActive="active" class="btn-green" *ngIf="step === 1">Continuar</button>
+                        <button (click)="transfer()" routerLinkActive="active" class="btn-green" *ngIf="step === 2">Continuar</button>
+                        <button (click)="goToAccounts()" class="btn-confirm" *ngIf="step === 3">Ir a mis cuentas</button>
+                        <button (click)="cancelar()" class="btn-green" *ngIf="step === 3">Realizar otra transferencia</button>
+                    </div>
                 </div>
             </div>
         </div>

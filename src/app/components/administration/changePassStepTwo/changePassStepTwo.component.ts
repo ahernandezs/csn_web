@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { LoginService } from '../../../services/login.service';
 import { UpdatePasswordRequest } from '../../../models/update-password-request';
 
@@ -7,14 +7,10 @@ import { UpdatePasswordRequest } from '../../../models/update-password-request';
   templateUrl: './changePassStepTwo.component.html',
   styleUrls: ['./changePassStepTwo.component.sass']
 })
-export class ChangePassStepTwoComponent implements OnInit {
-
+export class ChangePassStepTwoComponent {
   constructor(
     private loginService: LoginService
   ) { }
-
-  ngOnInit() {
-  }
 
   old_password = "";
   new_password = "";

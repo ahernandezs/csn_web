@@ -1,16 +1,13 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-changePassStepOne',
   templateUrl: './changePassStepOne.component.html',
   styleUrls: ['./changePassStepOne.component.sass']
 })
-export class ChangePassStepOneComponent implements OnInit {
+export class ChangePassStepOneComponent {
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   /**
    * This event element will help to change the current view in the parent element <auth.component>.

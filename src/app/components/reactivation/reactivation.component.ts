@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './reactivation.component.html',
   styleUrls: ['./reactivation.component.sass']
 })
-export class ReactivationComponent implements OnInit {
+export class ReactivationComponent {
     private myUrl:any;
 
     constructor(private route: ActivatedRoute) {
@@ -17,9 +17,6 @@ export class ReactivationComponent implements OnInit {
               }
           },
           (error: any) => console.debug("Error getting the path", error));
-    }
-
-    ngOnInit() {
     }
 
     /**
