@@ -13,14 +13,16 @@
         <div class="row last-mov">
             <div class="col-md-2 offset-md-1 text-xs-center">
                 <h6>
-                    Mayo
-                    <span>18</span>
+                {{account.lastMovementDate | date:'MMMM'}}
+                <span>
+                    {{account.lastMovementDate | date:'d'}}
+                </span>
                 </h6>
             </div>
             <div class="col-md-8">
                 <h6>
-                    Jorge Alfaro Hernandez | Transferencia
-                    <span>Monto: $$2,234.00</span>
+                    {{account.lastMovementDescription}}
+                    <span [ngClass]="{'negative': account.lastMovementAmount < 0 }">Monto: ${{account.lastMovementAmount}}</span>
                 </h6>
             </div>
         </div>
@@ -31,8 +33,6 @@
         </div>
     </div>
 </div>
-
-
 <!--div class="col-md-4">
     <div class="card shadow-second">
         <h3>

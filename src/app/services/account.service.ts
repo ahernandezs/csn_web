@@ -31,7 +31,7 @@ export class AccountService {
 
 	getTransactions(id: string): Observable<Array<Movements>>{
 		return this.http.get(environment.baseURL + 'accounts/'+ id +'/transactions', this.utils.getHeader())
-			.map(this.utils.extractData)
+			.map(res => res.json().movements)
 			.catch(this.utils.handleError);
 	}
 

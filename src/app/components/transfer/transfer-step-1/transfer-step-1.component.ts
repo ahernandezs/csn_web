@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { AccountService } from '../../../services/account.service'
 import { ThirdAccountService } from '../../../services/third.account.service';
 
 @Component({
@@ -9,15 +10,32 @@ import { ThirdAccountService } from '../../../services/third.account.service';
 export class TransferStep1Component implements OnInit {
 
   constructor(
-    private thirdAccountService: ThirdAccountService
+    private thirdAccountService: ThirdAccountService,
+    private accountService: AccountService
   ) { }
 
   thirdAccounts;
+  ownAccounts;
+
+  sourceAccountId: string;
+  account_id_destination: string;
+  amount: string;
+  concept: string;
 
   ngOnInit() {
+    this.accountService.getAccounts().subscribe(
+      response => {
+        this.ownAccounts = response;
+        console.log('en transfer, ownAccounts: '+JSON.stringify(this.ownAccounts));
+      },
+      err => {
+        console.log('Error al traer las cuentas propias');
+      }
+    );
     this.thirdAccountService.getThirdAccounts().subscribe(
       response => {
         this.thirdAccounts = response;
+        console.log('en transfer, thirdAccounts: '+JSON.stringify(this.thirdAccounts));
       },
       error => {
         console.log('Error al traer las cuentas de terceros');
@@ -36,4 +54,13 @@ export class TransferStep1Component implements OnInit {
   changeView(view: String): void {
       this.routeView.emit(view);
   }
+
+  selectOwn(account){
+    this.sourceAccountId = account;
+  }
+
+  selectThird(account){
+    this.account_id_destination = account;
+  }
+
 }

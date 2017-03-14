@@ -51,7 +51,7 @@ export class AccessConfirmationComponent implements OnInit {
   login(view: string){
 
     if(localStorage.getItem("client_application_id")===null)
-      localStorage.setItem("client_application_id", Math.floor(Math.random()*1000000)+'');
+      localStorage.setItem("client_application_id", Math.floor(Math.random()*1000000)+'-WEB');
 
     localStorage.removeItem('x-auth-token');
     localStorage.removeItem('x-data-csn');

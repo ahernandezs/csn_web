@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { AccountService } from '../../../services/account.service'
 import { Movements } from '../../../models/movements';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movements-table',
@@ -9,6 +11,27 @@ import { Movements } from '../../../models/movements';
 })
 export class MovementsTableComponent {
 
-  @Input() movements: any = {};
+  constructor(
+    private accountService: AccountService,
+    private route: ActivatedRoute
+  ) { }
+
+  movements: Array<Movements> = new Array<Movements>();
+  account = "";
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.account = params['id'];
+      this.accountService.getTransactions(this.account).subscribe(
+        response => {
+          this.movements = response;
+          console.log(this.movements);
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    });
+  }
 
 }
