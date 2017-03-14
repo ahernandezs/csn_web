@@ -19,6 +19,18 @@ export class AccountsComponent implements OnInit {
     this.accountService.getAccounts().subscribe(
       response => {
         this.accounts = response;
+        for(let i = 0; i<this.accounts.length; i++){
+          this.accountService.getTransactions(this.accounts[i]._account_id).subscribe(
+            response => {
+              this.accounts[i].lastMovementDate = response[0].date;
+              this.accounts[i].lastMovementDescription = response[0].description;
+              this.accounts[i].lastMovementAmount = response[0].amount;
+            },
+            err => {
+              console.log(err);
+            }
+          );
+        }
       },
       err => {
         console.log(err);

@@ -7,4 +7,7 @@ export class Accounts {
 		public available_balance: string,
 		public config: string
 	){}
+	public lastMovementDate;
+	public lastMovementDescription;
+	public lastMovementAmount;
 }

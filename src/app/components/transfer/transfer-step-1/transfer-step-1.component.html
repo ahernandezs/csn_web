@@ -6,9 +6,9 @@
 			<p>Cuenta retiro</p>
 			<i class="icon icon-triangle-down"></i>
 			<ul class="shadow-second">
-			    <li>Cuenta 1</li>
-			    <li>Cuenta 2</li>
-			    <li>Cuenta 3</li>
+				<li *ngFor="let ownAccount of ownAccounts" (click)="selectOwn(ownAccount._account_id)">
+					{{ownAccount.description}}
+				</li>
 			</ul>
 		</label>
 		<label class="options">
@@ -16,18 +16,18 @@
 			<p>Cuenta de d&eacute;posito</p>
 			<i class="icon icon-triangle-down"></i>
 			<ul class="shadow-second">
-				<li *ngFor="let thirdAccount of thirdAccounts">
+				<li *ngFor="let thirdAccount of thirdAccounts" (click)="selectThird(thirdAccount._account_id)">
 					{{thirdAccount.alias}}
 				</li>
 			</ul>
 		</label>
 		<label>
 			<span>Importe</span>
-			<input type="number" placeholder="Importe">
+            <input type="text" placeholder="Importe" id="amount" name="amount" required [(ngModel)] = "amount" />
 		</label>
 		<label>
 			<span>Concepto de pago</span>
-			<input type="text" placeholder="Concepto de pago">
+            <input type="text" placeholder="Concepto de pago" id="concept" name="concept" required [(ngModel)] = "concept" />
 		</label>
 	</div>
 </div>

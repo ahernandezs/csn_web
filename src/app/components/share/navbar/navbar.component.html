@@ -29,7 +29,7 @@
                 <div class="user-log" [ngClass]="{'active': userMenu }" (click)="userMenu = !userMenu;">
                     <p>
                         {{dataForUser.full_name}}
-                        <span>Último acceso: {{dataForUser.last_access_date | date:'fullDate' }} | {{dataForUser.last_access_date | date:'shortTime' }} por {{dataForUser.last_client_application_id}}</span>
+                        <span>Último acceso: {{dataForUser.last_access_date | date:'fullDate' }} | {{dataForUser.last_access_date | date:'shortTime' }} por {{lastAccessBy}}</span>
                     </p>
                     <div>
                         <span class="profile">

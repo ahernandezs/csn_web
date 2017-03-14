@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
 	mainMenu: false;
 	userMenu: false;
 	dataForUser;
+	lastAccessBy;
 
 	constructor(
 	    private router: Router,
@@ -22,6 +23,7 @@ export class NavbarComponent implements OnInit {
 
 	ngOnInit() {
 		this.dataForUser = JSON.parse(localStorage.getItem('x-data-csn'));
+		this.lastAccessBy = this.dataForUser.last_client_application_id.includes('WEB') ? 'Web' : 'Móvil';
 	}
 
 	logout(){
