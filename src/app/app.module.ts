@@ -1,7 +1,7 @@
 import { OnDestroy } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -48,6 +48,9 @@ import { PromotionsComponent } from './components/promotions/index';
 import { TransferComponent } from './components/transfer/index';
 import { UnlockPasswordComponent } from './components/unlockPassword/index'
 
+import { NoSpace } from './utils/validations/noSpace';
+import { OnlyNumbers } from './utils/validations/onlyNumbers';
+
 import { LoginService } from './services/login.service';
 import { AccountService } from './services/account.service';
 import { ThirdAccountService } from './services/third.account.service';
@@ -90,11 +93,14 @@ import { PromotionService } from './services/promotion.service';
     ChangePassStepTwoComponent,
     PromotionsComponent,
     TransferComponent,
-    UnlockPasswordComponent
+    UnlockPasswordComponent,
+    NoSpace,
+    OnlyNumbers
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
     TabsModule

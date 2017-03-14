@@ -1,17 +1,23 @@
 <h5>Llama a nuestro Call Center al <b><a href="tel:018002242020">01 800 224 2020</a></b> y solicita tu código de activación.<br>Si ya lo tienes, ingrésalo a continuación.</h5>
 <div class="row">
-	<div class="col-md-10 offset-md-1">
+	<form #reactivationForm="ngForm" class="col-md-10 offset-md-1">
 		<label class="active">
 			<span>Código de reactivación</span>
-			<input type="password" placeholder="Código de reactivación" value="" id="activationPassword" name="activation_code" required [(ngModel)] = "preregisterRequest.activation_code"/>
+			<input type="password" placeholder="Código de reactivación" value="" id="activationPassword" name="activation_code" [(ngModel)] = "preregisterRequest.activation_code" #activation_code="ngModel" no-letters autocomplete="off"/>
 			<i class="icon icon-eye" (click)="showPass('activationPassword');"></i>
 		</label>
+		<div *ngIf="activation_code.errors">
+            <label>* El C&oacute;digo de Reactivaci&oacute;n debe ser Num&eacute;rico</label>
+        </div>
 		<label class="active">
 			<span>Número de socio</span>
-			<input type="password" placeholder="Número de socio" value="" id="partnerNumber" name="user_login" required [(ngModel)] = "preregisterRequest.user_login"/>
+			<input type="password" placeholder="Número de socio" value="" id="partnerNumber" name="user_login" [(ngModel)] = "preregisterRequest.user_login" #user_login="ngModel" no-letters autocomplete="off" [minlength]="32" [maxlength]="32"/>
 			<i class="icon icon-eye" (click)="showPass('partnerNumber');"></i>
 		</label>
-	</div>
+		<div *ngIf="user_login.errors">
+            <label>* El n&uacute;mero de socio debe ser num&eacute;rico y tener una longitud de 32 caracteres</label>
+        </div>
+	</form>
 </div>
 <div class="row">
 	<div class="col-md-10 offset-md-1 text-xs-right">
