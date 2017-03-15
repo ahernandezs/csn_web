@@ -1,0 +1,69 @@
+<h5>Para finalizar crea una contraseña y elige una imagen de seguridad para proteger tu cuenta.</h5>
+<div class="row">
+	<div class="col-md-10 offset-md-1">
+		<label class="active">
+			<span>Contraseña</span>
+			<input type="password" placeholder="Contraseña" required [(ngModel)] = "password"/>
+		</label>
+		<label>
+			<span>Contraseña</span>
+			<input type="password" placeholder="Confirmar contraseña" required [(ngModel)] = "confirm_password"/>
+		</label>
+		<p>Para confirmar tu contraseña debes ingresar exactamente los mismo caracteres del campo anterior.</p>
+		<h3>Asegura tu cuenta</h3>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-8 offset-md-2">
+        <ul>
+            <li (click)="selectImage(preregisterResponse.images_list[0].image_id)" [ngClass]="{'active': preregisterResponse.images_list[0].image_id === imageId}">
+                <span><i class="icon icon-thick"></i></span>
+                <img class="img" src="{{environment.baseURL + preregisterResponse.images_list[0].url}}" alt="img1" />
+            </li>
+            <li (click)="selectImage(preregisterResponse.images_list[1].image_id)" [ngClass]="{'active': preregisterResponse.images_list[1].image_id === imageId}">
+                <span><i class="icon icon-thick"></i></span>
+                <img class="img" src="{{environment.baseURL + preregisterResponse.images_list[1].url}}" alt="img1" />
+            </li>
+            <li (click)="selectImage(preregisterResponse.images_list[2].image_id)" [ngClass]="{'active': preregisterResponse.images_list[2].image_id === imageId}">
+                <span><i class="icon icon-thick"></i></span>
+                <img class="img" src="{{environment.baseURL + preregisterResponse.images_list[2].url}}" alt="img1" />
+            </li>
+            <li (click)="selectImage(preregisterResponse.images_list[3].image_id)" [ngClass]="{'active': preregisterResponse.images_list[3].image_id === imageId}">
+                <span><i class="icon icon-thick"></i></span>
+                <img class="img" src="{{environment.baseURL + preregisterResponse.images_list[3].url}}" alt="img1" />
+            </li>
+            <li (click)="selectImage(preregisterResponse.images_list[4].image_id)" [ngClass]="{'active': preregisterResponse.images_list[4].image_id === imageId}">
+                <span><i class="icon icon-thick"></i></span>
+                <img class="img" src="{{environment.baseURL + preregisterResponse.images_list[4].url}}" alt="img1" />
+            </li>
+        </ul>
+        <ul>
+            <li (click)="selectImage(preregisterResponse.images_list[5].image_id)" [ngClass]="{'active': preregisterResponse.images_list[5].image_id === imageId}">
+                <span><i class="icon icon-thick"></i></span>
+                <img class="img" src="{{environment.baseURL + preregisterResponse.images_list[5].url}}" alt="img1" />
+            </li>
+            <li (click)="selectImage(preregisterResponse.images_list[6].image_id)" [ngClass]="{'active': preregisterResponse.images_list[6].image_id === imageId}">
+                <span><i class="icon icon-thick"></i></span>
+                <img class="img" src="{{environment.baseURL + preregisterResponse.images_list[6].url}}" alt="img1" />
+            </li>
+            <li (click)="selectImage(preregisterResponse.images_list[7].image_id)" [ngClass]="{'active': preregisterResponse.images_list[7].image_id === imageId}">
+                <span><i class="icon icon-thick"></i></span>
+                <img class="img" src="{{environment.baseURL + preregisterResponse.images_list[7].url}}" alt="img1" />
+            </li>
+            <li (click)="selectImage(preregisterResponse.images_list[8].image_id)" [ngClass]="{'active': preregisterResponse.images_list[8].image_id === imageId}">
+                <span><i class="icon icon-thick"></i></span>
+                <img class="img" src="{{environment.baseURL + preregisterResponse.images_list[8].url}}" alt="img1" />
+            </li>
+            <li (click)="selectImage(preregisterResponse.images_list[9].image_id)" [ngClass]="{'active': preregisterResponse.images_list[9].image_id === imageId}">
+                <span><i class="icon icon-thick"></i></span>
+                <img class="img" src="{{environment.baseURL + preregisterResponse.images_list[9].url}}" alt="img1" />
+            </li>
+        </ul>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-10 offset-md-1 text-xs-right">
+		<button (click)="changeView('activation')" routerLinkActive="active" class="btn-confirm">Cancelar</button>
+		<button (click)="register('login')" routerLinkActive="active" class="btn-green">Finalizar</button>
+	</div>
+</div>

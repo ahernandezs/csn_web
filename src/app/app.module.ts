@@ -17,6 +17,8 @@ import { LoginComponent } from './components/login/index';
 import { ActivationComponent } from './components/activation/index';
 import { ActivationStep1Component } from './components/activation/activation-step-1/index';
 import { ActivationStep2Component } from './components/activation/activation-step-2/index';
+import { UnlockStep1Component } from './components/unlockPassword/unlock-step-1/index';
+import { UnlockStep2Component } from './components/unlockPassword/unlock-step-2/index';
 import { ReactivationComponent } from './components/reactivation/index';
 import { ReactivationStep2Component } from './components/reactivation/reactivation-step-2/index';
 import { ReactivationStep1Component } from './components/reactivation/reactivation-step-1/index';
@@ -26,9 +28,9 @@ import { AccessConfirmationComponent } from './components/login/access-confirmat
 import { FooterComponent } from './components/share/footer/index';
 import { NavbarComponent } from './components/share/navbar/index';
 import { NavBarActivationComponent } from './components/share/navbar-activation/index';
+import { NavBarUnlockComponent } from './components/share/navbar-unlock/index';
 import { WelcomeAlertComponent } from './components/share/welcome-alert/index';
 import { HomeComponent } from './components/home/index';
-import { AccountsComponent } from './components/home/accounts/index';
 import { MovementsComponent } from './components/movements/index';
 import { MovementsTableComponent } from './components/movements/movements-table/index';
 import { MapComponent } from './components/map/index';
@@ -44,9 +46,7 @@ import { ChangePassStepOneComponent } from './components/administration/changePa
 import { ChangePassStepTwoComponent } from './components/administration/changePassStepTwo/index';
 import { PromotionsComponent } from './components/promotions/index';
 import { TransferComponent } from './components/transfer/index';
-import { TransferStep1Component } from './components/transfer/transfer-step-1/index';
-import { TransferStep2Component } from './components/transfer/transfer-step-2/index';
-import { TransferStep3Component } from './components/transfer/transfer-step-3/index';
+import { UnlockPasswordComponent } from './components/unlockPassword/index'
 
 import { LoginService } from './services/login.service';
 import { AccountService } from './services/account.service';
@@ -61,6 +61,8 @@ import { PromotionService } from './services/promotion.service';
     ActivationComponent,
     ActivationStep1Component,
     ActivationStep2Component,
+    UnlockStep1Component,
+    UnlockStep2Component,
     ReactivationComponent,
     ReactivationStep1Component,
     ReactivationStep2Component,
@@ -70,9 +72,9 @@ import { PromotionService } from './services/promotion.service';
     FooterComponent,
     NavbarComponent,
     NavBarActivationComponent,
+    NavBarUnlockComponent,
     WelcomeAlertComponent,
     HomeComponent,
-    AccountsComponent,
     MovementsComponent,
     MovementsTableComponent,
     MapComponent,
@@ -87,10 +89,8 @@ import { PromotionService } from './services/promotion.service';
     ChangePassStepOneComponent,
     ChangePassStepTwoComponent,
     PromotionsComponent,
-    TransferStep1Component,
-    TransferStep2Component,
-    TransferStep3Component,
-    TransferComponent
+    TransferComponent,
+    UnlockPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -111,8 +111,4 @@ import { PromotionService } from './services/promotion.service';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule implements OnDestroy {
-  ngOnDestroy(){
-    window.alert('aquí avisar si se quieren salir, mandar el logout y borrar las variables del localstorage... creo');
-  }
-}
+export class AppModule { }

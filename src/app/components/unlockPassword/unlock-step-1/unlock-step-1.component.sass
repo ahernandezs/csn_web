@@ -1,65 +1,43 @@
 @import ../../../../variables
 @import ../../../../mixins
 
-h3
+h5
 	font-size: 1.2em
+	line-height: 1.4em
 	font-weight: normal
 	margin: 0 -15px
 	padding: 1em 1em 2em
 	border-bottom: 1px solid $divider-color
+	a
+		color: $primary-color
+		&:focus,&:active
+			text-decoration: underline
 label
 	position: relative
 	margin: 2em 0
 	display: block
 	color: $secondary-text-color
 	border-bottom: 1px solid $divider-color
-	span
-		display: none
-		position: absolute
-		top: -1.5em
-		left: 0.5em
-		color: $primary-color
 	input
-		width: 100%
+		width: 90%
 		margin: 0
 		padding: 0.5em
 		border: none
 		background: none
+	i,span
+		display: none
 	&.active
 		span
 			display: block
-	&.options
-		p
-			display: inline-block
-			width: 95%
-			margin: 0
-			padding: 0.5em
-		i
-			color: black
-			font-size: 0.8em
-			cursor: pointer
-		ul
-			display: none
 			position: absolute
-			z-index: 20
-			padding: 0
-			margin: 0
-			width: 100%
-			max-height: 300px
-			overflow: auto
-			background: white
-			list-style: none
-			border: 1px solid $divider-color
-			+border-radius(0.5em)
-			li
-				padding: 1em
-				border-bottom: 1px solid $divider-color
-				&:last-child
-					border: none
-		&.selected
-			ul
-				display: block
-
+			top: -1.5em
+			left: 0.5em
+			color: $primary-color
+		i
+			display: inline-block
+			color: black
+			font-size: 1.2em
+			cursor: pointer	
 .btn-confirm,.btn-green
 	min-width: 150px
 	font-size: 1em

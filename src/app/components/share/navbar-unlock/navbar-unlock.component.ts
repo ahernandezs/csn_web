@@ -1,11 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-transfer-step-3',
-  templateUrl: './transfer-step-3.component.html',
-  styleUrls: ['./transfer-step-3.component.sass']
+  selector: 'app-navbar-unlock',
+  templateUrl: './navbar-unlock.component.html',
+  styleUrls: ['./navbar-unlock.component.sass']
 })
-export class TransferStep3Component implements OnInit {
+export class NavBarUnlockComponent implements OnInit {
 
   constructor() { }
 
