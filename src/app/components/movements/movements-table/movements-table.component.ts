@@ -25,7 +25,6 @@ export class MovementsTableComponent {
       this.accountService.getTransactions(this.account).subscribe(
         response => {
           this.movements = response;
-          console.log(this.movements);
         },
         err => {
           console.log(err);

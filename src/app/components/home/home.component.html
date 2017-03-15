@@ -2,24 +2,57 @@
 <div class="subheader">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2">
-				<p class="active">Dep&oacute;sito</p>
+			<div class="col-md-2" (click)="change('00')">
+				<p [ngClass]="{'active': opt == '00'}">Todas</p>
 			</div>
-			<div class="col-md-2">
-				<p>Ahorro</p>
+			<div class="col-md-2" (click)="change('10')">
+				<p [ngClass]="{'active': opt == '10'}">Dep&oacute;sito</p>
 			</div>
-			<div class="col-md-2">
-				<p>Inversiones</p>
+			<div class="col-md-2" (click)="change('20')">
+				<p [ngClass]="{'active': opt == '20'}">Tarjetas de crédito</p>
 			</div>
-			<div class="col-md-2">
-				<p>Pr&eacute;stamo</p>
+			<div class="col-md-2" (click)="change('30')">
+				<p [ngClass]="{'active': opt == '30'}">Inversiones</p>
 			</div>
 		</div>
 	</div>
 </div>
 <div class="container home">
     <div class="row">
-        <app-accounts></app-accounts>
+		<div class="col-md-4" *ngFor="let account of accounts">
+			<div class="card shadow-second {{account.account_type}}" >
+				<h3>
+					{{account.description}}
+					<span>{{account._account_id}}</span>
+				</h3>
+				<h4>
+					{{account.total_balance}}
+					<span>Saldo actual</span>
+				</h4>
+				<p>&Uacute;ltimo movimiento:</p>
+				<div class="row last-mov">
+					<div class="col-md-2 offset-md-1 text-xs-center">
+						<h6>
+						{{account.lastMovementDate | date:'MMMM'}}
+						<span>
+							{{account.lastMovementDate | date:'d'}}
+						</span>
+						</h6>
+					</div>
+					<div class="col-md-8">
+						<h6>
+							{{account.lastMovementDescription}}
+							<span [ngClass]="{'negative': account.lastMovementAmount < 0 }">Monto: ${{account.lastMovementAmount}}</span>
+						</h6>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-10 offset-xs-1">
+						<button [routerLink]="['/movements', account._account_id, account.description, account.total_balance]" routerLinkActive="active" class="btn-green btn-block">Movimientos</button>
+					</div>
+				</div>
+			</div>
+		</div>
     </div>
 </div>
 <app-footer></app-footer>

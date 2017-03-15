@@ -1,0 +1,86 @@
+@import ../../../../variables
+@import ../../../../mixins
+
+h3
+	color: $secondary-text-color
+	font-size: 1.4em
+	font-weight: normal
+h5
+	font-size: 1.2em
+	font-weight: normal
+	margin: 0 -15px
+	padding: 1em 1em 2em
+	border-bottom: 1px solid $divider-color
+label
+	position: relative
+	margin: 2em 0
+	display: block
+	color: $secondary-text-color
+	border-bottom: 1px solid $divider-color
+	input
+		width: 90%
+		margin: 0
+		padding: 0.5em
+		border: none
+		background: none
+		-webkit-text-security: disc
+	span
+		display: none
+	&.active
+		span
+			display: block
+			position: absolute
+			top: -1.5em
+			left: 0.5em
+			color: $primary-color
+p
+	color: $divider-color
+	font-size: 0.9em
+	margin: 0 0 3em
+.btn-confirm,.btn-green
+	min-width: 150px
+	font-size: 1em
+	margin: 1em
+ul
+	display: block
+	margin: 1em 0
+	padding: 0
+	text-align: center
+	li
+		position: relative
+		display: inline-block
+		width: 45px
+		height: 45px
+		cursor: pointer
+		border: 2px solid white
+		+border-radius(50%)
+		span
+			display: none
+			position: absolute
+			top: -8px
+			left: 23px
+			width: 20px
+			height: 20px
+			background: $primary-color
+			+border-radius(50%)
+			i:before
+				color: white
+				font-size: 0.7em
+		img
+			width: 100%
+			height: 100%
+			object-fit: cover
+			+border-radius(50%)
+		&.active
+			border-color: $primary-color
+			+box-shadow(rgba(0,0,0,0.6))
+			span
+				display: block
+
+//Responsive
+@media screen and (max-width: 769px)
+	.btn-confirm,.btn-green
+		display: block
+		width: 100%
+		margin-left: 0
+		margin-right: 0

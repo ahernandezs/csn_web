@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-activation',
-  templateUrl: './activation.component.html',
-  styleUrls: ['./activation.component.sass']
+  selector: 'unlock-password',
+  templateUrl: './unlockPassword.component.html',
+  styleUrls: ['./unlockPassword.component.sass']
 })
-export class ActivationComponent {
+export class UnlockPasswordComponent implements OnInit {
     private myUrl:any;
 
     constructor(private route: ActivatedRoute) {
@@ -17,6 +17,10 @@ export class ActivationComponent {
               }
           },
           (error: any) => console.debug("Error getting the path", error));
+    }
+
+    ngOnInit(){
+        this.myUrl = "step-1";
     }
 
     /**

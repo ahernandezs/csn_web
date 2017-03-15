@@ -51,7 +51,7 @@
                             <p>{{thirdDescription}}</p>
                             <i class="icon icon-triangle-down"></i>
                             <ul class="shadow-second">
-                                <li *ngFor="let thirdAccount of thirdAccounts" (click)="selectThird(thirdAccount._account_id, ownAccount.alias);">
+                                <li *ngFor="let thirdAccount of thirdAccounts" (click)="selectThird(thirdAccount._account_id, thirdAccount.alias);">
                                     {{thirdAccount.alias}}
                                 </li>
                             </ul>

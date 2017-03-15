@@ -13,6 +13,7 @@ import { ActivateAccountComponent } from './components/activateAccount/index';
 import { AdministrationComponent } from './components/administration/index';
 import { PromotionsComponent } from './components/promotions/index';
 import { TransferComponent } from './components/transfer/index';
+import { UnlockPasswordComponent } from './components/unlockPassword/index'
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -23,6 +24,7 @@ const routes: Routes = [
 	{ path: 'movements/:id/:name/:balance', component: MovementsComponent, canActivate:[AuthGuard] },
 	{ path: 'map', component: MapComponent },
 	{ path: 'contact', component: ContactComponent },
+	{ path: 'unlock', component: UnlockPasswordComponent },
 	{ path: 'activateAccount', component: ActivateAccountComponent, canActivate:[AuthGuard] },
 	{ path: 'administration', component: AdministrationComponent, canActivate:[AuthGuard] },
 	{ path: 'promotions', component: PromotionsComponent, canActivate:[AuthGuard] },
