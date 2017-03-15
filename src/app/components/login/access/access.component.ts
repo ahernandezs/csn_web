@@ -15,11 +15,10 @@ export class AccessComponent implements OnInit {
   constructor(
     private loginService: LoginService,
     private dot: DOT
-  ) {}
+  ){}
 
   checkLoginResponse: CheckLoginResponse;
-  checkLoginRequest: CheckLoginRequest = new CheckLoginRequest('')
-
+  checkLoginRequest: CheckLoginRequest = new CheckLoginRequest('');
   /**
    * This event element will help to change the current view in the parent element <auth.component>.
    */
