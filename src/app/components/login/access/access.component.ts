@@ -16,7 +16,7 @@ export class AccessComponent implements OnInit {
     private loginService: LoginService,
     private dot: DOT
   ){}
-
+  
   checkLoginResponse: CheckLoginResponse;
   checkLoginRequest: CheckLoginRequest = new CheckLoginRequest('');
   /**
