@@ -9,6 +9,7 @@
     </div>
     <h3>Bienvenido</h3>
     <h5>Elige tu imagen de seguridad para continuar</h5>
+    <form #confirmationForm="ngForm" class="row">
     <div class="row">
         <div class="col-md-12">
             <ul>
@@ -64,7 +65,8 @@
                 <input type="password" placeholder="Contraseña" id="password" name="password" required [(ngModel)] = "password" />
             </label>
             <a class="text-xs-right" routerLink="/unlock" routerLinkActive="active">Olvidé mi contraseña</a>
-            <button (click)="login()" routerLinkActive="active" class="btn-confirm btn-block">Entrar</button>
+            <button (click)="login()" routerLinkActive="active"  [disabled]="!confirmationForm.valid || !imageId" class="btn-confirm btn-block">Entrar</button>
         </div>
     </div>
+    </form>
 </div>
