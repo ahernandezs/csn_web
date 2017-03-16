@@ -2,11 +2,11 @@
 <div class="subheader">
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
-                <p class="active">Mis cuentas CSN</p>
+            <div class="col-md-3" (click)="opt='own'">
+                <p [ngClass]="{'active': opt === 'own'}">Mis cuentas CSN</p>
             </div>
-            <div class="col-md-3">
-                <p>Otro socio de CSN</p>
+            <div class="col-md-3" (click)="opt='third'">
+                <p [ngClass]="{'active': opt === 'third'}">Otro socio de CSN</p>
             </div>
         </div>
     </div>

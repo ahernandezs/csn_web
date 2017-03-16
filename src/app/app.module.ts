@@ -44,6 +44,8 @@ import { ActivateAccountStepTwoComponent } from './components/activateAccount/ac
 import { AdministrationComponent } from './components/administration/index';
 import { ChangePassStepOneComponent } from './components/administration/changePassStepOne/index';
 import { ChangePassStepTwoComponent } from './components/administration/changePassStepTwo/index';
+import { BlockOneComponent } from './components/administration/blockOne/index';
+import { BlockTwoComponent } from './components/administration/blockTwo/index';
 import { PromotionsComponent } from './components/promotions/index';
 import { TransferComponent } from './components/transfer/index';
 import { UnlockPasswordComponent } from './components/unlockPassword/index'
@@ -91,6 +93,8 @@ import { PromotionService } from './services/promotion.service';
     AdministrationComponent,
     ChangePassStepOneComponent,
     ChangePassStepTwoComponent,
+    BlockOneComponent,
+    BlockTwoComponent,
     PromotionsComponent,
     TransferComponent,
     UnlockPasswordComponent,

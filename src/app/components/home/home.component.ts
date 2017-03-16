@@ -40,10 +40,5 @@ export class HomeComponent implements OnInit{
     );
   }
 
-  change(opt){
-    this.opt = opt;
-  }
-
-
 }
 

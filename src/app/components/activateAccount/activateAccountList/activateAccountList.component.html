@@ -16,56 +16,16 @@
 <div class="container activate-account">
 	<div class="container active-account">
 		<div class="row">
-			<div class="col-md-4">
-				<div class="card shadow-second" (click)="changeView('activateAccountStepOne')" routerLinkActive="active">
-					<h5>Adrian Alejandro Gallegos Garza</h5>
-					<p>
-						Alias: <span>adrian_gallegos</span><br>
-						No. de cuenta: <span>***1576</span><br>
-						Monto máximo: <span>$1,500.00</span>
-					</p>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="card shadow-second" (click)="changeView('activateAccountStepOne')" routerLinkActive="active">
-					<h5>Adrian Alejandro Gallegos Garza</h5>
-					<p>
-						Alias: <span>adrian_gallegos</span><br>
-						No. de cuenta: <span>***1576</span><br>
-						Monto máximo: <span>$1,500.00</span>
-					</p>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="card shadow-second" (click)="changeView('activateAccountStepOne')" routerLinkActive="active">
-					<h5>Adrian Alejandro Gallegos Garza</h5>
-					<p>
-						Alias: <span>adrian_gallegos</span><br>
-						No. de cuenta: <span>***1576</span><br>
-						Monto máximo: <span>$1,500.00</span>
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4">
-				<div class="card shadow-second" (click)="changeView('activateAccountStepOne')" routerLinkActive="active">
-					<h5>Adrian Alejandro Gallegos Garza</h5>
-					<p>
-						Alias: <span>adrian_gallegos</span><br>
-						No. de cuenta: <span>***1576</span><br>
-						Monto máximo: <span>$1,500.00</span>
-					</p>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="card shadow-second" (click)="changeView('activateAccountStepOne')" routerLinkActive="active">
-					<h5>Adrian Alejandro Gallegos Garza</h5>
-					<p>
-						Alias: <span>adrian_gallegos</span><br>
-						No. de cuenta: <span>***1576</span><br>
-						Monto máximo: <span>$1,500.00</span>
-					</p>
+			<div class="col-md-4" *ngFor="let thirdAccount of thirdAccounts">
+				<div class="card shadow-second">
+					<div class="card shadow-second" (click)="changeView('activateAccountStepOne')" routerLinkActive="active">
+						<h5>{{thirdAccount.beneficiary}}</h5>
+						<p>
+							Alias: <span>{{thirdAccount.alias}}</span><br>
+							No. de cuenta: <span>***{{thirdAccount.last_digits}}</span><br>
+							Monto máximo: <span>$1,500.00</span>
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>

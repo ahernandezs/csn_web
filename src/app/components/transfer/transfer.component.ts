@@ -24,7 +24,7 @@ export class TransferComponent implements OnInit {
     password: string;
     ownDescription: string;
     thirdDescription: string;
-
+    opt;
     step;
 
     constructor(
@@ -41,6 +41,7 @@ export class TransferComponent implements OnInit {
         this.concept  = "";
         this.password = "";
         this.step = 1;
+        this.opt = "own";
         this.ownDescription = "Cuenta retiro";
         this.thirdDescription = "Cuenta de depósito";
         this.accountService.getAccounts().subscribe(
