@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AdministrationComponent {
     private myUrl:any;
+    private myUrl2:any = "blockOne";
 
     constructor(private route: ActivatedRoute) {
       this.route.url.subscribe(
@@ -25,5 +26,8 @@ export class AdministrationComponent {
     */
     changeViewHandler(view: String) {
         this.myUrl = view;
+    }
+    changeViewHandler2(view: String) {
+        this.myUrl2 = view;
     }
 }

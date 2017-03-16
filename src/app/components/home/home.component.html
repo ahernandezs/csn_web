@@ -2,16 +2,16 @@
 <div class="subheader">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2" (click)="change('00')">
+			<div class="col-md-2" (click)="opt = '00'">
 				<p [ngClass]="{'active': opt == '00'}">Todas</p>
 			</div>
-			<div class="col-md-2" (click)="change('10')">
+			<div class="col-md-2" (click)="opt = '10'">
 				<p [ngClass]="{'active': opt == '10'}">Dep&oacute;sito</p>
 			</div>
-			<div class="col-md-2" (click)="change('20')">
+			<div class="col-md-2" (click)="opt = '20'">
 				<p [ngClass]="{'active': opt == '20'}">Tarjetas de crédito</p>
 			</div>
-			<div class="col-md-2" (click)="change('30')">
+			<div class="col-md-2" (click)="opt = '30'">
 				<p [ngClass]="{'active': opt == '30'}">Inversiones</p>
 			</div>
 		</div>
@@ -20,7 +20,7 @@
 <div class="container home">
     <div class="row">
 		<div class="col-md-4" *ngFor="let account of accounts">
-			<div class="card shadow-second {{account.account_type}}" >
+			<div class="card shadow-second" *ngIf="account.account_type === opt || opt === '00'">
 				<h3>
 					{{account.description}}
 					<span>{{account._account_id}}</span>
