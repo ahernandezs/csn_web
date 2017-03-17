@@ -4,11 +4,11 @@
 			<div class="col-md-3">
 				<h2>Activar cuentas</h2>
 			</div>
-			<div class="col-md-3">
-				<p class="active">Pendientes</p>
+			<div class="col-md-3" (click)="opt = 'UNACTIVATED'">
+				<p [ngClass]="{'active': opt === 'UNACTIVATED'}">Pendientes</p>
 			</div>
-			<div class="col-md-3">
-				<p>Activas</p>
+			<div class="col-md-3" (click)="opt = 'ACTIVATED'">
+				<p [ngClass]="{'active': opt === 'ACTIVATED'}">Activas</p>
 			</div>
 		</div>
 	</div>
@@ -17,7 +17,7 @@
 	<div class="container active-account">
 		<div class="row">
 			<div class="col-md-4" *ngFor="let thirdAccount of thirdAccounts">
-				<div class="card shadow-second">
+				<div class="card shadow-second" *ngIf="thirdAccount.status === opt">
 					<div class="card shadow-second" (click)="activateAccount(thirdAccount)" routerLinkActive="active">
 						<h5>{{thirdAccount.beneficiary}}</h5>
 						<p>

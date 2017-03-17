@@ -10,12 +10,14 @@ import { ThirdAccount } from '../../../models/third-account';
 export class ActivateAccountListComponent implements OnInit {
 
   thirdAccounts: Array<ThirdAccount>;
+  opt;
 
   constructor(
        private thirdAccountService: ThirdAccountService
   ) { }
 
   ngOnInit() {
+    this.opt = "UNACTIVATED";
     this.thirdAccountService.getThirdAccounts().subscribe(
         response => {
             this.thirdAccounts = response;
@@ -26,14 +28,8 @@ export class ActivateAccountListComponent implements OnInit {
     );
   }
 
-  /**
-   * This event element will help to change the current view in the parent element <auth.component>.
-   */
   @Output() routeView: EventEmitter<ThirdAccount> = new EventEmitter();
 
-  /**
-   * This event is emitted to the parent element <auth.component>.
-   */
   activateAccount(account: ThirdAccount): void {
       this.routeView.emit(account);
   }

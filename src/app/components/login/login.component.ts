@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CheckLoginResponse } from '../../models/check-login-response';
 
 @Component({
   selector: 'app-login',
@@ -7,24 +8,16 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./login.component.sass']
 })
 export class LoginComponent {
-    private myUrl: any;
+    private myUrl: any = 'login';
+    private checkLoginResponse: CheckLoginResponse;
 
-    constructor(private route: ActivatedRoute) {
-      this.route.url.subscribe(
-          (data: any) => {
-              for (let i of data) {
-                  this.myUrl = i.path;
-              }
-          },
-          (error: any) => console.debug("Error getting the path", error));
+    changeViewHandler(checkLoginResponse: CheckLoginResponse) {
+        this.checkLoginResponse = checkLoginResponse;
+        this.myUrl = 'confirmation';
     }
 
-    /**
-    * Event handler for changing the current view.
-    * @param view String
-    */
-    changeViewHandler(view: String) {
-        this.myUrl = view;
+    changeViewConfirm(view: string): void{
+      this.myUrl = view;
     }
 
 }

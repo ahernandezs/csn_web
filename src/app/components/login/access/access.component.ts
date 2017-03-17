@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { LoginService } from '../../../services/login.service';
-import { DOT } from '../../../utils/dot';
 
 import { CheckLoginRequest } from '../../../models/check-login-request';
 import { CheckLoginResponse } from '../../../models/check-login-response';
@@ -13,32 +12,27 @@ import { CheckLoginResponse } from '../../../models/check-login-response';
 export class AccessComponent implements OnInit {
 
   constructor(
-    private loginService: LoginService,
-    private dot: DOT
+    private loginService: LoginService
   ){}
   
   checkLoginResponse: CheckLoginResponse;
   checkLoginRequest: CheckLoginRequest = new CheckLoginRequest('');
-  /**
-   * This event element will help to change the current view in the parent element <auth.component>.
-   */
-  @Output() routeView: EventEmitter<String> = new EventEmitter();
+
+  @Output() routeView: EventEmitter<CheckLoginResponse> = new EventEmitter();
 
   ngOnInit() {
     localStorage.removeItem('x-auth-token');
     localStorage.removeItem('x-data-csn');
-    localStorage.removeItem("client_application_id");
+    localStorage.removeItem('client_application_id');
+    localStorage.removeItem('user_login_csn');
   }
 
-  /**
-   * This event is emitted to the parent element <auth.component>.
-   */
-  changeView(view: String): void {
+  changeView(): void {
     this.loginService.checkLogin(this.checkLoginRequest).subscribe(
       response => {
         this.checkLoginResponse = response;
-        this.dot.setData([this.checkLoginResponse, this.checkLoginRequest.user_login]);
-        this.routeView.emit(view);
+        localStorage.setItem('user_login_csn',this.checkLoginRequest.user_login);
+        this.routeView.emit(this.checkLoginResponse);
       },
       err => {
         console.log(err);

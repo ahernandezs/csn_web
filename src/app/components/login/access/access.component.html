@@ -5,12 +5,12 @@
         <div class="col-md-10 offset-md-1">
            <label class="input-with-icon">
             <i class="icon icon-user"></i>
-            <input class="user" type="text" placeholder="Usuario" id="user_login" name="user_login"  [(ngModel)]= "checkLoginRequest.user_login" #user_login="ngModel" no-letters autocomplete="off" [minlength]="32" [maxlength]="32" />
+            <input class="user" type="text" placeholder="Usuario" id="user_login" name="user_login" [(ngModel)]= "checkLoginRequest.user_login" #user_login="ngModel" no-letters autocomplete="off" [minlength]="32" [maxlength]="32" />
            </label>
            <div *ngIf="user_login.errors">
                <label>* El usuario debe ser num&eacute;rico y tener una longitud de 32 caracteres</label>
            </div>
-           <button (click)="changeView('confirmation')" routerLinkActive="active"  [disabled]="!loginForm.valid" class="btn-confirm btn-block">
+           <button (click)="changeView()" routerLinkActive="active" [disabled]="!loginForm.valid" class="btn-confirm btn-block">
                 Continuar
             </button>
             <a routerLink="/activation" routerLinkActive="active">Activaci&oacute;n de socio</a>
