@@ -8,7 +8,7 @@
                 </h6>
             </div>
             <div class="col-md-10">
-                <p>Activaci&oacute;n cuentas de terceros</p>
+				<p>Activaci&oacute;n cuentas de terceros</p>
             </div>
         </div>
     </div>
@@ -17,38 +17,58 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card shadow-second">
-				<h3>Verifica los datos de la cuenta e ingresa el código de activación que recibiste vía SMS.</h3>
+				<h3 *ngIf="step == 1">Verifica los datos de la cuenta e ingresa el código de activación que recibiste vía SMS.</h3>
+				<h3 *ngIf="step == 2"><span><i class="icon icon-thick"></i></span>La cuenta de terceros fue activada exitosamente.<br>A partir de un lapso de 30 minutos podrás hacer uso de tu nueva cuenta cuando realices una transferencia interbancaria.</h3>
 				<div class="row">
 				    <div class="col-md-8 offset-md-2">
-				       <table class="table">
+				       <table class="table" *ngIf="step == 1">
 				           <tbody>
 				               <tr>
 				                   <td>Cuenta por activar:</td>
-				                   <td>Max Hdz San</td>
+								   <td>{{thirdAccount.beneficiary}}</td>
 				               </tr>
 				               <tr>
 				                   <td>N&uacute;mero de cuenta:</td>
-				                   <td>***6789</td>
+				                   <td>***{{thirdAccount._account_id}}</td>
 				               </tr>
 				               <tr>
 				                   <td>Monto m&aacute;ximo:</td>
-				                   <td>$1,500.00</td>
+								   <td>${{thirdAccount.maximum_amount}}</td>
+				               </tr>
+				           </tbody>
+ 					   </table>
+				       <table class="table" *ngIf="step == 2">
+				           <tbody>
+				               <tr>
+				                   <td>Beneficiario:</td>
+								   <td>{{result.beneficiary}}</td>
+				               </tr>
+				               <tr>
+				                   <td>Instituci&oacute;n:</td>
+								   <td>{{result.bank_name}}</td>
+				               </tr>
+				               <tr>
+				                   <td>No. de cuenta:</td>
+								   <td>***{{result.last_digits}}</td>
 				               </tr>
 				           </tbody>
 				       </table>
 				    </div>
 				</div>
-				<div class="row">
+				<div class="row" *ngIf="step == 1">
 					<div class="col-md-4 offset-md-4">
 						<label>
-				       		<input type="number">
+				            <input type="text" placeholder="Código de activación" id="activation_code" name="activation_code" [(ngModel)]= "activation_code" no-letters autocomplete="off" />
 							<span>Escribe aquí tu c&oacute;digo de activaci&oacute;n</span>
 				       </label>
 					</div>
 				</div>
 				<div class="row">
-				    <div class="col-md-8 offset-md-2 text-xs-right">
-				        <button (click)="changeView('activateAccountStepTwo')" routerLinkActive="active" class="btn-green">Continuar</button>
+				    <div *ngIf="step == 1" class="col-md-8 offset-md-2 text-xs-right">
+				        <button (click)="activate();" routerLinkActive="active" class="btn-green">Continuar</button>
+				    </div>
+				    <div *ngIf="step == 2" class="col-md-8 offset-md-2 text-xs-center">
+				        <button (click)="changeView('activateAccountList')" routerLinkActive="active" class="btn-green">Aceptar</button>
 				    </div>
 				</div>
 			</div>

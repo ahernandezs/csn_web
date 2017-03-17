@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ThirdAccount } from '../../models/third-account';
 
 @Component({
   selector: 'app-activateAccount',
@@ -8,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ActivateAccountComponent implements OnInit {
     private myUrl:any;
+    private thirdAccount: ThirdAccount;
 
     constructor(private route: ActivatedRoute) {
       this.route.url.subscribe(
@@ -26,7 +28,9 @@ export class ActivateAccountComponent implements OnInit {
     * Event handler for changing the current view.
     * @param view String
     */
-    changeViewHandler(view: String) {
-        this.myUrl = view;
+    changeViewHandler(thirdAccount: ThirdAccount) {
+        this.thirdAccount = thirdAccount;
+        this.myUrl = "activateAccountStepOne";
     }
+
 }
