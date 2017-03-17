@@ -29,12 +29,13 @@ export class ActivateAccountListComponent implements OnInit {
   /**
    * This event element will help to change the current view in the parent element <auth.component>.
    */
-  @Output() routeView: EventEmitter<String> = new EventEmitter();
+  @Output() routeView: EventEmitter<ThirdAccount> = new EventEmitter();
 
   /**
    * This event is emitted to the parent element <auth.component>.
    */
-  changeView(view: String): void {
-      this.routeView.emit(view);
+  activateAccount(account: ThirdAccount): void {
+      this.routeView.emit(account);
   }
+
 }

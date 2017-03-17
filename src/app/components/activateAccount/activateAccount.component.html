@@ -4,10 +4,7 @@
 	<app-activateAccountList (routeView)="changeViewHandler($event)"></app-activateAccountList>
 </div>
 <div *ngIf="myUrl == 'activateAccountStepOne'">
-	<app-activateAccountStepOne (routeView)="changeViewHandler($event)"></app-activateAccountStepOne>
-</div>
-<div *ngIf="myUrl == 'activateAccountStepTwo'">
-	<app-activateAccountStepTwo (routeView)="changeViewHandler($event)"></app-activateAccountStepTwo>
+	<app-activateAccountStepOne (routeView)="changeViewHandler($event)" [thirdAccount]="thirdAccount"></app-activateAccountStepOne>
 </div>
 
 <app-footer></app-footer>
