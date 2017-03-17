@@ -1,16 +1,22 @@
 <div class="card shadow-second text-xs-center loginBox">
     <h3>Bienvenido</h3>
-    <h5>Ingresa a Cooperativa Financiera</h5>
-    <form #loginForm="ngForm" class="row" novalidate>
+    <h5>Ingresa tu N&uacute;mero de Socio</h5>
+    <form [formGroup]="loginForm" class="row" novalidate>
         <div class="col-md-10 offset-md-1">
            <label class="input-with-icon">
             <i class="icon icon-user"></i>
+<<<<<<< 6d4595e9633f61af8e495f1bfa47fd370b173f1d
             <input class="user" type="text" placeholder="Usuario" id="user_login" name="user_login" [(ngModel)]= "checkLoginRequest.user_login" #user_login="ngModel" no-letters autocomplete="off" [minlength]="32" [maxlength]="32" />
            </label>
            <div *ngIf="user_login.errors">
                <label>* El usuario debe ser num&eacute;rico y tener una longitud de 32 caracteres</label>
            </div>
            <button (click)="changeView()" routerLinkActive="active" [disabled]="!loginForm.valid" class="btn-confirm btn-block">
+=======
+            <input class="user" type="text" placeholder="Número de Socio" id="user_login" name="user_login"  [(ngModel)]= "checkLoginRequest.user_login" formControlName="user_login" autocomplete="off" />
+           </label>
+           <button (click)="changeView('confirmation')" routerLinkActive="active"  [disabled]="!loginForm.valid" class="btn-confirm btn-block">
+>>>>>>> CON-155 CON-156 CON-157 CON-159
                 Continuar
             </button>
             <a routerLink="/activation" routerLinkActive="active">Activaci&oacute;n de socio</a>

@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../../services/login.service';
 
 import { CheckLoginRequest } from '../../../models/check-login-request';
@@ -11,9 +12,11 @@ import { CheckLoginResponse } from '../../../models/check-login-response';
 })
 export class AccessComponent implements OnInit {
 
+  loginForm : FormGroup;
   constructor(
-    private loginService: LoginService
-  ){}
+    private loginService: LoginService,
+    private fb: FormBuilder
+  ){this.validations();}
   
   checkLoginResponse: CheckLoginResponse;
   checkLoginRequest: CheckLoginRequest = new CheckLoginRequest('');
@@ -38,5 +41,15 @@ export class AccessComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+  validations(){
+    this.loginForm = this.fb.group({
+      user_login: ['',Validators.compose([
+        Validators.required,
+        Validators.pattern(/^\d+$/),
+        Validators.minLength(5),
+        Validators.maxLength(32)
+      ])]
+    })
   }
 }
