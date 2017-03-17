@@ -22,14 +22,11 @@ import { UnlockStep2Component } from './components/unlockPassword/unlock-step-2/
 import { ReactivationComponent } from './components/reactivation/index';
 import { ReactivationStep2Component } from './components/reactivation/reactivation-step-2/index';
 import { ReactivationStep1Component } from './components/reactivation/reactivation-step-1/index';
-import { PageNotFoundComponent } from './components/share/page-not-found/index';
 import { AccessComponent } from './components/login/access/index';
 import { AccessConfirmationComponent } from './components/login/access-confirmation/index';
 import { FooterComponent } from './components/share/footer/index';
 import { NavbarComponent } from './components/share/navbar/index';
-import { NavBarActivationComponent } from './components/share/navbar-activation/index';
-import { NavBarUnlockComponent } from './components/share/navbar-unlock/index';
-import { WelcomeAlertComponent } from './components/share/welcome-alert/index';
+import { NavBarSimpleComponent } from './components/share/navbar-simple/index';
 import { HomeComponent } from './components/home/index';
 import { MovementsComponent } from './components/movements/index';
 import { MovementsTableComponent } from './components/movements/movements-table/index';
@@ -70,14 +67,11 @@ import { PromotionService } from './services/promotion.service';
     ReactivationComponent,
     ReactivationStep1Component,
     ReactivationStep2Component,
-    PageNotFoundComponent,
     AccessComponent,
     AccessConfirmationComponent,
     FooterComponent,
     NavbarComponent,
-    NavBarActivationComponent,
-    NavBarUnlockComponent,
-    WelcomeAlertComponent,
+    NavBarSimpleComponent,
     HomeComponent,
     MovementsComponent,
     MovementsTableComponent,

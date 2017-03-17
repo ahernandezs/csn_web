@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  signed: boolean;
+	ngOnInit() {
+    this.signed = localStorage.getItem('x-data-csn') === null ? false : true;
+	}
 
 }
