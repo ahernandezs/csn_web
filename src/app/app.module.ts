@@ -40,7 +40,6 @@ import { ContactComponent } from './components/contact/index';
 import { ActivateAccountComponent } from './components/activateAccount/index';
 import { ActivateAccountListComponent } from './components/activateAccount/activateAccountList/index';
 import { ActivateAccountStepOneComponent } from './components/activateAccount/activateAccountStepOne/index';
-import { ActivateAccountStepTwoComponent } from './components/activateAccount/activateAccountStepTwo/index';
 import { AdministrationComponent } from './components/administration/index';
 import { ChangePassStepOneComponent } from './components/administration/changePassStepOne/index';
 import { ChangePassStepTwoComponent } from './components/administration/changePassStepTwo/index';
@@ -89,7 +88,6 @@ import { PromotionService } from './services/promotion.service';
     ActivateAccountComponent,
     ActivateAccountListComponent,
     ActivateAccountStepOneComponent,
-    ActivateAccountStepTwoComponent,
     AdministrationComponent,
     ChangePassStepOneComponent,
     ChangePassStepTwoComponent,

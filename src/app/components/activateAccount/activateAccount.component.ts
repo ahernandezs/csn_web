@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ThirdAccount } from '../../models/third-account';
 
@@ -7,7 +7,7 @@ import { ThirdAccount } from '../../models/third-account';
   templateUrl: './activateAccount.component.html',
   styleUrls: ['./activateAccount.component.sass']
 })
-export class ActivateAccountComponent implements OnInit {
+export class ActivateAccountComponent {
     private myUrl:any;
     private thirdAccount: ThirdAccount;
 
@@ -21,13 +21,6 @@ export class ActivateAccountComponent implements OnInit {
           (error: any) => console.debug("Error getting the path", error));
     }
 
-    ngOnInit() {
-    }
-
-    /**
-    * Event handler for changing the current view.
-    * @param view String
-    */
     changeViewHandler(thirdAccount: ThirdAccount) {
         this.thirdAccount = thirdAccount;
         this.myUrl = "activateAccountStepOne";

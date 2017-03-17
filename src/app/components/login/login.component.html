@@ -20,7 +20,7 @@
                 <app-access (routeView)="changeViewHandler($event)"></app-access>
             </div>
             <div *ngIf="myUrl == 'confirmation'">
-                <app-access-confirmation (routeView)="changeViewHandler($event)"></app-access-confirmation>
+                <app-access-confirmation (routeView)="changeViewConfirm($event)" [checkLoginResponse]="checkLoginResponse"></app-access-confirmation>
             </div>
         </div>
     </div>
