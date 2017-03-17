@@ -1,7 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './utils/auth.guards';
 
-import { PageNotFoundComponent } from './components/share/page-not-found/index';
 import { LoginComponent } from './components/login/index';
 import { ActivationComponent } from './components/activation/index';
 import { ReactivationComponent } from './components/reactivation/index';  
