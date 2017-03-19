@@ -26,14 +26,14 @@
 					<span>{{account._account_id | shortaccount}}</span>
 				</h3>
 				<h4>
-					{{account.total_balance}}
+					${{account.total_balance | number:'1.2-2' }}
 					<span>Saldo actual</span>
 				</h4>
 				<p>&Uacute;ltimo movimiento:</p>
 				<div class="row last-mov">
 					<div class="col-md-2 offset-md-1 text-xs-center">
 						<h6>
-						{{account.lastMovementDate | date:'MMMM'}}
+						{{account.lastMovementDate | date:'MMMM' | translate }}
 						<span>
 							{{account.lastMovementDate | date:'d'}}
 						</span>
