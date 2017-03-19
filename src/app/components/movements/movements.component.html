@@ -20,10 +20,10 @@
             <div class="card shadow-second">
                 <h3>
                     {{name}}
-                    <span>{{account}}</span>
+                    <span>{{account | shortaccount}}</span>
                 </h3>
                 <h4>
-                    ${{balance}}
+                    ${{balance | number:'1.2-2'}}
                     <span>Saldo actual</span>
                 </h4>
             </div>

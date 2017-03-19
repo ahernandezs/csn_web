@@ -1,7 +1,7 @@
 <div class="card shadow-second">
   <label>
     <i class="icon icon-zoom"></i>
-    <input type="text" placeholder="Buscar movimientos">
+    <input type="text" placeholder="Buscar movimientos" #input id="search">
   </label>
   <div class="table-responsive">
     <table class="table">
@@ -13,17 +13,17 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let move of movements"> 
+        <tr *ngFor="let move of movements | search: input.value">
           <td> 
             <h6>
-              {{move.date | date:'MMMM'}}
+              {{move.date | date:'MMMM' | translate }}
               <span>
                 {{move.date | date:'d'}}
               </span>
             </h6>
           </td>
           <td>{{move.description}}</td>
-          <td [ngClass]="{'negative': move.amount < 0 }">$ {{move.amount}}</td>
+          <td [ngClass]="{'negative': move.amount < 0 }">${{move.amount | number:'1.2-2'}}</td>
         </tr>
       </tbody>
     </table>
