@@ -11,18 +11,20 @@ export class AppComponent {
     private loginService: LoginService
   ) {
     window.onbeforeunload = function(e) {
-      loginService.logout().subscribe(
-        res => {
-          localStorage.removeItem("x-auth-token");
-          localStorage.removeItem("client_application_id");
-          localStorage.removeItem('x-data-csn');
-        },
-        err => {
-          localStorage.removeItem("x-auth-token");
-          localStorage.removeItem("client_application_id");
-          localStorage.removeItem('x-data-csn');
-        }
-      );
+      if(localStorage.getItem('x-auth-token') !== null ){
+        loginService.logout().subscribe(
+          res => {
+            localStorage.removeItem('x-auth-token');
+            localStorage.removeItem('client_application_id');
+            localStorage.removeItem('x-data-csn');
+          },
+          err => {
+            localStorage.removeItem('x-auth-token');
+            localStorage.removeItem('client_application_id');
+            localStorage.removeItem('x-data-csn');
+          }
+        );
+      }
     };
 
   }

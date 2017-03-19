@@ -23,7 +23,7 @@
 			<div class="card shadow-second" *ngIf="account.account_type === opt || opt === '00'">
 				<h3>
 					{{account.description}}
-					<span>{{account._account_id}}</span>
+					<span>{{account._account_id | shortaccount}}</span>
 				</h3>
 				<h4>
 					{{account.total_balance}}

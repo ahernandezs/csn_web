@@ -12,6 +12,7 @@ import { TabsModule } from 'ng2-bootstrap';
 import { Utils } from './utils/utils';
 import { DOT } from './utils/dot';
 import { AuthGuard } from './utils/auth.guards';
+import { ShortAccount } from './utils/short-account';
 
 import { LoginComponent } from './components/login/index';
 import { ActivationComponent } from './components/activation/index';
@@ -91,7 +92,8 @@ import { PromotionService } from './services/promotion.service';
     TransferComponent,
     UnlockPasswordComponent,
     NoSpace,
-    OnlyNumbers
+    OnlyNumbers,
+    ShortAccount
   ],
   imports: [
     BrowserModule,
