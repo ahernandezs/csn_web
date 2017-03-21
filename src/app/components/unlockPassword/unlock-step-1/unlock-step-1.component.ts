@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../../services/login.service';
 import { DOT } from '../../../utils/dot';
 
@@ -12,10 +13,12 @@ import { PreregisterResponse } from '../../../models/preregister-response';
 })
 export class UnlockStep1Component {
 
+  unlockForm : FormGroup;
   constructor(
     private loginService: LoginService,
-    private dot: DOT
-  ) {}
+    private dot: DOT,
+    private fb: FormBuilder
+  ) {this.validations();}
 
   preregisterResponse: PreregisterResponse;
   preregisterRequest: PreregisterRequest = new PreregisterRequest('', '');
@@ -47,6 +50,23 @@ export class UnlockStep1Component {
         } else {
             pwd.setAttribute("type","password");
         }
+    }
+
+    validations(){
+      this.unlockForm = this.fb.group({
+        activation_code: ['',Validators.compose([
+          Validators.required,
+          Validators.pattern(/^\d+$/),
+          Validators.minLength(6),
+          Validators.maxLength(6)
+        ])],
+        user_login: ['',Validators.compose([
+          Validators.required,
+          Validators.pattern(/^\d+$/),
+          Validators.minLength(5),
+          Validators.maxLength(32)
+        ])]
+      })
     }
 
 }

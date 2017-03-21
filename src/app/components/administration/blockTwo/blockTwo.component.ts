@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../../services/login.service';
 import { UpdatePasswordRequest } from '../../../models/update-password-request';
 
@@ -8,9 +9,11 @@ import { UpdatePasswordRequest } from '../../../models/update-password-request';
   styleUrls: ['./blockTwo.component.sass']
 })
 export class BlockTwoComponent {
+  block2Form : FormGroup;
   constructor(
-    private loginService: LoginService
-  ) { }
+    private loginService: LoginService,
+    private fb: FormBuilder
+  ) {this.validations(); }
 
   old_password = "";
   new_password = "";
@@ -50,4 +53,11 @@ export class BlockTwoComponent {
     );
   }
 
+  validations(){
+    this.block2Form= this.fb.group({
+      old_password: ['', Validators.required],
+      new_password: ['', Validators.required],
+      verify_password: ['', Validators.required]
+    })
+  }
 }
