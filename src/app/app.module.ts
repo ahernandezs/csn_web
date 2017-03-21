@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { LoadersCssModule } from 'angular2-loaders-css';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -104,8 +103,7 @@ import { PromotionService } from './services/promotion.service';
     ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
-    TabsModule,
-    LoadersCssModule
+    TabsModule
   ],
   providers: [
     LoginService,

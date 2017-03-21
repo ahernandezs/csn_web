@@ -3,17 +3,13 @@ import { LoginService } from './services/login.service';
 
 @Component({
   selector: 'app-root',
-  template: `<router-outlet></router-outlet><loaders-css *ngIf="showLoader" [loader]="'ball-spin-fade-loader'" [loaderClass]="'loader-csn'"></loaders-css>
-`
+  template: `<router-outlet></router-outlet>`
 })
 export class AppComponent {
-
-  showLoader: boolean;
 
   constructor(
     private loginService: LoginService
   ) {
-    this.showLoader = false;
     window.onbeforeunload = function(e) {
       if(localStorage.getItem('x-auth-token') !== null ){
         loginService.logout().subscribe(
