@@ -1,18 +1,18 @@
 <div class="row">
-	<div class="col-md-10 offset-md-1 text-xs-left">
+	<form [formGroup]="changePassForm" class="col-md-10 offset-md-1 text-xs-left">
 		<label>
-			<input type="password" placeholder="contraseña actual" [(ngModel)] = "old_password">
+			<input type="password" placeholder="contraseña actual" [(ngModel)] = "old_password" formControlName="old_password">
 		</label>
 		<label>
-			<input type="password" placeholder="Nueva contraseña" [(ngModel)] = "new_password">
+			<input type="password" placeholder="Nueva contraseña" [(ngModel)] = "new_password" formControlName="new_password">
 		</label>
 		<label>
-			<input type="password" placeholder="Confirmar contraseña" [(ngModel)] = "verify_password">
+			<input type="password" placeholder="Confirmar contraseña" [(ngModel)] = "verify_password" formControlName="verify_password">
 		</label>
 		<p>Para confirmar tu contraseña debes ingresar exactamente los mismos caracteres del campo anterior.</p>
-	</div>
+	</form>
 	<div class="col-md-10 offset-md-1 text-xs-right">
 		<button class="btn-confirm" (click)="changeView('administration')" routerLinkActive="active">Cancelar</button>
-		<button class="btn-green" (click)="changePassword()">Cambiar</button>
+		<button class="btn-green" (click)="changePassword()" [disabled]="!changePassForm.valid">Cambiar</button>
 	</div>
 </div>
