@@ -27,7 +27,9 @@
                         {{dataForUser.full_name}}
                         <span>
                             Último acceso:
-                            {{dataForUser.last_access_date | date:'EEEE' | translate }} {{dataForUser.last_access_date | date:'d' }}, {{dataForUser.last_access_date | date:'y' }}
+                            {{dataForUser.last_access_date | date:'dd' }} /
+                            {{dataForUser.last_access_date | date:'MM' }} /
+                            {{dataForUser.last_access_date | date:'y' }}
                             | {{dataForUser.last_access_date
                             | date:'shortTime' }} por {{lastAccessBy}}
                         </span>
@@ -40,7 +42,7 @@
                     <ul class="user-menu">
                         <li class="user">
                             {{dataForUser.full_name}}
-                        <span>Último acceso: {{dataForUser.last_access_date | date:'fullDate' }} | {{dataForUser.last_access_date | date:'shortTime' }} por {{dataForUser.last_client_application_id}}</span>
+                        <span>Último acceso: {{dataForUser.last_access_date }} | {{dataForUser.last_access_date | date:'shortTime' }} por {{dataForUser.last_client_application_id}}</span>
                         </li>
                         <li routerLink="/administration" routerLinkActive="active">
                             <i class="icon icon-settings"></i>
