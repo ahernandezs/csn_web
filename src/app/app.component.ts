@@ -13,6 +13,7 @@ export class AppComponent {
   constructor(
     private loginService: LoginService
   ) {
+    this.showLoader = false;
     window.onbeforeunload = function(e) {
       if(localStorage.getItem('x-auth-token') !== null ){
         loginService.logout().subscribe(
