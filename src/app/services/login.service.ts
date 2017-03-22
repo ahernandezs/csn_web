@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from './http.service';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs/Observable';
 
@@ -28,53 +28,53 @@ export class LoginService {
 	private options;
 
 	constructor(
-		private http: Http,
+		private http: HttpClient,
 		private utils: Utils
 	) {	}
 
 	checkLogin(checkLoginRequest: CheckLoginRequest): Observable<CheckLoginResponse>{
-		return this.http.post(environment.baseURL + 'checkLogin', checkLoginRequest, this.utils.getHeaderWithOutToken())
+		return this.http.post(environment.baseURL + 'checkLogin', checkLoginRequest, false)
 			.map(this.utils.extractData)
 			.catch(this.utils.handleError);
 	}
 
 	login(loginRequest: LoginRequest): Observable<LoginResponse>{
-		return this.http.post(environment.baseURL + 'login', loginRequest, this.utils.getHeaderWithOutToken())
+		return this.http.post(environment.baseURL + 'login', loginRequest, false)
 			.map(this.utils.extractDataAndToken)
 			.catch(this.utils.handleError);
 	}
 
 	logout(): Observable<any>{
-		return this.http.get(environment.baseURL + 'logout', this.utils.getHeader())
+		return this.http.get(environment.baseURL + 'logout', true)
 			.catch(this.utils.handleError);
 	}
 
 	preRegister(preregisterRequest: PreregisterRequest): Observable<PreregisterResponse>{
-		return this.http.post(environment.baseURL + 'preregister', preregisterRequest, this.utils.getHeaderWithOutToken())
+		return this.http.post(environment.baseURL + 'preregister', preregisterRequest, false)
 			.map(this.utils.extractData)
 			.catch(this.utils.handleError);
 	}
 
 	register(registerRequest: RegisterRequest): Observable<any>{
-		return this.http.post(environment.baseURL + 'register', registerRequest, this.utils.getHeader())
+		return this.http.post(environment.baseURL + 'register', registerRequest, true)
 			.map(this.utils.extractData)
 			.catch(this.utils.handleError);
 	}
 
 	updatePassword(updatePasswordRequest: UpdatePasswordRequest): Observable<any>{
-		return this.http.post(environment.baseURL + 'userInformation/password', updatePasswordRequest, this.utils.getHeader())
+		return this.http.post(environment.baseURL + 'userInformation/password', updatePasswordRequest, true)
 			.map(this.utils.extractData)
 			.catch(this.utils.handleError);
 	}
 
 	unlockPasswordPreRequest(unlockPasswordPreRequest: UnlockPasswordPreRequest): Observable<UnlockPasswordPreResponse>{
-		return this.http.post(environment.baseURL + 'unlockPasswordPrerequest', unlockPasswordPreRequest, this.utils.getHeader())
+		return this.http.post(environment.baseURL + 'unlockPasswordPrerequest', unlockPasswordPreRequest, true)
 			.map(this.utils.extractData)
 			.catch(this.utils.handleError);
 	}
 
 	unlockPasswordRequest(unlockPasswordRequest: UnlockPasswordRequest): Observable<UnlockPasswordResponse>{
-		return this.http.post(environment.baseURL + 'unlockPasswordRequest', unlockPasswordRequest, this.utils.getHeader())
+		return this.http.post(environment.baseURL + 'unlockPasswordRequest', unlockPasswordRequest, true)
 			.map(this.utils.extractData)
 			.catch(this.utils.handleError);
 	}

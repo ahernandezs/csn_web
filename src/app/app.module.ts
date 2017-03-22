@@ -55,6 +55,7 @@ import { AccountService } from './services/account.service';
 import { ThirdAccountService } from './services/third.account.service';
 import { TransferService } from './services/transfer.service';
 import { PromotionService } from './services/promotion.service';
+import { HttpClient } from './services/http.service';
 
 @NgModule({
   declarations: [
@@ -111,6 +112,7 @@ import { PromotionService } from './services/promotion.service';
     ThirdAccountService,
     TransferService,
     PromotionService,
+    HttpClient,
     Utils,
     DOT,
     AuthGuard

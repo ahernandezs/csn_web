@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from './http.service';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs/Observable';
 
@@ -18,7 +18,7 @@ export class TransferService {
 	private options;
 
 	constructor(
-		private http: Http,
+		private http: HttpClient,
 		private utils: Utils
 	) {
 		this.options = this.utils.getHeader();
@@ -26,7 +26,7 @@ export class TransferService {
 
 
 	transfer(sourceAccountId: string, transferRequest: TransferRequest): Observable<TransferResponse>{
-		return this.http.post(environment.baseURL + '/accounts/'+sourceAccountId+'/transactions', transferRequest, this.utils.getHeader())
+		return this.http.post(environment.baseURL + '/accounts/'+sourceAccountId+'/transactions', transferRequest, true)
 			.map(this.utils.extractData)
 			.catch(this.utils.handleError);;
 	}
