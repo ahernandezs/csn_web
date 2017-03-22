@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from './http.service';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs/Observable';
 
@@ -16,14 +16,14 @@ export class PromotionService {
 	private options;
 
 	constructor(
-		private http: Http,
+		private http: HttpClient,
 		private utils: Utils
 	) {
 		this.options = this.utils.getHeader();
 	}
 
 	getPromotions(): Observable<Array<Promotion>>{
-		return this.http.get(environment.baseURL + 'promotions', this.utils.getHeader())
+		return this.http.get(environment.baseURL + 'promotions', true)
 			.map(res => res.json().promotions)
 			.catch(this.utils.handleError);
 	}

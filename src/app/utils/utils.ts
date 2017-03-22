@@ -10,11 +10,13 @@ export class Utils {
 
 	subscription;
 	timer;
+	timeout;
+
     constructor(
 		private http: Http,
 	    private router: Router,
 	){
-		this.timer = Observable.timer(environment.timeout,environment.timeout);
+		this.timer = Observable.timer(environment.timeout-1000,1000);
 	}
 
 	public extractDataAndToken(res: Response){
@@ -50,14 +52,15 @@ export class Utils {
 			this.subscription.unsubscribe();
 		}
 		this.subscription = this.timer.subscribe(t => {
-			if(t === 0){
-				console.log('Mandar mensaje de que lo vamos a sacar');
-			}else{
-				console.log('Fuera!');
+			this.timeout = Math.floor((120-t) / 60) + ':' + ((((120-t)%60) > 9) ? ((120-t)%60) : '0'+((120-t)%60));
+			//TODO usar una ventana modal bonita
+			console.log('tu sesión terminará en: '+ this.timeout);
+			if(t === 120){
 				if(localStorage.getItem('x-auth-token') !== null){
-					this.http.get(environment.baseURL + 'logout', this.getHeader());
+					this.http.get(environment.baseURL + 'logout', this.getHeader()).subscribe();
 				}
 				this.subscription.unsubscribe();
+				console.log('fuera por inactividad');
 				this.router.navigate(['/login']);
 			}
 		});

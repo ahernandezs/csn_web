@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from './http.service';
 import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs/Observable';
 
@@ -17,20 +17,20 @@ export class AccountService {
 	private options;
 
 	constructor(
-		private http: Http,
+		private http: HttpClient,
 		private utils: Utils
 	) {
 		this.options = this.utils.getHeader();
 	}
 
 	getAccounts(): Observable<Array<Accounts>>{
-		return this.http.get(environment.baseURL + 'accounts', this.utils.getHeader())
+		return this.http.get(environment.baseURL + 'accounts', true)
 			.map(res => res.json().accounts)
 			.catch(this.utils.handleError);
 	}
 
 	getTransactions(id: string): Observable<Array<Movements>>{
-		return this.http.get(environment.baseURL + 'accounts/'+ id +'/transactions', this.utils.getHeader())
+		return this.http.get(environment.baseURL + 'accounts/'+ id +'/transactions', true)
 			.map(res => res.json().movements)
 			.catch(this.utils.handleError);
 	}

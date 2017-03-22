@@ -7,5 +7,5 @@ export const environment = {
   production: false,
   baseURL: 'http://ci.anzen.io/SBD/',
   xbanktoken: 12,
-  timeout: 5 * 60 * 1000
+  timeout: 3 * 60 * 1000
 };
