@@ -1,12 +1,12 @@
 <h5>Llama a nuestro Call Center al <b><a href="tel:018002242020">01 800 224 2020</a></b> y solicita tu código de activación.<br>Si ya lo tienes, ingrésalo a continuación.</h5>
 <div class="row">
 	<form [formGroup]="activation1Form" class="col-md-10 offset-md-1">
-		<label class="active">
+		<label class="">
 			<span>Código de activación</span>
 			<input type="password" placeholder="Código de activación" value="" id="activationPassword" name="activation_code" [(ngModel)] = "preregisterRequest.activation_code" autocomplete="off" formControlName="activation_code" />
 			<i class="icon icon-eye" (click)="showPass('activationPassword');"></i>
 		</label>
-		<label class="active">
+		<label class="">
 			<span>Número de socio</span>
 			<input type="password" placeholder="Número de socio" value="" id="partnerNumber" name="user_login" [(ngModel)] = "preregisterRequest.user_login" autocomplete="off" formControlName="user_login" />
 			<i class="icon icon-eye" (click)="showPass('partnerNumber');"></i>

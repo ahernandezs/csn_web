@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import { TabsModule } from 'ng2-bootstrap';
+import { ModalModule } from 'ng2-bootstrap';
 
 import { Utils } from './utils/utils';
 import { DOT } from './utils/dot';
@@ -25,6 +26,7 @@ import { ReactivationStep2Component } from './components/reactivation/reactivati
 import { ReactivationStep1Component } from './components/reactivation/reactivation-step-1/index';
 import { AccessComponent } from './components/login/access/index';
 import { AccessConfirmationComponent } from './components/login/access-confirmation/index';
+import { ModalComponent } from './components/share/modal/index';
 import { FooterComponent } from './components/share/footer/index';
 import { NavbarComponent } from './components/share/navbar/index';
 import { NavBarSimpleComponent } from './components/share/navbar-simple/index';
@@ -71,6 +73,7 @@ import { HttpClient } from './services/http.service';
     ReactivationStep2Component,
     AccessComponent,
     AccessConfirmationComponent,
+    ModalComponent,
     FooterComponent,
     NavbarComponent,
     NavBarSimpleComponent,
@@ -104,7 +107,8 @@ import { HttpClient } from './services/http.service';
     ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
-    TabsModule
+    TabsModule,
+    ModalModule.forRoot()
   ],
   providers: [
     LoginService,
