@@ -1,5 +1,5 @@
 <div class="row">
-	<form [formGroup]="block2Form" class="col-md-10 offset-md-1 text-xs-left">
+	<!-- <form [formGroup]="block2Form" class="col-md-10 offset-md-1 text-xs-left">
 		<label>
 			<input type="password" placeholder="contraseña actual" [(ngModel)] = "old_password" formControlName="old_password">
 		</label>
@@ -11,8 +11,14 @@
 		</label>
 		<p>Para confirmar tu contraseña debes ingresar exactamente los mismos caracteres del campo anterior.</p>
 	</form>
+	 -->
+	<div class="col-md-10 offset-md-1">
+		<h5>Verónica Castro De La Rosa Salvaje</h5>
+		<p>N&uacute;mero de socio: <b>3020710031431</b></p>
+		<p>El bloqueo temporal impedirá que se tenga acceso a tu cuenta desde cualquier plataforma (web y móvil). <b>Da click en "Bloquear" para confirmar.</b></p>
+	</div>
 	<div class="col-md-10 offset-md-1 text-xs-right">
 		<button class="btn-confirm" (click)="changeView('administration')" routerLinkActive="active">Cancelar</button>
-		<button class="btn-green" (click)="changePassword()" [disabled]="!block2Form.valid">Cambiar</button>
+		<button class="btn-green" (click)="changePassword()" [disabled]="!block2Form.valid">Bloquear</button>
 	</div>
 </div>
