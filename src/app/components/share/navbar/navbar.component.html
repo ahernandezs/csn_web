@@ -8,15 +8,19 @@
                 <i class="icon icon-menu" (click)="mainMenu = !mainMenu;"></i>
                 <ul class="main-menu" [ngClass]="{'active': mainMenu }">
                     <li routerLink="/home" routerLinkActive="active">
+                        <span><i class="icon-card icon"></i></span>
                         <p>Cuentas</p>
                     </li>
                     <li routerLink="/transfer" routerLinkActive="active">
+                        <span><i class="icon-bills icon"></i></span>
                         <p>Transferencias</p>
                     </li>
                     <li routerLink="/promotions" routerLinkActive="active">
+                        <span><i class="icon-medal icon"></i></span>
                         <p>Promociones</p>
                     </li>
                     <li routerLink="/map" routerLinkActive="active">
+                        <span><i class="icon-bank icon"></i></span>
                         <p>Sucursales</p>
                     </li>
                 </ul>

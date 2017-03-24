@@ -57,14 +57,12 @@ export class ActivationStep1Component {
       activation_code: ['', Validators.compose([
         Validators.required,
         Validators.pattern(/^\d+$/),
-        Validators.minLength(6),
-        Validators.maxLength(6)
+        Validators.minLength(6)
       ])],
       user_login: ['',Validators.compose([
         Validators.required,
         Validators.pattern(/^\d+$/),
-        Validators.minLength(5),
-        Validators.maxLength(32)
+        Validators.minLength(5)
       ])]
     })
   }
