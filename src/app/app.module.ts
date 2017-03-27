@@ -57,6 +57,7 @@ import { AccountService } from './services/account.service';
 import { ThirdAccountService } from './services/third.account.service';
 import { TransferService } from './services/transfer.service';
 import { PromotionService } from './services/promotion.service';
+import { MapService } from './services/map.service';
 import { HttpClient } from './services/http.service';
 
 @NgModule({
@@ -116,6 +117,7 @@ import { HttpClient } from './services/http.service';
     ThirdAccountService,
     TransferService,
     PromotionService,
+    MapService,
     HttpClient,
     Utils,
     DOT,
