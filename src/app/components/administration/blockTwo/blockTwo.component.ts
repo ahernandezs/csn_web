@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../../services/login.service';
 import { UpdatePasswordRequest } from '../../../models/update-password-request';
+import { BlockUserRequest } from '../../../models/block-user-request';
 
 @Component({
   selector: 'app-blockTwo',
@@ -19,14 +20,8 @@ export class BlockTwoComponent {
   new_password = "";
   verify_password = "";
 
-  /**
-   * This event element will help to change the current view in the parent element <auth.component>.
-   */
   @Output() routeView: EventEmitter<String> = new EventEmitter();
 
-  /**
-   * This event is emitted to the parent element <auth.component>.
-   */
   changeView(view: String): void {
       this.routeView.emit(view);
   }
@@ -49,6 +44,18 @@ export class BlockTwoComponent {
       },
       error => {
         console.log("Mandar mensaje de error: "+error);
+      }
+    );
+  }
+
+  block(){
+    let blockUserRequest = new BlockUserRequest(localStorage.getItem("user_login_csn"));
+    this.loginService.blockUser(blockUserRequest).subscribe(
+      response => {
+        console.log("Avisar que sí se pudo bloquear");
+      },
+      error => {
+        console.log("Error al bloquear");
       }
     );
   }

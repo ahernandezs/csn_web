@@ -20,6 +20,8 @@ import { UnlockPasswordPreRequest } from '../models/unlock-password-pre-request'
 import { UnlockPasswordPreResponse } from '../models/unlock-password-pre-response';
 import { UnlockPasswordRequest } from '../models/unlock-password-request';
 import { UnlockPasswordResponse } from '../models/unlock-password-response';
+import { BlockUserRequest } from '../models/block-user-request';
+import { BlockUserResponse } from '../models/block-user-response';
 
 @Injectable()
 export class LoginService {
@@ -75,6 +77,12 @@ export class LoginService {
 
 	unlockPasswordRequest(unlockPasswordRequest: UnlockPasswordRequest): Observable<UnlockPasswordResponse>{
 		return this.http.post(environment.baseURL + 'unlockPasswordRequest', unlockPasswordRequest, true)
+			.map(this.utils.extractData)
+			.catch(this.utils.handleError);
+	}
+
+	blockUser(blockUserRequest: BlockUserRequest): Observable<BlockUserResponse>{
+		return this.http.post(environment.baseURL + 'userInformation/blockUser', blockUserRequest, true)
 			.map(this.utils.extractData)
 			.catch(this.utils.handleError);
 	}

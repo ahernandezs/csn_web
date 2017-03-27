@@ -2,10 +2,10 @@
 <div class="subheader">
     <div class="container">
         <div class="row">
-            <div class="col-md-3" (click)="opt='own'">
+            <div class="col-md-3" (click)="opt='own'; ownDescription='Cuenta retiro'; thirdDescription='Cuenta de depósito'; sourceAccountId=''; account_id_destination='';">
                 <p [ngClass]="{'active': opt === 'own'}">Mis cuentas CSN</p>
             </div>
-            <div class="col-md-3" (click)="opt='third'">
+            <div class="col-md-3" (click)="opt='third'; ownDescription='Cuenta retiro'; thirdDescription='Cuenta de depósito'; sourceAccountId=''; account_id_destination='';">
                 <p [ngClass]="{'active': opt === 'third'}">Otro socio de CSN</p>
             </div>
         </div>
@@ -46,7 +46,17 @@
                                 </li>
                             </ul>
                         </label>
-                        <label class="options" [ngClass]="{ 'selected': dropThird }" (click)="dropThird = !dropThird;">
+                        <label *ngIf="opt==='own'" class="options" [ngClass]="{ 'selected': dropThird }" (click)="dropThird = !dropThird;">
+                            <span>Cuenta de deposito</span>
+                            <p>{{thirdDescription}}</p>
+                            <i class="icon icon-triangle-down"></i>
+                            <ul class="shadow-second">
+                                <li *ngFor="let ownAccount of ownAccounts" (click)="selectThird(ownAccount._account_id, ownAccount.description);">
+                                    {{ownAccount.description}}
+                                </li>
+                            </ul>
+                        </label>
+                        <label *ngIf="opt==='third'" class="options" [ngClass]="{ 'selected': dropThird }" (click)="dropThird = !dropThird;">
                             <span>Cuenta de deposito</span>
                             <p>{{thirdDescription}}</p>
                             <i class="icon icon-triangle-down"></i>
