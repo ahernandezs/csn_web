@@ -4,11 +4,11 @@
 			<div class="col-md-3">
 				<h2>Activar cuentas</h2>
 			</div>
-			<div class="col-md-3" (click)="opt = 'UNACTIVATED'">
-				<p [ngClass]="{'active': opt === 'UNACTIVATED'}">Pendientes</p>
-			</div>
 			<div class="col-md-3" (click)="opt = 'ACTIVATED'">
 				<p [ngClass]="{'active': opt === 'ACTIVATED'}">Activas</p>
+			</div>
+			<div class="col-md-3" (click)="opt = 'UNACTIVATED'">
+				<p [ngClass]="{'active': opt === 'UNACTIVATED'}">Pendientes</p>
 			</div>
 		</div>
 	</div>
