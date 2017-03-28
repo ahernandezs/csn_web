@@ -74,7 +74,10 @@ export class ActivationStep2Component implements OnInit {
 
   validations(){
     this.activation2Form = this.fb.group({
-      password: ['',Validators.required],
+      password: ['', Validators.compose([
+        Validators.required,
+        Validators.maxLength(15)
+      ])],
       confirm_password: ['', Validators.required]
     })
   }

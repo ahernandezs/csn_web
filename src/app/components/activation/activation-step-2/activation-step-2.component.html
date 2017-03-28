@@ -5,11 +5,11 @@
         <div class="col-md-10 offset-md-1">
             <label class="">
                 <span>Contraseña</span>
-                <input type="password" placeholder="Contraseña" required [(ngModel)] = "password" formControlName="password" />
+                <input type="password" placeholder="Contraseña" required [(ngModel)] = "password" formControlName="password" [maxLength]="15"/>
             </label>
             <label>
                 <span>Contraseña</span>
-                <input type="password" placeholder="Confirmar contraseña" required [(ngModel)] = "confirm_password" formControlName="confirm_password" />
+                <input type="password" placeholder="Confirmar contraseña" required [(ngModel)] = "confirm_password" formControlName="confirm_password" [maxLength]="15"/>
             </label>
             <p>Para confirmar tu contraseña debes ingresar exactamente los mismo caracteres del campo anterior.</p>
             <h3>Asegura tu cuenta</h3>

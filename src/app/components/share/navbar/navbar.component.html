@@ -5,7 +5,7 @@
             <div class="col-md-1">
                 <img src="assets/images/logo-small.svg" class="logo">
             </div>
-            <div class="col-md-5">
+            <div class="col-md-6">
                 <i class="icon icon-menu" (click)="mainMenu = !mainMenu;"></i>
                 <ul class="main-menu" [ngClass]="{'active': mainMenu }">
                     <li routerLink="/home" routerLinkActive="active">
@@ -24,9 +24,13 @@
                         <span><i class="icon-bank icon"></i></span>
                         <p>Sucursales</p>
                     </li>
+                    <li routerLink="/contact" routerLinkActive="active">
+                        <span><i class="icon-call icon"></i></span>
+                        <p>Contacto</p>
+                    </li>
                 </ul>
             </div>
-            <div class="col-md-6 text-xs-right">
+            <div class="col-md-5 text-xs-right">
                 <div class="user-log" [ngClass]="{'active': userMenu }" (click)="userMenu = !userMenu;">
                     <p>
                         {{dataForUser.full_name}}
@@ -41,7 +45,7 @@
                     </p>
                     <div>
                         <span class="profile">
-                            <i class="icon-settings icon"></i>
+                            <i class="icon-profile icon"></i>
                         </span>
                     </div>
                     <ul class="user-menu">
@@ -51,15 +55,11 @@
                         </li>
                         <li routerLink="/administration" routerLinkActive="active">
                             <i class="icon icon-settings"></i>
-                            Administraci&oacute;n
+                            Administrar cuenta
                         </li>
                         <li routerLink="/activateAccount" routerLinkActive="active">
                             <i class="icon icon-friends"></i>
-                            Activar cuentas
-                        </li>
-                        <li routerLink="/contact" routerLinkActive="active">
-                            <i class="icon icon-call"></i>
-                            Contacto
+                            Cuentas de Terceros
                         </li>
                     </ul>
                     <button class="btn-white" (click)="logout()">Cerrar sesi&oacute;n</button>

@@ -6,10 +6,10 @@
 			<input type="password" placeholder="contraseña actual" [(ngModel)] = "old_password" formControlName="old_password">
 		</label> -->
 		<label>
-			<input type="password" placeholder="Nueva contraseña" [(ngModel)] = "new_password" formControlName="new_password">
+			<input type="password" placeholder="Nueva contraseña" [(ngModel)] = "new_password" formControlName="new_password" [maxLength]="15">
 		</label>
 		<label>
-			<input type="password" placeholder="Confirmar contraseña" [(ngModel)] = "verify_password" formControlName="verify_password">
+			<input type="password" placeholder="Confirmar contraseña" [(ngModel)] = "verify_password" formControlName="verify_password" [maxLength]="15">
 		</label>
 		<p>Para confirmar tu contraseña debes ingresar exactamente los mismos caracteres del campo anterior.</p>
 	</form>
