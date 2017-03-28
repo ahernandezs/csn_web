@@ -24,6 +24,7 @@ export class TransferComponent implements OnInit {
     password: string;
     ownDescription: string;
     thirdDescription: string;
+    authnum;
     opt;
     step;
 
@@ -87,6 +88,7 @@ export class TransferComponent implements OnInit {
             res => {
                 console.log('Todo bien');
                 this.step = 3;
+                this.authnum = res.authorization_number;
             },
             err => {
                 console.log('Todo mal');
