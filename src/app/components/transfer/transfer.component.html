@@ -2,10 +2,10 @@
 <div class="subheader">
     <div class="container">
         <div class="row">
-            <div class="col-md-3" (click)="opt='own'; ownDescription='Cuenta retiro'; thirdDescription='Cuenta de depósito'; sourceAccountId=''; account_id_destination='';">
+            <div class="col-md-3" (click)="opt='own'; ownDescription='Cuenta retiro'; thirdDescription='Cuenta de depósito'; sourceAccountId=''; account_id_destination='';step=1;concept='';amount='';password=''">
                 <p [ngClass]="{'active': opt === 'own'}">Mis cuentas CSN</p>
             </div>
-            <div class="col-md-3" (click)="opt='third'; ownDescription='Cuenta retiro'; thirdDescription='Cuenta de depósito'; sourceAccountId=''; account_id_destination='';">
+            <div class="col-md-3" (click)="opt='third'; ownDescription='Cuenta retiro'; thirdDescription='Cuenta de depósito'; sourceAccountId=''; account_id_destination='';step=1;;concept='';amount='';password=''">
                 <p [ngClass]="{'active': opt === 'third'}">Otro socio de CSN</p>
             </div>
         </div>
@@ -97,8 +97,8 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <p *ngIf="step === 2"><input type="password" placeholder="contraseña"></p>
-                        <p *ngIf="step === 3">Número de autorización: <span>#12345678</span></p>
+                        <p *ngIf="step === 2 && opt==='third'"><input type="password" placeholder="contraseña" required [(ngModel)] = "password"></p>
+                        <p *ngIf="step === 3">Número de autorización: <span>{{authnum}}</span></p>
                     </div>
                 </div>
                 <div class="row">
