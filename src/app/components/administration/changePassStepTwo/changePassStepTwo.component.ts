@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, OnInit, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../../services/login.service';
 import { UpdatePasswordRequest } from '../../../models/update-password-request';
@@ -8,7 +8,7 @@ import { UpdatePasswordRequest } from '../../../models/update-password-request';
   templateUrl: './changePassStepTwo.component.html',
   styleUrls: ['./changePassStepTwo.component.sass']
 })
-export class ChangePassStepTwoComponent {
+export class ChangePassStepTwoComponent implements OnInit {
   changePassForm : FormGroup;
 
   constructor(
@@ -19,15 +19,16 @@ export class ChangePassStepTwoComponent {
   old_password = "";
   new_password = "";
   verify_password = "";
+  dataForUser;
+  account;
 
-  /**
-   * This event element will help to change the current view in the parent element <auth.component>.
-   */
   @Output() routeView: EventEmitter<String> = new EventEmitter();
 
-  /**
-   * This event is emitted to the parent element <auth.component>.
-   */
+	ngOnInit() {
+		this.dataForUser = JSON.parse(localStorage.getItem('x-data-csn'));
+    this.account = localStorage.getItem('user_login_csn');
+	}
+
   changeView(view: String): void {
       this.routeView.emit(view);
   }
