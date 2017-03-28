@@ -1,18 +1,16 @@
-<button type="button" class="btn btn-primary" (click)="staticModal.show()">Static modal</button>
- 
-<div class="modal fade" bsModal #staticModal="bs-modal" [config]="{backdrop: 'static'}"
+ <div class="modal fade" bsModal #childModal="bs-modal" [config]="{backdrop: 'static'}"
      tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-md">
     <div class="modal-content">
       <div class="modal-header">
-        <i class="icon icon-close" (click)="staticModal.hide()"></i>
+        <i class="icon icon-close" (click)="childModal.hide()"></i>
         <h5 class="modal-title pull-left">Cerrar sesi&oacute;n</h5>
       </div>
       <div class="modal-body">
         <p>¿Deseas terminar tu sesi&oacute;n?</p>
         <div class="row">
           <div class="col-md-4 offset-md-2">
-            <button class="btn-confirm btn-block" (click)="staticModal.hide()">Cancelar</button>
+            <button class="btn-confirm btn-block" (click)="childModal.hide()">Cancelar</button>
           </div>
           <div class="col-md-4">
             <button class="btn-green btn-block">Cerrar sesi&oacute;n</button>
