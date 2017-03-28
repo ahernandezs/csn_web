@@ -20,10 +20,10 @@ export class BlockTwoComponent {
   new_password = "";
   verify_password = "";
 
-  @Output() routeView: EventEmitter<String> = new EventEmitter();
+  @Output() routeView2: EventEmitter<String> = new EventEmitter();
 
   changeView(view: String): void {
-      this.routeView.emit(view);
+      this.routeView2.emit(view);
   }
 
   changePassword(){
