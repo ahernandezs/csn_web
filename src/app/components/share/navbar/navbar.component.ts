@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, NgModule, ViewContainerRef } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
 import { LoginService } from '../../../services/login.service';
 import { Router } from '@angular/router';
+import { ModalDirective, ModalModule } from 'ng2-bootstrap/modal';
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-navbar',
@@ -17,6 +21,7 @@ export class NavbarComponent implements OnInit {
 	constructor(
 	    private router: Router,
 		private loginService: LoginService,
+		private viewContainerRef: ViewContainerRef
 	) { }
 
 	ngOnInit() {
@@ -24,7 +29,10 @@ export class NavbarComponent implements OnInit {
 		this.lastAccessBy = this.dataForUser.last_client_application_id.includes('WEB') ? 'Web' : 'Móvil';
 	}
 
+	@ViewChild('childModal') public childModal: ModalComponent;
+
 	logout(){
+		//this.childModal.show();
 		let resp = window.confirm("¿Deseas terminar tu sesión?");
 		if(resp === true){
 			this.loginService.logout().subscribe(
