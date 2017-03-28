@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../../services/login.service';
 import { environment } from '../../../../environments/environment';
 import { DOT } from '../../../utils/dot';
@@ -15,11 +16,13 @@ import { RegisterRequest } from '../../../models/register-request';
 })
 export class ReactivationStep2Component implements OnInit {
 
+  reactivation2Form: FormGroup;
   constructor(
     private loginService: LoginService,
     private router: Router,
-    private dot: DOT
-  ) { }
+    private dot: DOT,
+    private fb: FormBuilder
+  ) {this.validations(); }
 
   ngOnInit() {
       this.preregisterResponse = this.dot.data[0];
@@ -67,6 +70,16 @@ export class ReactivationStep2Component implements OnInit {
 
   selectImage(imageId: string){
     this.imageId = imageId;
+  }
+
+  validations(){
+    this.reactivation2Form = this.fb.group({
+      password: ['', Validators.compose([
+        Validators.required,
+        Validators.maxLength(15)
+      ])],
+      confirm_password: ['', Validators.required]
+    })
   }
 
 }

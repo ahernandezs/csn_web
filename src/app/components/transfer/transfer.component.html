@@ -42,7 +42,7 @@
                             <i class="icon icon-triangle-down"></i>
                             <ul class="shadow-second">
                                 <li *ngFor="let ownAccount of ownAccounts" (click)="selectOwn(ownAccount._account_id, ownAccount.description);">
-                                    {{ownAccount.description}}
+                                    {{ownAccount.description}}&nbsp;&nbsp;{{ownAccount._account_id | shortaccount}}&nbsp;&nbsp;${{ownAccount.available_balance}}
                                 </li>
                             </ul>
                         </label>
@@ -62,7 +62,7 @@
                             <i class="icon icon-triangle-down"></i>
                             <ul class="shadow-second">
                                 <li *ngFor="let thirdAccount of thirdAccounts" (click)="selectThird(thirdAccount._account_id, thirdAccount.alias);">
-                                    {{thirdAccount.alias}}
+                                    {{thirdAccount.alias}}&nbsp;&nbsp;***{{thirdAccount._account_id}}
                                 </li>
                             </ul>
                         </label>
@@ -81,11 +81,11 @@
                             <tbody>
                                 <tr>
                                     <td>Cuenta de retiro:</td>
-                                    <td>{{sourceAccountId}}</td>
+                                    <td>{{ownDescription}}&nbsp;&nbsp;{{sourceAccountId | shortaccount}}</td>
                                 </tr>
                                 <tr>
                                     <td>Cuenta de dep&oacute;sito:</td>
-                                    <td>{{account_id_destination}}</td>
+                                    <td>{{thirdDescription}}&nbsp;&nbsp;***{{account_id_destination}}</td>
                                 </tr>
                                 <tr>
                                     <td>Importe:</td>
