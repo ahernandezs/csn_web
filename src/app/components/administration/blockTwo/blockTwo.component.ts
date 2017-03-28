@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../../services/login.service';
 import { UpdatePasswordRequest } from '../../../models/update-password-request';
@@ -9,7 +9,7 @@ import { BlockUserRequest } from '../../../models/block-user-request';
   templateUrl: './blockTwo.component.html',
   styleUrls: ['./blockTwo.component.sass']
 })
-export class BlockTwoComponent {
+export class BlockTwoComponent implements OnInit {
   block2Form : FormGroup;
   constructor(
     private loginService: LoginService,
@@ -19,8 +19,15 @@ export class BlockTwoComponent {
   old_password = "";
   new_password = "";
   verify_password = "";
+  dataForUser;
+  account;
 
   @Output() routeView2: EventEmitter<String> = new EventEmitter();
+
+	ngOnInit() {
+		this.dataForUser = JSON.parse(localStorage.getItem('x-data-csn'));
+    this.account = localStorage.getItem('user_login_csn');
+	}
 
   changeView(view: String): void {
       this.routeView2.emit(view);
