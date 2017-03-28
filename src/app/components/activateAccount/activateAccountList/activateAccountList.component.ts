@@ -17,7 +17,7 @@ export class ActivateAccountListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.opt = "UNACTIVATED";
+    this.opt = "ACTIVATED";
     this.thirdAccountService.getThirdAccounts().subscribe(
         response => {
             this.thirdAccounts = response;
@@ -31,7 +31,9 @@ export class ActivateAccountListComponent implements OnInit {
   @Output() routeView: EventEmitter<ThirdAccount> = new EventEmitter();
 
   activateAccount(account: ThirdAccount): void {
-      this.routeView.emit(account);
+      if(account.status === 'UNACTIVATED'){
+        this.routeView.emit(account);
+      }
   }
 
 }
