@@ -51,8 +51,9 @@ export class Utils {
 	public startTimer(){
 		this.stopTimer();
 		this.subscription = this.timer.subscribe(t => {
-			this.timeout = Math.floor((120-t) / 60) + ':' + ((((120-t)%60) > 9) ? ((120-t)%60) : '0'+((120-t)%60));
-			this.broadcaster.broadcast('timeout',this.timeout);
+			if(t === 1){
+				this.broadcaster.broadcast('timeout','Tu sesión se cerrará en por inactividad');
+			}
 			if(t === 120){
 				if(localStorage.getItem('x-auth-token') !== null){
 					this.http.get(environment.baseURL + 'logout', this.getHeader()).subscribe();

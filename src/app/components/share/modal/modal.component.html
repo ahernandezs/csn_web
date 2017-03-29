@@ -2,14 +2,14 @@
   <div class="modal-dialog modal-md" [ngClass]="{'modal-loader': type==='loader'}">
     <div class="modal-content">
       <div class="modal-header">
-        <i class="icon icon-close" (click)="childModal.hide()"></i>
+        <i class="icon icon-close" (click)="childModal.hide();ocultar();"></i>
         <h5 class="modal-title pull-left">{{title}}</h5>
       </div>
       <div class="modal-body">
         <p>{{message}}</p>
         <div class="row">
           <div class="col-md-4 offset-md-2">
-            <button class="btn-confirm btn-block" (click)="childModal.hide()">Cancelar</button>
+            <button class="btn-confirm btn-block" (click)="childModal.hide();ocultar();">Cancelar</button>
           </div>
           <div class="col-md-4">
             <button class="btn-green btn-block" (click)="logout();">Cerrar sesi&oacute;n</button>

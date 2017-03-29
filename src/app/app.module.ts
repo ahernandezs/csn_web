@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { AgmCoreModule } from 'angular2-google-maps/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -110,7 +111,10 @@ import { HttpClient } from './services/http.service';
     HttpModule,
     AppRoutingModule,
     TabsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAMjg5ItWNxU2f-uw6tOz3lFBe_tXcUwlM'
+    })
   ],
   providers: [
     LoginService,

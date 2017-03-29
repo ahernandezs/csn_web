@@ -8,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class MapComponent implements OnInit {
 
   signed: boolean;
+  lat: number = 19.432608;
+  lng: number = -99.133209;
+
 	ngOnInit() {
     this.signed = localStorage.getItem('x-data-csn') === null ? false : true;
 	}
