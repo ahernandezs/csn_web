@@ -65,5 +65,14 @@ export class ReactivationStep1Component {
         Validators.minLength(5)
       ])]
     })
-  }    
+  }
+
+  numbers(event) {
+    var numbers = "0123456789";
+    var event = event || window.event;
+    var codigoCaracter = event.charCode || event.keyCode;
+    var caracter = String.fromCharCode(codigoCaracter);
+
+    return numbers.indexOf(caracter) != -1;
+  }
 }

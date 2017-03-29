@@ -3,12 +3,12 @@
 	<form [formGroup]="reactivation1Form" class="col-md-10 offset-md-1">
 		<label class="">
 			<span>Código de reactivación</span>
-			<input type="password" placeholder="Código de reactivación" value="" id="activationPassword" name="activation_code" [(ngModel)] = "preregisterRequest.activation_code" formControlName="activation_code" autocomplete="off" [maxLength]="6" />
+			<input type="password" placeholder="Código de reactivación" value="" id="activationPassword" name="activation_code" [(ngModel)] = "preregisterRequest.activation_code" formControlName="activation_code" autocomplete="off" (keypress)="numbers($event)" [maxLength]="6" />
 			<i class="icon icon-eye" (click)="showPass('activationPassword');"></i>
 		</label>
 		<label class="">
 			<span>Número de socio</span>
-			<input type="password" placeholder="Número de socio" value="" id="partnerNumber" name="user_login" [(ngModel)] = "preregisterRequest.user_login" formControlName="user_login" autocomplete="off" [maxLength]="32"/>
+			<input type="password" placeholder="Número de socio" value="" id="partnerNumber" name="user_login" [(ngModel)] = "preregisterRequest.user_login" formControlName="user_login" autocomplete="off" (keypress)="numbers($event)" [maxLength]="32"/>
 			<i class="icon icon-eye" (click)="showPass('partnerNumber');"></i>
 		</label>
 	</form>
