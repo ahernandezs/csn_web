@@ -31,7 +31,7 @@
                 </ul>
             </div>
             <div class="col-md-5 text-xs-right">
-                <div class="user-log" [ngClass]="{'active': userMenu }" (click)="userMenu = !userMenu;">
+                <div class="user-log" [ngClass]="{'active': userMenu }">
                     <p>
                         {{dataForUser.full_name}}
                         <span>
@@ -43,16 +43,12 @@
                             | date:'shortTime' }} por {{lastAccessBy}}
                         </span>
                     </p>
-                    <div>
+                    <div (click)="userMenu = !userMenu;">
                         <span class="profile">
                             <i class="icon-profile icon"></i>
                         </span>
                     </div>
                     <ul class="user-menu">
-                        <li class="user">
-                            {{dataForUser.full_name}}
-                        <span>Último acceso: {{dataForUser.last_access_date }} | {{dataForUser.last_access_date | date:'shortTime' }} por {{dataForUser.last_client_application_id}}</span>
-                        </li>
                         <li routerLink="/administration" routerLinkActive="active">
                             <i class="icon icon-settings"></i>
                             Administrar cuenta

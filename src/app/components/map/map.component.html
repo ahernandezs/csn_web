@@ -1,6 +1,8 @@
 <app-navbar *ngIf="signed"></app-navbar>
 <app-navbar-simple *ngIf="!signed" [title]="'Mapa'"></app-navbar-simple>
 <app-search-map></app-search-map>
-	<div class="map"></div>
+	<sebm-google-map [latitude]="lat" [longitude]="lng">
+		<sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+	</sebm-google-map>
 <app-map-contact></app-map-contact>
 <app-footer></app-footer>

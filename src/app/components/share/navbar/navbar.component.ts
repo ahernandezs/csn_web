@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild, NgModule, ViewContainerRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { ModalDirective, ModalModule } from 'ng2-bootstrap/modal';
-import { ModalComponent } from '../modal/modal.component';
+import { Broadcaster } from '../../../utils/broadcaster';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +15,7 @@ export class NavbarComponent implements OnInit {
 	lastAccessBy;
 
 	constructor(
-		private viewContainerRef: ViewContainerRef
+		private broadcaster: Broadcaster
 	) { }
 
 	ngOnInit() {
@@ -25,12 +23,8 @@ export class NavbarComponent implements OnInit {
 		this.lastAccessBy = this.dataForUser.last_client_application_id.includes('WEB') ? 'Web' : 'Móvil';
 	}
 
-	@ViewChild('childModal') public childModal: ModalComponent;
-
 	logout(){
-		this.childModal.title = "Cerrar sesión"
-		this.childModal.message = "¿Deseas terminar tu sesión?"
-		this.childModal.show();
+		this.broadcaster.broadcast('message','¿Deseas terminar tu sesión?');
 	}
 
 }
