@@ -48,7 +48,6 @@ export class LoginService {
 
 	logout(): Observable<any>{
 		return this.http.get(environment.baseURL + 'logout', true)
-			.map(this.utils.extractData)
 			.catch(this.utils.handleError);
 	}
 

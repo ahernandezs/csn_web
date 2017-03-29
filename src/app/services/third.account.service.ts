@@ -7,7 +7,6 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 import { Utils } from '../utils/utils';
-import { Broadcaster } from '../utils/broadcaster';
 
 import { ActivateThirdAccountRequest } from '../models/activate-third-account-request';
 import { ActivateThirdAccountResponse } from '../models/activate-third-account-response';
@@ -21,8 +20,7 @@ export class ThirdAccountService {
 
 	constructor(
 		private http: HttpClient,
-		private utils: Utils,
-		private broadcaster: Broadcaster
+		private utils: Utils
 	) {
 		this.options = this.utils.getHeader();
 	}
@@ -35,12 +33,7 @@ export class ThirdAccountService {
 
 	getThirdAccounts(): Observable<Array<ThirdAccount>>{
 		return this.http.get(environment.baseURL + 'externalaccounts', true)
-			.map(res =>
-				{
-					res.json().third_accounts;
-					if(typeof(this.broadcaster) != 'undefined')
-						this.broadcaster.broadcast('clear');
-				})
+			.map(res => res.json().third_accounts)
 			.catch(this.utils.handleError);
 	}
 

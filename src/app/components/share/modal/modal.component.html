@@ -3,10 +3,10 @@
     <div class="modal-content">
       <div class="modal-header">
         <i class="icon icon-close" (click)="childModal.hide()"></i>
-        <h5 class="modal-title pull-left">Cerrar sesi&oacute;n</h5>
+        <h5 class="modal-title pull-left">{{title}}</h5>
       </div>
       <div class="modal-body">
-        <p>¿Deseas terminar tu sesi&oacute;n?</p>
+        <p>{{message}}</p>
         <div class="row">
           <div class="col-md-4 offset-md-2">
             <button class="btn-confirm btn-block" (click)="childModal.hide()">Cancelar</button>

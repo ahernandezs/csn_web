@@ -22,18 +22,12 @@ export class Utils {
 	}
 
 	public extractDataAndToken(res: Response){
-		if(typeof(this.broadcaster) != 'undefined')
-			this.broadcaster.broadcast('clear');
-		console.log('aquí se supone que se cierra el loader data y toquen');
 		let body = res.json();
 	    localStorage.setItem('x-auth-token', res.headers.get("X-AUTH-TOKEN"));
 		return body;
 	}
 
 	public extractData(res: Response){
-		if(typeof(this.broadcaster) != 'undefined')
-			this.broadcaster.broadcast('clear');
-		console.log('aquí se supone que se cierra el loader data');
 		return res.json();
 	}
 
@@ -41,9 +35,6 @@ export class Utils {
 		let errMsg: String;
 		console.log('Status del error: '+ error.status);
 		console.log('Error en utils.ts: '+ JSON.stringify(error));
-		console.log('aquí se supone que se cierra el loader error');
-		if(typeof(this.broadcaster) != 'undefined')
-			this.broadcaster.broadcast('clear');
 		return Promise.reject("Error");
 	}
 

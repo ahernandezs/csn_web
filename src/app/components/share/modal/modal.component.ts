@@ -53,12 +53,13 @@ export class ModalComponent implements OnInit {
       this.broadcaster.on<string>('timeout')
         .subscribe(message => {
           this.type = 'timeout'
-          this.message = message;
+          this.title = 'Cierre de sesión';
+          this.message = 'Tu sesión se cerrará en '+message+' por inactividad.';
           this.show();
       });
       this.broadcaster.on<string>('message')
         .subscribe(message => {
-          this.type = 'message'
+          this.type = 'Aviso'
           this.message = message;
           this.show();
       });
