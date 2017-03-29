@@ -28,6 +28,8 @@ export class NavbarComponent implements OnInit {
 	@ViewChild('childModal') public childModal: ModalComponent;
 
 	logout(){
+		this.childModal.title = "Cerrar sesión"
+		this.childModal.message = "¿Deseas terminar tu sesión?"
 		this.childModal.show();
 	}
 
