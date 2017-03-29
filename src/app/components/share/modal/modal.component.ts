@@ -1,7 +1,8 @@
-import {Component,Input, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalDirective } from 'ng2-bootstrap';
 import { LoginService } from '../../../services/login.service';
 import { Router } from '@angular/router';
+import { Broadcaster } from '../../../utils/broadcaster';
 
 @Component({
   selector: 'app-modal',
@@ -9,12 +10,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./modal.component.sass']
 })
 
-export class ModalComponent {
+export class ModalComponent implements OnInit {
   @ViewChild('childModal') public childModal:ModalDirective;
-  @Input() title:string;
+  type;
+  message;
+  title;
+
   constructor(
-    private router: Router,
-    private loginService: LoginService){ }
+      private router: Router,
+      private loginService: LoginService,
+      private broadcaster: Broadcaster
+    ){ }
+
+    ngOnInit(){
+      this.registerStringBroadcast();
+    }
 
     show(){
       this.childModal.show();
@@ -37,6 +47,32 @@ export class ModalComponent {
             this.router.navigate(['/login']);
           }
         );
+    }
+
+    registerStringBroadcast() {
+      this.broadcaster.on<string>('timeout')
+        .subscribe(message => {
+          this.type = 'timeout'
+          this.message = message;
+          this.show();
+      });
+      this.broadcaster.on<string>('message')
+        .subscribe(message => {
+          this.type = 'message'
+          this.message = message;
+          this.show();
+      });
+      this.broadcaster.on<string>('loader')
+        .subscribe( () => {
+          console.log('loader');
+          this.type = 'loader';
+          this.show();
+      });
+      this.broadcaster.on<string>('clear')
+        .subscribe(message => {
+          console.log('limpiando');
+          this.hide();
+      });
     }
 
 }

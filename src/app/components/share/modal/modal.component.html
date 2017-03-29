@@ -1,6 +1,5 @@
- <div class="modal fade" bsModal #childModal="bs-modal" [config]="{backdrop: 'static'}"
-     tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-md">
+ <div class="modal fade" bsModal #childModal="bs-modal" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md" [ngClass]="{'modal-loader': type==='loader'}">
     <div class="modal-content">
       <div class="modal-header">
         <i class="icon icon-close" (click)="childModal.hide()"></i>

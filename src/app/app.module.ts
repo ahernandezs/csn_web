@@ -13,7 +13,8 @@ import { ModalModule } from 'ng2-bootstrap';
 import { Utils } from './utils/utils';
 import { DOT } from './utils/dot';
 import { AuthGuard } from './utils/auth.guards';
-import { ShortAccount, Translate, Search} from './utils/pipes';
+import { ShortAccount, Translate, Search } from './utils/pipes';
+import { Broadcaster } from './utils/broadcaster';
 
 import { LoginComponent } from './components/login/index';
 import { ActivationComponent } from './components/activation/index';
@@ -121,7 +122,8 @@ import { HttpClient } from './services/http.service';
     HttpClient,
     Utils,
     DOT,
-    AuthGuard
+    AuthGuard,
+    Broadcaster
   ],
   bootstrap: [AppComponent]
 })

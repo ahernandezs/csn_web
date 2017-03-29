@@ -7,6 +7,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
 import { Utils } from '../utils/utils';
+import { Broadcaster } from '../utils/broadcaster';
 
 import { Promotion } from '../models/promotion';
 
@@ -17,14 +18,19 @@ export class PromotionService {
 
 	constructor(
 		private http: HttpClient,
-		private utils: Utils
+		private utils: Utils,
+		private broadcaster: Broadcaster
 	) {
 		this.options = this.utils.getHeader();
 	}
 
 	getPromotions(): Observable<Array<Promotion>>{
 		return this.http.get(environment.baseURL + 'promotions', true)
-			.map(res => res.json().promotions)
+			.map(res => {
+				res.json().promotions;
+				if(typeof(this.broadcaster) != 'undefined')
+					this.broadcaster.broadcast('clear');	
+			})
 			.catch(this.utils.handleError);
 	}
 
