@@ -66,4 +66,13 @@ export class ActivationStep1Component {
       ])]
     })
   }
+
+  numbers(event) {
+    var numbers = "0123456789";
+    var event = event || window.event;
+    var codigoCaracter = event.charCode || event.keyCode;
+    var caracter = String.fromCharCode(codigoCaracter);
+
+    return numbers.indexOf(caracter) != -1;
+  }
 }
