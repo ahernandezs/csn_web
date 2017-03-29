@@ -42,14 +42,32 @@ export class AccessComponent implements OnInit {
       }
     );
   }
+  
   validations(){
     this.loginForm = this.fb.group({
       user_login: ['',Validators.compose([
         Validators.required,
         Validators.pattern(/^\d+$/),
-        Validators.minLength(5),
-        Validators.maxLength(32)
+        Validators.minLength(5)
       ])]
     })
+  }
+
+  numbers(event) {
+    var numbers = "0123456789";
+    var event = event || window.event;
+    var codigoCaracter = event.charCode || event.keyCode;
+    var caracter = String.fromCharCode(codigoCaracter);
+
+    return numbers.indexOf(caracter) != -1;
+  }
+
+  zeros(text, longitud){
+    var top = 32 - longitud;
+    var zero="";
+    for ( var i=0; i<top; i++){
+      zero= zero + '0';
+    }
+    this.checkLoginRequest.user_login = zero + text;
   }
 }
