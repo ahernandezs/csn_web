@@ -5,7 +5,10 @@
         <div class="col-md-10 offset-md-1">
            <label class="input-with-icon">
             <i class="icon icon-user"></i>
-            <input class="user" type="text" placeholder="Número de Socio" id="user_login" name="user_login"  [(ngModel)]= "checkLoginRequest.user_login" formControlName="user_login" autocomplete="off" />
+            <input class="user" type="text" placeholder="Número de Socio" id="user_login" name="user_login"
+            [(ngModel)]= "checkLoginRequest.user_login" formControlName="user_login"
+            autocomplete="off" (keypress)="numbers($event)"
+            (blur)="zeros(checkLoginRequest.user_login,checkLoginRequest.user_login.length)" [maxLength]="32" />
            </label>
            <button (click)="changeView('confirmation')" routerLinkActive="active"  [disabled]="!loginForm.valid" class="btn-confirm btn-block">
                 Continuar
