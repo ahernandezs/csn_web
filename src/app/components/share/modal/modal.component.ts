@@ -42,11 +42,9 @@ export class ModalComponent implements OnInit {
 
     ocultar(){
       let x = document.getElementsByClassName("modal-backdrop");
-      console.log('elementos: '+x);
       for(let i = 0 ; i<x.length; i++){
         let y = <HTMLElement>x[i]
-        y.style.display = "none";
-        console.log('poniendo el display none');
+       y.parentNode.removeChild(y);
       }
     }
 

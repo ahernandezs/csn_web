@@ -62,7 +62,40 @@ export class Search implements PipeTransform {
   transform(data: any[], searchTerm: string): any[] {
       searchTerm = searchTerm.toUpperCase();
       return data.filter(item => {
+        console.log(JSON.stringify(item));
         return item.description.toUpperCase().indexOf(searchTerm) !== -1 
+      });
+  }
+}
+
+@Pipe({name: 'atm', pure: false})
+@Injectable()
+export class ATM implements PipeTransform {
+  transform(data: any[], searchTerm: string): any[] {
+      return data.filter(item => {
+        return item.description.type === searchTerm
+      });
+  }
+}
+
+@Pipe({name: 'searchATM', pure: false})
+@Injectable()
+export class SearchATM implements PipeTransform {
+  transform(data: any[], searchTerm: string): any[] {
+      searchTerm = searchTerm.toUpperCase();
+      return data.filter(item => {
+        let value = false;
+        if(item.description.address.street.toUpperCase().indexOf(searchTerm) !== -1)
+          value = true;
+        if(item.description.address.colony.toUpperCase().indexOf(searchTerm) !== -1)
+          value = true;
+        if(item.description.address.zipCode.toUpperCase().indexOf(searchTerm) !== -1)
+          value = true;
+        if(item.description.address.delegation.toUpperCase().indexOf(searchTerm) !== -1)
+          value = true;
+        if(item.description.address.city.toUpperCase().indexOf(searchTerm) !== -1)
+          value = true;
+        return value;
       });
   }
 }
