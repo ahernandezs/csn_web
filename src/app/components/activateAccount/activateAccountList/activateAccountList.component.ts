@@ -31,7 +31,7 @@ export class ActivateAccountListComponent implements OnInit {
   @Output() routeView: EventEmitter<ThirdAccount> = new EventEmitter();
 
   activateAccount(account: ThirdAccount): void {
-      if(account.status === 'UNACTIVATED'){
+      if(account.status === 'DEACTIVATED'){
         this.routeView.emit(account);
       }
   }
