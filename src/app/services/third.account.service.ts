@@ -16,14 +16,11 @@ import { ThirdAccount } from '../models/third-account';
 export class ThirdAccountService {
 
 	private headers;
-	private options;
 
 	constructor(
 		private http: HttpClient,
 		private utils: Utils
-	) {
-		this.options = this.utils.getHeader();
-	}
+	) {	}
 
 	activateThirdAccount(activateThirdAccountRequest: ActivateThirdAccountRequest): Observable<ActivateThirdAccountResponse>{
 		return this.http.post(environment.baseURL + '/externalaccounts/activate', activateThirdAccountRequest, true)

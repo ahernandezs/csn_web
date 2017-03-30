@@ -14,14 +14,10 @@ import { Movements } from '../models/movements';
 @Injectable()
 export class AccountService {
 
-	private options;
-
 	constructor(
 		private http: HttpClient,
 		private utils: Utils
-	) {
-		this.options = this.utils.getHeader();
-	}
+	) {	}
 
 	getAccounts(): Observable<Array<Accounts>>{
 		return this.http.get(environment.baseURL + 'accounts', true)
