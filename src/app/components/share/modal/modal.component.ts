@@ -44,7 +44,8 @@ export class ModalComponent implements OnInit {
       let x = document.getElementsByClassName("modal-backdrop");
       for(let i = 0 ; i<x.length; i++){
         let y = <HTMLElement>x[i]
-       y.parentNode.removeChild(y);
+        y.style.display = "none";
+        y.parentNode.removeChild(y);
       }
     }
 
