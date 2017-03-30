@@ -11,13 +11,20 @@ import { Utils } from '../utils/utils';
 @Injectable()
 export class MapService {
 
-	private options;
-
 	constructor(
 		private http: HttpClient,
 		private utils: Utils
-	) {
-		this.options = this.utils.getHeader();
+	) { }
+
+	getGeoLocation(lng?, lat?, rad?): Observable<any>{
+		var url= '/bankInformation/geolocation'
+		if(typeof lng !== 'undefined' && typeof lat !== 'undefined')
+			url += '?lng='+lng+'&lat='+lat;
+		if(typeof lng !== 'undefined' && typeof lat !== 'undefined' && typeof rad !== 'undefined')
+			url += '?lng='+lng+'&lat='+lat+"&distance="+rad;
+		return this.http.get(environment.baseURL+url, false)
+			.map(res => res.json().geolocations)
+			.catch(this.utils.handleError);
 	}
 
 }

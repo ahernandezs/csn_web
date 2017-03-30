@@ -15,14 +15,11 @@ import { Utils } from '../utils/utils';
 export class TransferService {
 
 	private headers;
-	private options;
 
 	constructor(
 		private http: HttpClient,
 		private utils: Utils
-	) {
-		this.options = this.utils.getHeader();
-	}
+	) {	}
 
 
 	transfer(sourceAccountId: string, transferRequest: TransferRequest): Observable<TransferResponse>{

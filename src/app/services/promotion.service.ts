@@ -13,14 +13,10 @@ import { Promotion } from '../models/promotion';
 @Injectable()
 export class PromotionService {
 
-	private options;
-
 	constructor(
 		private http: HttpClient,
 		private utils: Utils
-	) {
-		this.options = this.utils.getHeader();
-	}
+	) { }
 
 	getPromotions(): Observable<Array<Promotion>>{
 		return this.http.get(environment.baseURL + 'promotions', true)

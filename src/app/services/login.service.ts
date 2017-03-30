@@ -26,9 +26,6 @@ import { BlockUserResponse } from '../models/block-user-response';
 @Injectable()
 export class LoginService {
 
-	private optionsWithOutToken;
-	private options;
-
 	constructor(
 		private http: HttpClient,
 		private utils: Utils
