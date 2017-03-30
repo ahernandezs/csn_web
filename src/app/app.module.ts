@@ -14,7 +14,7 @@ import { ModalModule } from 'ng2-bootstrap';
 import { Utils } from './utils/utils';
 import { DOT } from './utils/dot';
 import { AuthGuard } from './utils/auth.guards';
-import { ShortAccount, Translate, Search } from './utils/pipes';
+import { ShortAccount, Translate, Search, SearchATM, ATM } from './utils/pipes';
 import { Broadcaster } from './utils/broadcaster';
 
 import { LoginComponent } from './components/login/index';
@@ -37,7 +37,6 @@ import { MovementsComponent } from './components/movements/index';
 import { MovementsTableComponent } from './components/movements/movements-table/index';
 import { MapComponent } from './components/map/index';
 import { MapContactComponent } from './components/map/map-contact/index';
-import { SearchMapComponent } from './components/map/search-map/index';
 import { ContactComponent } from './components/contact/index';
 import { ActivateAccountComponent } from './components/activateAccount/index';
 import { ActivateAccountListComponent } from './components/activateAccount/activateAccountList/index';
@@ -85,7 +84,6 @@ import { HttpClient } from './services/http.service';
     MovementsTableComponent,
     MapComponent,
     MapContactComponent,
-    SearchMapComponent,
     ContactComponent,
     ActivateAccountComponent,
     ActivateAccountListComponent,
@@ -102,7 +100,9 @@ import { HttpClient } from './services/http.service';
     OnlyNumbers,
     ShortAccount,
     Translate,
-    Search
+    Search,
+    SearchATM,
+    ATM
   ],
   imports: [
     BrowserModule,

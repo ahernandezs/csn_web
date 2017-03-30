@@ -1,8 +1,51 @@
 <app-navbar *ngIf="signed"></app-navbar>
 <app-navbar-simple *ngIf="!signed" [title]="'Mapa'"></app-navbar-simple>
-<app-search-map></app-search-map>
-	<sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="11">
-		<!--sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker-->
+	<div class="subheader">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2" (click)="opt = '1'">
+					<p [ngClass]="{'active': opt == '1'}">ATM's</p>
+				</div>
+				<div class="col-md-2" (click)="opt = '2'">
+					<p [ngClass]="{'active': opt == '2'}">Sucursales</p>
+				</div>
+				<div class="col-md-5">
+					<label>
+						<i class="icon icon-zoom"></i>
+						<input type="text" [(ngModel)]="busqueda" placeholder="Por direcci&oacute;n">
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<sebm-google-map
+		[latitude]="lat"
+		[longitude]="lng"
+		[zoom]="11">
+			<sebm-google-map-marker *ngFor="let branch of branches | atm: opt | searchATM: busqueda"
+				[latitude]="branch.coordinates.lat"
+				[longitude]="branch.coordinates.lng"
+				[iconUrl]="branch.description.type === '1' ? 'assets/images/marker-atm.svg' : 'assets/images/marker-bank.svg'">
+				<sebm-google-map-info-window [disableAutoPan]="true">
+					<strong>{{branch.name}}</strong><br>
+					{{branch.description.address.street}}, {{branch.description.address.colony}}<br>
+					C.P. {{branch.description.address.zipCode}}, {{branch.description.address.delegation}}. {{branch.description.address.city}}<br><br>
+					<span *ngIf="opt==='2'">
+						<strong>Teléfonos</strong><br>
+						{{branch.description.address.phone_1}}<br>
+						{{branch.description.address.phone_2}}<br><br>
+					</span>
+					<strong>Horarios</strong><br>
+					<span *ngIf="opt==='1'">
+						{{branch.description.openingHours.SEM}}
+					</span>
+					<span *ngIf="opt==='2'">
+						{{branch.description.openingHours.SEM}}<br>
+						{{branch.description.openingHours.SEM}}<br>
+						{{branch.description.openingHours.DOM}}
+					</span>
+				</sebm-google-map-info-window>
+			</sebm-google-map-marker>
 	</sebm-google-map>
 <app-map-contact></app-map-contact>
 <app-footer></app-footer>

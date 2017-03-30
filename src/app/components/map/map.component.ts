@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MapService } from '../../services/map.service';
 import { Geolocation } from '../../models/geolocation';
+import { Description } from '../../models/description';
+import { Coordinates } from '../../models/coordinates';
+import { OpeningHours } from '../../models/openingHours';
+import { Address } from '../../models/address';
 
 @Component({
   selector: 'app-map',
@@ -10,9 +14,11 @@ import { Geolocation } from '../../models/geolocation';
 export class MapComponent implements OnInit {
 
   signed: boolean;
-  lat: number = 19.432608;
-  lng: number = -99.133209;
-  branches: Array<Geolocation>;
+  lat: number = 25.666667;
+  lng: number = -100.316667;
+  branches: Array<Geolocation> = new Array<Geolocation>();
+  opt = '1';
+  busqueda = '';
 
   constructor(
     private mapService: MapService
@@ -30,12 +36,8 @@ export class MapComponent implements OnInit {
 		}
 
     this.mapService.getGeoLocation().subscribe(
-      response => {
-        this.branches = response;
-        for(let i = 0; i < this.branches.length; i++){
-          console.log("sucursal "+i+": "+JSON.stringify(this.branches[i]));
-        }
-      },
+      response =>
+        this.branches = response,
       err => {
         console.log(err);
       }
