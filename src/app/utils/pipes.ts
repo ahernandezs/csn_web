@@ -62,7 +62,6 @@ export class Search implements PipeTransform {
   transform(data: any[], searchTerm: string): any[] {
       searchTerm = searchTerm.toUpperCase();
       return data.filter(item => {
-        console.log(JSON.stringify(item));
         return item.description.toUpperCase().indexOf(searchTerm) !== -1 
       });
   }
