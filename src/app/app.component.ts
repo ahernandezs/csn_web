@@ -28,7 +28,12 @@ export class AppComponent {
         );
       }
     };
-
+    if(navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function(position){
+        localStorage.setItem('lat',position.coords.latitude+"");
+        localStorage.setItem('lng',position.coords.longitude+"");
+      });
+		}
   }
 
 }

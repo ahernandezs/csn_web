@@ -40,15 +40,6 @@ export class ModalComponent implements OnInit {
       this.childModal.hide();
     }
 
-    ocultar(){
-      let x = document.getElementsByClassName("modal-backdrop");
-      for(let i = 0 ; i<x.length; i++){
-        let y = <HTMLElement>x[i]
-        y.style.display = "none";
-        y.parentNode.removeChild(y);
-      }
-    }
-
     logout(){
         this.loginService.logout().subscribe(
           res => {
@@ -56,12 +47,10 @@ export class ModalComponent implements OnInit {
             localStorage.removeItem('x-auth-token');
             localStorage.removeItem('client_application_id');
             localStorage.removeItem('user_login_csn');
-            this.ocultar();
             this.router.navigate(['/login']);
           },
           err => {
             window.alert('error al cerrar sesión');
-            this.ocultar();
             this.router.navigate(['/login']);
           }
         );
@@ -70,30 +59,43 @@ export class ModalComponent implements OnInit {
     registerStringBroadcast() {
       this.broadcaster.on<string>('timeout')
         .subscribe(message => {
-            this.type = 'timeout'
-            this.title = 'Cierre de sesión';
-		        if(this.subscription != null ){
-			        this.subscription.unsubscribe();
-		        }
-            this.subscription = this.timer.subscribe(t => {
-              this.timeout = Math.floor((120-t) / 60) + ':' + ((((120-t)%60) > 9) ? ((120-t)%60) : '0'+((120-t)%60));
-              if(this.type === 'timeout'){
-                this.message = 'Tu sesión se cerrará por inactividad en '+this.timeout+'. Realiza una consulta u operación.';
+              let seconds: number = 120 - Number(message);
+              this.type = 'timeout'
+              this.title = 'Cierre de sesión';
+              if(this.subscription != null ){
+                this.subscription.unsubscribe();
               }
-            });
-            this.show();
+              this.subscription = this.timer.subscribe(t => {
+                this.timeout = Math.floor((seconds-t) / 60) + ':' + ((((seconds-t)%60) > 9) ? ((seconds-t)%60) : '0'+((seconds-t)%60));
+                if(this.type === 'timeout'){
+                  this.message = 'Tu sesión se cerrará por inactividad en '+this.timeout+'. Realiza una consulta u operación.';
+                }
+              });
+            if(!this.childModal.isShown){
+              this.show();
+              let x = document.getElementsByClassName("modal-backdrop");
+              for(let i = 0 ; i<x.length-1; i++){
+                let y = <HTMLElement>x[i]
+                y.style.display = "none";
+                y.parentNode.removeChild(y);
+              }
+            }
       });
       this.broadcaster.on<string>('message')
         .subscribe(message => {
-          this.type = 'dialog';
-          this.title = 'Aviso'
-          this.message = message;
-          this.show();
-      });
-      this.broadcaster.on<string>('loader')
-        .subscribe( () => {
-          this.type = 'loader';
-          this.show();
+          if(!this.childModal.isShown){
+            console.log('mostrando aviso');
+            this.type = 'dialog';
+            this.title = 'Aviso'
+            this.message = message;
+            this.show();
+            let x = document.getElementsByClassName("modal-backdrop");
+            for(let i = 0 ; i<x.length-1; i++){
+              let y = <HTMLElement>x[i]
+              y.style.display = "none";
+              y.parentNode.removeChild(y);
+            }
+          }
       });
       this.broadcaster.on<string>('clear')
         .subscribe(message => {

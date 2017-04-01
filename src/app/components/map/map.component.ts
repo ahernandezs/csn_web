@@ -14,8 +14,8 @@ import { Address } from '../../models/address';
 export class MapComponent implements OnInit {
 
   signed: boolean;
-  lat: number = 25.666667;
-  lng: number = -100.316667;
+  lat: number;
+  lng: number;
   branches: Array<Geolocation> = new Array<Geolocation>();
   opt = '1';
   busqueda = '';
@@ -28,12 +28,8 @@ export class MapComponent implements OnInit {
 
     this.signed = localStorage.getItem('x-data-csn') === null ? false : true;
 
-    if(navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(function(position){
-        this.lat = position.coords.latitude;
-        this.lng = position.coords.longitude;
-      });
-		}
+    this.lat = localStorage.getItem('lat') === null ? 25.666667 : Number(localStorage.getItem('lat'));
+    this.lng = localStorage.getItem('lng') === null ? -100.316667 : Number(localStorage.getItem('lng'));
 
     this.mapService.getGeoLocation().subscribe(
       response =>
