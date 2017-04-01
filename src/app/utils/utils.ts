@@ -32,10 +32,7 @@ export class Utils {
 	}
 
 	public handleError(error: Response | any){
-		let errMsg: String;
-		console.log('Status del error: '+ error.status);
-		console.log('Error en utils.ts: '+ JSON.stringify(error));
-		return Promise.reject("Error");
+		return Promise.reject(error);
 	}
 
 	public getHeader(){

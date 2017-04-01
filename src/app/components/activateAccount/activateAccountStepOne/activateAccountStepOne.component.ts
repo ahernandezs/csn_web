@@ -14,6 +14,8 @@ export class ActivateAccountStepOneComponent implements OnInit {
   step: string;
   activation_code;
   result;
+  error: boolean;
+  errorMessage: string;
 
   constructor(
     private thirdAccountService: ThirdAccountService,
@@ -22,6 +24,7 @@ export class ActivateAccountStepOneComponent implements OnInit {
 
   ngOnInit() {
     this.step = "1";
+    this.error = false;
   }
 
   /**
@@ -43,9 +46,29 @@ export class ActivateAccountStepOneComponent implements OnInit {
         response => {
             this.step = "2";
             this.result = response;
+            this.error = false;
         },
         error => {
-            console.log('Error al activar la cuenta');
+            if(error.status === 401){
+              this.errorMessage = 'Sesión inválida';
+            }
+            if(error.status === 503){
+              let cod = JSON.parse(error._body);
+              if(cod.code === 101)
+                this.errorMessage = 'Cliente no encontrado';
+              if(cod.code === 109)
+                this.errorMessage = 'No se pudo realizar el cambio de estatus';
+              if(cod.code === 110)
+                this.errorMessage = 'No se encontró ninguna cuenta asociada con el código de activación';
+              if(cod.code === 111)
+                this.errorMessage = 'La cuenta ya está activada';
+              if(cod.code === 112)
+                this.errorMessage = 'El código de activación no es válido';
+            }
+            if(error.status === 504){
+              this.errorMessage = 'Tiempo de espera agotado';
+            }
+            this.error = true;
         }
     );
   }
