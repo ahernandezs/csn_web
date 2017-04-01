@@ -23,7 +23,7 @@
             </h6>
           </td>
           <td>{{move.description}}</td>
-          <td [ngClass]="{'negative': move.amount < 0 }">${{move.amount | number:'1.2-2'}}</td>
+          <td [ngClass]="{'negative': move.description==='cargo', 'positive': move.description==='abono' }">${{move.amount | number:'1.2-2'}}</td>
         </tr>
       </tbody>
     </table>

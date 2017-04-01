@@ -26,4 +26,8 @@ export class ActivateAccountComponent {
         this.myUrl = "activateAccountStepOne";
     }
 
+    changeView(view: string) {
+        this.myUrl = view;
+    }
+
 }

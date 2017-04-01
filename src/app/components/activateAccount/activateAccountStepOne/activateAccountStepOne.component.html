@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2">
-                <h6 (click)="changeView('activateAccountList')" routerLinkActive="active">
+                <h6 (click)="changeView('activateAccount')" routerLinkActive="active">
                     <span><i class="icon icon-back"></i></span>
                     Regresar
                 </h6>
@@ -68,7 +68,7 @@
 				        <button (click)="activate();" routerLinkActive="active" class="btn-green">Continuar</button>
 				    </div>
 				    <div *ngIf="step == 2" class="col-md-8 offset-md-2 text-xs-center">
-				        <button (click)="changeView('activateAccountList')" routerLinkActive="active" class="btn-green">Aceptar</button>
+				        <button (click)="changeView('activateAccount')" routerLinkActive="active" class="btn-green">Aceptar</button>
 				    </div>
 				</div>
 			</div>
