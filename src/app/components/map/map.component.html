@@ -22,6 +22,7 @@
 		[latitude]="lat"
 		[longitude]="lng"
 		[zoom]="11">
+			<sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
 			<sebm-google-map-marker *ngFor="let branch of branches | atm: opt | searchATM: busqueda"
 				[latitude]="branch.coordinates.lat"
 				[longitude]="branch.coordinates.lng"
