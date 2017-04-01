@@ -84,7 +84,6 @@ export class ModalComponent implements OnInit {
       this.broadcaster.on<string>('message')
         .subscribe(message => {
           if(!this.childModal.isShown){
-            console.log('mostrando aviso');
             this.type = 'dialog';
             this.title = 'Aviso'
             this.message = message;
