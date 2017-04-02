@@ -8,14 +8,14 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MovementsComponent implements OnInit {
 
-  constructor(
-    private route: ActivatedRoute
-  ) { }
-
   movementsParent: any = {};
   account = "";
   name = "";
   balance ="";
+
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {

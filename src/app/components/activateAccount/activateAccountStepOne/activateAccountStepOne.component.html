@@ -19,7 +19,7 @@
 			<div class="card shadow-second">
 				<h3 *ngIf="step == 1">Verifica los datos de la cuenta e ingresa el código de activación que recibiste vía SMS.</h3>
 				<h3 *ngIf="step == 2"><span><i class="icon icon-thick"></i></span> La cuenta de terceros fue activada exitosamente.<br>A partir de un lapso de 30 minutos podrás hacer uso de tu nueva cuenta cuando realices una transferencia interbancaria.</h3>
-				<h3 *ngIf="error"><span><i class="icon icon-hold"></i></span> {{errorMessage}}</h3>
+				<h3 *ngIf="error.show"><span><i class="icon icon-hold"></i></span> {{error.message}}</h3>
 				<div class="row">
 				    <div class="col-md-8 offset-md-2">
 				       <table class="table" *ngIf="step == 1">

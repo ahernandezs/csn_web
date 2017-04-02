@@ -18,6 +18,10 @@
 			</div>
 		</div>
 	</div>
+	<p *ngIf="error.show">
+		<span class="text-xs-center"><i class="icon icon-hold"></i></span>
+		<span class="errorMessage">{{error.message}}</span>
+	</p>
 	<sebm-google-map
 		[latitude]="lat"
 		[longitude]="lng"

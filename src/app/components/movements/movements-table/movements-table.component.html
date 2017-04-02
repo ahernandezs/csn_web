@@ -3,6 +3,10 @@
     <i class="icon icon-zoom"></i>
     <input type="text" placeholder="Buscar movimientos" #input id="search">
   </label>
+  <p *ngIf="error.show">
+    <span class="text-xs-center"><i class="icon icon-hold"></i></span>
+    <span class="errorMessage">{{error.message}}</span>
+  </p>
   <div class="table-responsive">
     <table class="table">
       <thead>

@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../../services/login.service';
 import { environment } from '../../../../environments/environment';
 import { DOT } from '../../../utils/dot';
+import { Error } from '../../../models/error';
 
 import { PreregisterRequest } from '../../../models/preregister-request';
 import { PreregisterResponse } from '../../../models/preregister-response';
@@ -16,13 +17,26 @@ import { RegisterRequest } from '../../../models/register-request';
 })
 export class UnlockStep2Component implements OnInit {
 
+  environment;
+  password;
+  confirm_password;
+  imageId;
+  preregisterRequest: PreregisterRequest;
+  preregisterResponse: PreregisterResponse;
+  registerRequest: RegisterRequest;
+  @Output() routeView: EventEmitter<String> = new EventEmitter();
   unlock2Form : FormGroup;
+  error: Error;
+
   constructor(
     private loginService: LoginService,
     private router: Router,
     private dot: DOT,
     private fb: FormBuilder
-  ) {this.validations(); }
+  ) {
+    this.error = new Error(false, '');
+    this.validations();
+  }
 
   ngOnInit() {
       this.preregisterResponse = this.dot.data[0];
@@ -31,22 +45,6 @@ export class UnlockStep2Component implements OnInit {
       this.environment = environment;
   }
 
-  environment;
-  password;
-  confirm_password;
-  imageId;
-  preregisterRequest: PreregisterRequest;
-  preregisterResponse: PreregisterResponse;
-  registerRequest: RegisterRequest;
-
-  /**
-   * This event element will help to change the current view in the parent element <auth.component>.
-   */
-  @Output() routeView: EventEmitter<String> = new EventEmitter();
-
-  /**
-   * This event is emitted to the parent element <auth.component>.
-   */
   changeView(view: String): void {
       this.routeView.emit(view);
   }
@@ -54,15 +52,17 @@ export class UnlockStep2Component implements OnInit {
   register(view: String){
     if(this.password !== this.confirm_password){
       return;
-    }else{
+    } else {
       this.registerRequest = new RegisterRequest(this.preregisterRequest.user_login, this.imageId, this.preregisterRequest.activation_code, this.password);
       this.loginService.unlockPasswordRequest(this.registerRequest).subscribe(
         response => {
-          console.log('Desbloqueo exitoso!, avisar de alguna manera');
+          window.alert('Desbloqueo existoso');
+          this.error.show = false;
           this.router.navigate(['/login']);
         },
-        err => {
-          console.log('tronó, avisarle al usuario '+err);
+        error => {
+            this.error.message = error;
+            this.error.show = true;
         }
       );
     }
@@ -78,4 +78,5 @@ export class UnlockStep2Component implements OnInit {
         confirm_password: ['',Validators.required]
       })
   }
+
 }

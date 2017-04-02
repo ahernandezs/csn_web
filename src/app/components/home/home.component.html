@@ -19,6 +19,10 @@
 </div>
 <div class="container home">
     <div class="row">
+		<p *ngIf="error.show">
+			<span class="text-xs-center"><i class="icon icon-hold"></i></span>
+			<span class="errorMessage">{{error.message}}</span>
+		</p>
 		<div class="col-md-4" *ngFor="let account of accounts">
 			<div class="card shadow-second" *ngIf="account.account_type === opt || opt === '00'">
 				<h3>

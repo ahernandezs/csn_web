@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../../services/login.service';
 import { UpdatePasswordRequest } from '../../../models/update-password-request';
 import { BlockUserRequest } from '../../../models/block-user-request';
+import { Error } from '../../../models/error';
 
 @Component({
   selector: 'app-blockTwo',
@@ -10,19 +11,23 @@ import { BlockUserRequest } from '../../../models/block-user-request';
   styleUrls: ['./blockTwo.component.sass']
 })
 export class BlockTwoComponent implements OnInit {
-  block2Form : FormGroup;
-  constructor(
-    private loginService: LoginService,
-    private fb: FormBuilder
-  ) {this.validations(); }
 
+  error: Error;
+  block2Form : FormGroup;
   old_password = "";
   new_password = "";
   verify_password = "";
   dataForUser;
   account;
-
   @Output() routeView2: EventEmitter<String> = new EventEmitter();
+
+  constructor(
+    private loginService: LoginService,
+    private fb: FormBuilder
+  ) {
+    this.error = new Error(false, '');
+    this.validations();
+  }
 
 	ngOnInit() {
 		this.dataForUser = JSON.parse(localStorage.getItem('x-data-csn'));
@@ -33,37 +38,17 @@ export class BlockTwoComponent implements OnInit {
       this.routeView2.emit(view);
   }
 
-  changePassword(){
-
-    if(this.new_password !== this.verify_password){
-      console.log("Decir que las contraseñas no coinciden"+this.new_password +" / "+this.verify_password);
-      return;
-    } 
-
-    //TODO: validar el password antiguo
-
-    let updatePasswordRequest = new UpdatePasswordRequest(this.new_password);
-
-    this.loginService.updatePassword(updatePasswordRequest).subscribe(
-      response => {
-        console.log("Avisar que sí se pudo hacer el cambio: "+response);
-        alert('cambio exitoso');
-      },
-      error => {
-        console.log("Mandar mensaje de error: "+error);
-      }
-    );
-  }
-
   block(){
     let blockUserRequest = new BlockUserRequest(localStorage.getItem("user_login_csn"));
     this.loginService.blockUser(blockUserRequest).subscribe(
       response => {
-        console.log("Avisar que sí se pudo bloquear");
+        this.error.show = false;
+        alert('Bloqueo exitoso');
       },
-      error => {
-        console.log("Error al bloquear");
-      }
+        error => {
+            this.error.message = error;
+            this.error.show = true;
+        }
     );
   }
 

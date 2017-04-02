@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PromotionService } from '../../services/promotion.service';
 import { Promotion } from '../../models/promotion';
+import { Broadcaster } from '../../utils/broadcaster';
+import { Error } from '../../models/error';
 
 @Component({
   selector: 'app-contact',
@@ -9,13 +11,18 @@ import { Promotion } from '../../models/promotion';
 })
 export class PromotionsComponent implements OnInit {
 
-  constructor(
-        private promotionService: PromotionService
-  ) { }
-
+  error: Error;
   promotions: Array<any> = new Array();
 
+  constructor(
+        private promotionService: PromotionService,
+        private broadcaster: Broadcaster
+  ) {
+    this.error = new Error(false, '');
+  }
+
   ngOnInit() {
+		this.broadcaster.broadcast('loader');
     this.promotionService.getPromotions().subscribe(
       response => {
          let row: Array<any>;
@@ -29,9 +36,11 @@ export class PromotionsComponent implements OnInit {
             row.push(response[i])
          }
       },
-      err => {
-        console.log(err);
-      }
+      error => {
+          this.error.message = error;
+          this.error.show = true;
+      },
+      () => {this.broadcaster.broadcast('clear')}
     );
   }
 
