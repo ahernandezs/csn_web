@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./activation.component.sass']
 })
 export class ActivationComponent {
+
     private myUrl:any;
 
     constructor(private route: ActivatedRoute) {
@@ -19,10 +20,6 @@ export class ActivationComponent {
           (error: any) => console.debug("Error getting the path", error));
     }
 
-    /**
-    * Event handler for changing the current view.
-    * @param view String
-    */
     changeViewHandler(view: String) {
         this.myUrl = view;
     }

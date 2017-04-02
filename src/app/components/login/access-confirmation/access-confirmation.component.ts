@@ -6,6 +6,7 @@ import { environment } from '../../../../environments/environment';
 import { CheckLoginResponse } from '../../../models/check-login-response';
 import { LoginRequest } from '../../../models/login-request';
 import { LoginResponse } from '../../../models/login-response';
+import { Error } from '../../../models/error';
 
 @Component({
   selector: 'app-access-confirmation',
@@ -14,10 +15,21 @@ import { LoginResponse } from '../../../models/login-response';
 })
 export class AccessConfirmationComponent implements OnInit {
 
+  error: Error;
+  password;
+  imageId;
+  environment;
+  loginRequest: LoginRequest;
+  loginResponse: LoginResponse;
+  @Output() routeView: EventEmitter<String> = new EventEmitter();
+  @Input() checkLoginResponse: CheckLoginResponse;
+
   constructor(
     private loginService: LoginService,
     private router: Router
-  ) { }
+  ) {
+    this.error = new Error(false, '');
+  }
 
   ngOnInit() {
     if(localStorage.getItem("client_application_id") === null){
@@ -25,15 +37,6 @@ export class AccessConfirmationComponent implements OnInit {
     this.environment = environment;
     }
   }
-
-  password;
-  imageId;
-  environment;
-  loginRequest: LoginRequest;
-  loginResponse: LoginResponse;
-
-  @Output() routeView: EventEmitter<String> = new EventEmitter();
-  @Input() checkLoginResponse: CheckLoginResponse;
 
   changeView(view: string): void {
       this.routeView.emit(view);
@@ -45,12 +48,14 @@ export class AccessConfirmationComponent implements OnInit {
     localStorage.removeItem('x-data-csn');
     this.loginService.login(this.loginRequest).subscribe(
       response => {
+        this.error.show = false;
         this.loginResponse = response;
         localStorage.setItem('x-data-csn', JSON.stringify(this.loginResponse));
         this.router.navigate(['/home']); 
       },
-      err => {
-        console.log(err);
+      error => {
+          this.error.message = error;
+          this.error.show = true;
       }
     );    
   }

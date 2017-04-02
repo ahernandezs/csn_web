@@ -11,8 +11,8 @@ import { environment } from '../../../../environments/environment';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.sass']
 })
-
 export class ModalComponent implements OnInit {
+
   @ViewChild('childModal') public childModal:ModalDirective;
   type;
   message;
@@ -34,6 +34,12 @@ export class ModalComponent implements OnInit {
 
     show(){
       this.childModal.show();
+      let x = document.getElementsByClassName("modal-backdrop");
+      for(let i = 0 ; i<x.length-1; i++){
+        let y = <HTMLElement>x[i]
+        y.style.display = "none";
+        y.parentNode.removeChild(y);
+      }
     }
 
     hide(){
@@ -49,8 +55,8 @@ export class ModalComponent implements OnInit {
             localStorage.removeItem('user_login_csn');
             this.router.navigate(['/login']);
           },
-          err => {
-            window.alert('error al cerrar sesión');
+          error => {
+            window.alert('Error al cerrar sesión: '+error);
             this.router.navigate(['/login']);
           }
         );
@@ -73,12 +79,6 @@ export class ModalComponent implements OnInit {
               });
             if(!this.childModal.isShown){
               this.show();
-              let x = document.getElementsByClassName("modal-backdrop");
-              for(let i = 0 ; i<x.length-1; i++){
-                let y = <HTMLElement>x[i]
-                y.style.display = "none";
-                y.parentNode.removeChild(y);
-              }
             }
       });
       this.broadcaster.on<string>('message')
@@ -88,13 +88,12 @@ export class ModalComponent implements OnInit {
             this.title = 'Aviso'
             this.message = message;
             this.show();
-            let x = document.getElementsByClassName("modal-backdrop");
-            for(let i = 0 ; i<x.length-1; i++){
-              let y = <HTMLElement>x[i]
-              y.style.display = "none";
-              y.parentNode.removeChild(y);
-            }
           }
+      });
+      this.broadcaster.on<string>('loader')
+        .subscribe(() => {
+          this.type = 'loader';
+          this.show();
       });
       this.broadcaster.on<string>('clear')
         .subscribe(message => {

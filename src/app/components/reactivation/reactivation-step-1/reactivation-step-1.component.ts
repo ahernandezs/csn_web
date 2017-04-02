@@ -5,6 +5,7 @@ import { DOT } from '../../../utils/dot';
 
 import { PreregisterRequest } from '../../../models/preregister-request';
 import { PreregisterResponse } from '../../../models/preregister-response';
+import { Error } from '../../../models/error';
 
 @Component({
   selector: 'app-reactivation-step-1',
@@ -13,24 +14,21 @@ import { PreregisterResponse } from '../../../models/preregister-response';
 })
 export class ReactivationStep1Component {
 
+  error: Error;
   reactivation1Form: FormGroup;
+  preregisterResponse: PreregisterResponse;
+  preregisterRequest: PreregisterRequest = new PreregisterRequest('', '');
+  @Output() routeView: EventEmitter<String> = new EventEmitter();
+
   constructor(
     private loginService: LoginService,
     private dot: DOT,
     private fb: FormBuilder
-  ) {this.validations();}
+  ) {
+    this.error = new Error(false, '');
+    this.validations();
+  }
 
-  preregisterResponse: PreregisterResponse;
-  preregisterRequest: PreregisterRequest = new PreregisterRequest('', '');
-
-  /**
-   * This event element will help to change the current view in the parent element <auth.component>.
-   */
-  @Output() routeView: EventEmitter<String> = new EventEmitter();
-
-  /**
-   * This event is emitted to the parent element <auth.component>.
-   */
   changeView(view: String): void {
     this.loginService.preRegister(this.preregisterRequest).subscribe(
       response => {
@@ -38,10 +36,12 @@ export class ReactivationStep1Component {
         this.dot.setData([this.preregisterResponse, this.preregisterRequest]);
         this.routeView.emit(view);
       },
-      err => {
-        console.log(err);
-      }
-    );  }
+        error => {
+            this.error.message = error;
+            this.error.show = true;
+        }
+    );
+  }
 
   showPass(elementToShow: string){
     let pwd = document.getElementById(elementToShow);

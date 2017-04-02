@@ -5,6 +5,7 @@ import { Description } from '../../models/description';
 import { Coordinates } from '../../models/coordinates';
 import { OpeningHours } from '../../models/openingHours';
 import { Address } from '../../models/address';
+import { Error } from '../../models/error';
 
 @Component({
   selector: 'app-map',
@@ -19,10 +20,13 @@ export class MapComponent implements OnInit {
   branches: Array<Geolocation> = new Array<Geolocation>();
   opt = '1';
   busqueda = '';
+  error: Error;
 
   constructor(
     private mapService: MapService
-  ){}
+  ){
+    this.error = new Error(false, '');
+  }
 
 	ngOnInit() {
 
@@ -34,8 +38,9 @@ export class MapComponent implements OnInit {
     this.mapService.getGeoLocation().subscribe(
       response =>
         this.branches = response,
-      err => {
-        console.log(err);
+      error => {
+          this.error.message = error;
+          this.error.show = true;
       }
     );
 	}

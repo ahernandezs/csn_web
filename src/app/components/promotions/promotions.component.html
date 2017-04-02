@@ -1,5 +1,9 @@
 <app-navbar></app-navbar>
 <div class="container promotions">
+	<p *ngIf="error.show">
+		<span class="text-xs-center"><i class="icon icon-hold"></i></span>
+		<span class="errorMessage">{{error.message}}</span>
+	</p>
 	<div *ngFor="let linea of promotions" class="row">
 		<div *ngFor="let promotion of linea">
 			<div class="col-md-4">

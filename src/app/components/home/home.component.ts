@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../../services/account.service'
 import { Accounts } from '../../models/accounts';
+import { Error } from '../../models/error';
 
 @Component({
   selector: 'app-home',
@@ -9,12 +10,15 @@ import { Accounts } from '../../models/accounts';
 })
 export class HomeComponent implements OnInit{
 
-  constructor(
-    private accountService: AccountService
-  ) { }
-
+  error: Error;
   accounts: Array<Accounts>;
   opt;
+  
+  constructor(
+    private accountService: AccountService
+  ) {
+    this.error = new Error(false, '');
+  }
 
   ngOnInit( ) {
     this.opt = "00"
@@ -28,15 +32,17 @@ export class HomeComponent implements OnInit{
               this.accounts[i].lastMovementDescription = response[0].description;
               this.accounts[i].lastMovementAmount = response[0].amount;
             },
-            err => {
-              console.log(err);
-            }
+              error => {
+                  this.error.message = error;
+                  this.error.show = true;
+              }
           );
         }
       },
-      err => {
-        console.log(err);
-      }
+        error => {
+            this.error.message = error;
+            this.error.show = true;
+        }
     );
   }
 

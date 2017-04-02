@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./administration.component.sass']
 })
 export class AdministrationComponent {
+
     private myUrl:any;
     private myUrl2:any = "blockOne";
 
@@ -20,10 +21,6 @@ export class AdministrationComponent {
           (error: any) => console.debug("Error getting the path", error));
     }
 
-    /**
-    * Event handler for changing the current view.
-    * @param view String
-    */
     changeViewHandler(view: String) {
         this.myUrl = view;
     }

@@ -4,6 +4,7 @@ import { LoginService } from '../../../services/login.service';
 
 import { CheckLoginRequest } from '../../../models/check-login-request';
 import { CheckLoginResponse } from '../../../models/check-login-response';
+import { Error } from '../../../models/error';
 
 @Component({
   selector: 'app-access',
@@ -12,16 +13,19 @@ import { CheckLoginResponse } from '../../../models/check-login-response';
 })
 export class AccessComponent implements OnInit {
 
+  error: Error;
   loginForm : FormGroup;
+  checkLoginResponse: CheckLoginResponse;
+  checkLoginRequest: CheckLoginRequest = new CheckLoginRequest('');
+  @Output() routeView: EventEmitter<CheckLoginResponse> = new EventEmitter();
+
   constructor(
     private loginService: LoginService,
     private fb: FormBuilder
-  ){this.validations();}
-  
-  checkLoginResponse: CheckLoginResponse;
-  checkLoginRequest: CheckLoginRequest = new CheckLoginRequest('');
-
-  @Output() routeView: EventEmitter<CheckLoginResponse> = new EventEmitter();
+  ){
+    this.error = new Error(false, '');
+    this.validations();
+  }
 
   ngOnInit() {
     localStorage.removeItem('x-auth-token');
@@ -33,12 +37,14 @@ export class AccessComponent implements OnInit {
   changeView(): void {
     this.loginService.checkLogin(this.checkLoginRequest).subscribe(
       response => {
+        this.error.show = false;
         this.checkLoginResponse = response;
         localStorage.setItem('user_login_csn',this.checkLoginRequest.user_login);
         this.routeView.emit(this.checkLoginResponse);
       },
-      err => {
-        console.log(err);
+      error => {
+          this.error.message = error;
+          this.error.show = true;
       }
     );
   }

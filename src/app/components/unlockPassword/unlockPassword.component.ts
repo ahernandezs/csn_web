@@ -7,6 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./unlockPassword.component.sass']
 })
 export class UnlockPasswordComponent implements OnInit {
+
     private myUrl:any;
 
     constructor(private route: ActivatedRoute) {
@@ -23,11 +24,8 @@ export class UnlockPasswordComponent implements OnInit {
         this.myUrl = "step-1";
     }
 
-    /**
-    * Event handler for changing the current view.
-    * @param view String
-    */
     changeViewHandler(view: String) {
         this.myUrl = view;
     }
+
 }

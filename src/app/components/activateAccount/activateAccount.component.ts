@@ -8,6 +8,7 @@ import { ThirdAccount } from '../../models/third-account';
   styleUrls: ['./activateAccount.component.sass']
 })
 export class ActivateAccountComponent {
+
     private myUrl:any;
     private thirdAccount: ThirdAccount;
 

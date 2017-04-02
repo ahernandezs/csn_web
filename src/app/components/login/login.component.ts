@@ -8,6 +8,7 @@ import { CheckLoginResponse } from '../../models/check-login-response';
   styleUrls: ['./login.component.sass']
 })
 export class LoginComponent {
+
     private myUrl: any = 'login';
     private checkLoginResponse: CheckLoginResponse;
 

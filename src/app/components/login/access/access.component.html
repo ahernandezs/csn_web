@@ -10,6 +10,10 @@
             autocomplete="off" (keypress)="numbers($event)"
             (blur)="zeros(checkLoginRequest.user_login,checkLoginRequest.user_login.length)" [maxLength]="32" />
            </label>
+            <p *ngIf="error.show">
+                <span class="text-xs-center"><i class="icon icon-hold"></i></span>
+                <span class="errorMessage">{{error.message}}</span>
+            </p>
            <button (click)="changeView('confirmation')" routerLinkActive="active"  [disabled]="!loginForm.valid" class="btn-confirm btn-block">
                 Continuar
             </button>

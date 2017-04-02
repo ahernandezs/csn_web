@@ -4,6 +4,7 @@ import 'rxjs/Rx';
 import { AccountService } from '../../../services/account.service'
 import { Movements } from '../../../models/movements';
 import { ActivatedRoute } from '@angular/router';
+import { Error } from '../../../models/error';
 
 @Component({
   selector: 'app-movements-table',
@@ -13,16 +14,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MovementsTableComponent implements OnInit {
 
+  error: Error;
+  movements: Array<Movements> = new Array<Movements>();
+  account = "";
+  @ViewChild('input')
+  input: ElementRef;
+
   constructor(
     private accountService: AccountService,
     private route: ActivatedRoute
-  ) { }
-
-  movements: Array<Movements> = new Array<Movements>();
-  account = "";
-
-  @ViewChild('input')
-  input: ElementRef;
+  ) {
+    this.error = new Error(false, '');
+  }
 
   ngOnInit() {
     let eventObservable = Observable.fromEvent(this.input.nativeElement, 'keyup')
@@ -33,8 +36,9 @@ export class MovementsTableComponent implements OnInit {
         response => {
           this.movements = response;
         },
-        err => {
-          console.log(err);
+        error => {
+            this.error.message = error;
+            this.error.show = true;
         }
       );
     });

@@ -1,5 +1,9 @@
 <h6>Bienvenida: Maria Teresa Castillo Espinosa</h6>
 <h5>Para finalizar crea una contraseña y elige una imagen de seguridad para proteger tu cuenta.</h5>
+<p *ngIf="error.show">
+	<span class="text-xs-center"><i class="icon icon-hold"></i></span>
+	<span class="errorMessage">{{error.message}}</span>
+</p>
 <form [formGroup]="reactivation2Form" class="row">
     <div class="row">
         <div class="col-md-10 offset-md-1">
