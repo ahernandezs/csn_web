@@ -104,14 +104,24 @@ export class TransferComponent implements OnInit {
         );
     }
 
-    selectOwn(account, desc){
-        this.sourceAccountId = account;
-        this.ownDescription = desc;
+    selectOwn(account: Accounts){
+        this.sourceAccountId = account._account_id;
+        this.ownDescription = account.description +' '+ this.shortAccount(account._account_id)+' $'+account.available_balance;
     }
 
-    selectThird(account, desc){
-        this.account_id_destination = account;
-        this.thirdDescription = desc;
+    selectThirdOwn(account: Accounts){
+        this.account_id_destination = account._account_id;
+        this.thirdDescription = account.description+' '+this.shortAccount(account._account_id)+' $'+account.available_balance;
+    }
+
+    selectThird(account: ThirdAccount){
+        this.account_id_destination = account._account_id;
+        this.thirdDescription = account.alias+' ***'+ account._account_id;
+    }
+
+    shortAccount(account: string): string {
+        let short = account.split('-')[0]
+        return "***"+short.substr(short.length - 3);
     }
 
 }
