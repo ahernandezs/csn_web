@@ -100,7 +100,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <p *ngIf="step === 2 && opt==='third'"><input type="password" placeholder="contraseña" required [(ngModel)] = "password"></p>
+                        <label *ngIf="step === 2 && opt==='third'"><input type="password" placeholder="Ingresa tu contraseña para validar la transferencia" required [(ngModel)] = "password"></label>
                         <p *ngIf="step === 3">Número de autorización: <span>{{authnum}}</span></p>
                     </div>
                 </div>
