@@ -81,23 +81,22 @@ h3
 	font-size: 1.2em
 	font-weight: normal
 	margin: -1em -15px 0
-	padding: 1.7em 1em 2em 4em
+	padding: 2em 1em 2em 4em
 	border-bottom: 1px solid $divider-color
-	background: rgba($primary-color,0.2)
+	&.transfer-applied
+		background: rgba($primary-color,0.2)
 	span
-		display: inline-block
-		vertical-align: middle
 		position: absolute
 		left: 1em
+		top: 1.5em
 		overflow: hidden
 		width: 30px
 		height: 30px
-		margin-right: 0.5em
 		text-align: center
 		border: 2px solid black
 		+border-radius(50%)
 		i:before
-			line-height: 1.5em
+			line-height: 1.6em
 .table
 	margin: 2em 0
 	border-bottom: 1px solid $divider-color
@@ -117,7 +116,7 @@ p
 	span
 		font-weight: bold
 .btn-confirm,.btn-green
-	min-width: 250px
+	min-width: 150px
 	font-size: 1em
 	margin: 1em
 
@@ -128,11 +127,10 @@ p
 		width: 100%
 		margin-left: 0
 		margin-right: 0
-h3.uno
+h3
 	font-size: 1.2em
 	font-weight: normal
 	margin: -1em -15px 0
-	padding: 1em 1em 2em
 	border-bottom: 1px solid $divider-color
 label
 	position: relative
