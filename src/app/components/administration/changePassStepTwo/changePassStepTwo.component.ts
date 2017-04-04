@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../../services/login.service';
 import { UpdatePasswordRequest } from '../../../models/update-password-request';
 import { Error } from '../../../models/error';
+import { PasswordValidator } from '../../../utils/validations/passValidations';
 
 @Component({
   selector: 'app-changePassStepTwo',
@@ -38,24 +39,34 @@ export class ChangePassStepTwoComponent implements OnInit {
   }
 
   changePassword(){
-
-    if(this.new_password !== this.verify_password){
+    var validation = PasswordValidator.validatePassword(this.new_password);
+    var validation2 = PasswordValidator.consecutivePassword(this.new_password);
+    if ( validation != ""){
+      this.error.show = true;
+      this.error.message = validation;
+      return;
+    } else if ( validation2 != ""){
+      this.error.show = true;
+      this.error.message = validation2;
+      return;
+    } else if(this.new_password !== this.verify_password){
       this.error.message = "Las contraseñas no coinciden";
       this.error.show = true;
       return;
-    }
-    let updatePasswordRequest = new UpdatePasswordRequest(this.new_password);
+    } else {
+      let updatePasswordRequest = new UpdatePasswordRequest(this.new_password);
 
-    this.loginService.updatePassword(updatePasswordRequest).subscribe(
-      response => {
-        alert('Cambio exitoso');
-        this.error.show = false;
-      },
-        error => {
-            this.error.message = error;
-            this.error.show = true;
-        }
-    );
+      this.loginService.updatePassword(updatePasswordRequest).subscribe(
+        response => {
+          alert('Cambio exitoso');
+          this.error.show = false;
+        },
+          error => {
+              this.error.message = error;
+              this.error.show = true;
+          }
+      );
+    }
   }
 
   validations(){

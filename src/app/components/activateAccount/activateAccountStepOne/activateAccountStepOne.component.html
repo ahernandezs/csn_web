@@ -59,7 +59,7 @@
 				<div class="row" *ngIf="step == 1">
 					<div class="col-md-4 offset-md-4">
 						<label>
-				            <input type="text" placeholder="Código de activación" id="activation_code" name="activation_code" [(ngModel)]= "activation_code" no-letters autocomplete="off" />
+				            <input type="text" placeholder="Código de activación" id="activation_code" name="activation_code" [(ngModel)]= "activation_code" (keypress)="numbers($event)" [maxLength]="6" autocomplete="off" />
 							<span>Escribe aquí tu c&oacute;digo de activaci&oacute;n</span>
 				       </label>
 					</div>
