@@ -64,12 +64,12 @@
                 <i class="icon icon-lock"></i>
                 <input type="password" placeholder="Contraseña" id="password" name="password" required [(ngModel)] = "password" />
             </label>
-            <a class="text-xs-right" routerLink="/unlock" routerLinkActive="active">Olvidé mi contraseña</a>
+            <a routerLink="/unlock" routerLinkActive="active">Olvidé mi contraseña</a>
             <p *ngIf="error.show">
                 <span class="text-xs-center"><i class="icon icon-hold"></i></span>
                 <span class="errorMessage">{{error.message}}</span>
             </p>
-            <button (click)="login()" routerLinkActive="active"  [disabled]="!confirmationForm.valid || !imageId" class="btn-confirm btn-block">Entrar</button>
+            <button (click)="login()" routerLinkActive="active" class="btn-confirm btn-block">Entrar</button>
         </div>
     </div>
     </form>

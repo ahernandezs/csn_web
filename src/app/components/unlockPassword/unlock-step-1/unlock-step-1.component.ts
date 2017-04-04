@@ -30,6 +30,9 @@ export class UnlockStep1Component {
   }
 
   changeView(view: String): void {
+    if ( this.preregisterRequest.user_login.length < 32 ){
+      this.zeros (this.preregisterRequest.user_login,this.preregisterRequest.user_login.length);
+    }
     this.loginService.unlockPasswordPreRequest(this.preregisterRequest).subscribe(
       response => {
         this.preregisterResponse = response;
@@ -57,17 +60,31 @@ export class UnlockStep1Component {
     this.unlockForm = this.fb.group({
       activation_code: ['',Validators.compose([
         Validators.required,
-        Validators.pattern(/^\d+$/),
-        Validators.minLength(6),
-        Validators.maxLength(6)
+        Validators.minLength(6)
       ])],
       user_login: ['',Validators.compose([
         Validators.required,
-        Validators.pattern(/^\d+$/),
-        Validators.minLength(5),
-        Validators.maxLength(32)
+        Validators.minLength(5)
       ])]
     })
+  }
+
+  numbers(event) {
+    var numbers = "0123456789";
+    var event = event || window.event;
+    var codigoCaracter = event.charCode || event.keyCode;
+    var caracter = String.fromCharCode(codigoCaracter);
+
+    return numbers.indexOf(caracter) != -1;
+  }
+
+  zeros(text, longitud){
+    var top = 32 - longitud;
+    var zero="";
+    for ( var i=0; i<top; i++){
+      zero= zero + '0';
+    }
+    this.preregisterRequest.user_login = zero + text;
   }
 
 }

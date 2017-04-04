@@ -7,12 +7,12 @@
 	<form [formGroup]="unlockForm" class="col-md-10 offset-md-1">
 		<label class="active">
 			<span>Código de activación</span>
-			<input type="password" placeholder="Código de activación" value="" id="activationPassword" name="activation_code" [(ngModel)] = "preregisterRequest.activation_code" formControlName="activation_code" />
+			<input type="password" placeholder="Código de activación" value="" id="activationPassword" name="activation_code" [(ngModel)] = "preregisterRequest.activation_code" formControlName="activation_code" (keypress)="numbers($event)" [maxLength]="6" />
 			<i class="icon icon-eye" (click)="showPass('activationPassword');"></i>
 		</label>
 		<label class="active">
 			<span>Número de socio</span>
-			<input type="password" placeholder="Número de socio" value="" id="partnerNumber" name="user_login" [(ngModel)] = "preregisterRequest.user_login" formControlName="user_login" />
+			<input type="password" placeholder="Número de socio" value="" id="partnerNumber" name="user_login" [(ngModel)] = "preregisterRequest.user_login" formControlName="user_login" (keypress)="numbers($event)" [maxLength]="32" />
 			<i class="icon icon-eye" (click)="showPass('partnerNumber');"></i>
 		</label>
 	</form>

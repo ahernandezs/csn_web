@@ -89,7 +89,7 @@ export class Utils {
 			if(cod.code === 204) errorMessage = 'El número de cliente no está registrado';
 			if(cod.code === 205) errorMessage = 'El número de cliente no se encontró en CSN';
 			if(cod.code === 206) errorMessage = 'Error desconocido';
-			if(cod.code === 301) errorMessage = 'Falta seleccionar la imagen';
+			if(cod.code === 301) errorMessage = 'Por favor, selecciona la imagen que elegiste al activar tu número de socio';
 			if(cod.code === 302) errorMessage = 'Error al desbloquear usuario';
 			if(cod.code === 303) errorMessage = 'El usuario no existe';
 			if(cod.code === 304) errorMessage = 'Error al consultar el usuario en el KBA';

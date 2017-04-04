@@ -71,7 +71,7 @@
                         </label>
                         <label>
                             <span>Importe</span>
-                            <input type="text" placeholder="Importe" id="amount" name="amount" required [(ngModel)] = "amount" />
+                            <input type="text" placeholder="Importe" id="amount" name="amount" required [(ngModel)] = "amount" (keypress)="numbers($event)" />
                         </label>
                         <label>
                             <span>Concepto de pago</span>

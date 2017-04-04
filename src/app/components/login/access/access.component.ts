@@ -35,6 +35,13 @@ export class AccessComponent implements OnInit {
   }
 
   changeView(): void {
+    if ( this.checkLoginRequest.user_login == "" ){
+      this.error.show = true;
+      this.error.message = 'Debes ingresar tu número de socio';
+      return;
+    } else if ( this.checkLoginRequest.user_login.length < 32 ){
+      this.zeros(this.checkLoginRequest.user_login,this.checkLoginRequest.user_login.length);
+    }
     this.loginService.checkLogin(this.checkLoginRequest).subscribe(
       response => {
         this.error.show = false;
