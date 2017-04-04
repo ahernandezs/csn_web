@@ -44,8 +44,7 @@ export class AccessConfirmationComponent implements OnInit {
   }
 
   login(view: string){
-    console.log (this.imageId);
-    console.log (this.password);
+
     var validation = PasswordValidator.lengthPassword(this.password);
     if ( this.imageId != null && this.password == undefined){
       this.error.show = true;

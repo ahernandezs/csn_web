@@ -7,8 +7,6 @@ import { Error } from '../../../models/error';
 import { PreregisterRequest } from '../../../models/preregister-request';
 import { PreregisterResponse } from '../../../models/preregister-response';
 
-import { Numbers } from '../../../utils/validations/numbers';
-
 @Component({
   selector: 'app-unlock-step-1',
   templateUrl: './unlock-step-1.component.html',
