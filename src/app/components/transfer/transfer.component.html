@@ -13,12 +13,12 @@
 </div>
 <div class="container transfer">
     <div class="row text-xs-center steps">
-        <div class="progress"><div></div></div>
-        <div class="col-md-4" [ngClass]="{'active-step': step === 1}">
+        <div class="progress" [ngClass]="{'confirm': step === 2, 'success': step === 3}"><div></div></div>
+        <div class="col-md-4 active-step">
             <span></span>
             <p>Datos de la transferencia</p>
         </div>
-        <div class="col-md-4" [ngClass]="{'active-step': step === 2}">
+        <div class="col-md-4" [ngClass]="{'active-step': step == 2 || step == 3}">
             <span></span>
             <p>Revisar datos</p>
         </div>
@@ -36,7 +36,7 @@
             <div class="card">
                 <h3 *ngIf="step === 1" class="uno">Ingresa los datos para realizar la transferencia y presiona continuar</h3>
                 <h3 *ngIf="step === 2">Revisa los datos de la transferencia, si son correctos ingresa tu contraseña para continuar</h3>
-                <h3 *ngIf="step === 3"><span><i class="icon icon-thick"></i></span>Revisa los datos de la transferencia, si son correctos ingresa tu contraseña para continuar</h3>
+                <h3 *ngIf="step === 3" class="transfer-applied"><span><i class="icon icon-thick"></i></span>Revisa los datos de la transferencia, si son correctos ingresa tu contraseña para continuar</h3>
                 <div class="row">
                     <div *ngIf="step === 1" class="col-md-8 offset-md-2">
                         <label class="options" [ngClass]="{ 'selected': dropOwn, '': !dropOwn}" (click)="dropOwn = !dropOwn;">
