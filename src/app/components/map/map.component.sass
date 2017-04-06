@@ -1,26 +1,16 @@
 @import ../../../variables
 
-.map
-	position: fixed
-	top: 0
-	bottom: 0
-	left: 0
-	right: 0
-	background: url(../assets/images/tmp/map.png) no-repeat center center
-	background-size: cover
-
 .sebm-google-map-container
-	height: 90vh
-	position: fixed
-	top: 0
-	bottom: 0
+	position: absolute;
+	top: 148px
+	bottom: 110px
 	left: 0
 	right: 0
 
 .subheader
 	position: fixed
 	z-index: 100
-	top: 75px
+	top: 100px
 	left: 0
 	right: 0
 	background: black
@@ -57,7 +47,7 @@
 
 //Responsive
 @media screen and (max-width: 769px)
-	.map
-		position: relative
+	.sebm-google-map-container
+		position: static
 		margin-top: 205px
 		height: 250px
