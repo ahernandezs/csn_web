@@ -30,6 +30,13 @@ export class ReactivationStep1Component {
   }
 
   changeView(view: String): void {
+    if ( this.preregisterRequest.user_login == "" ){
+      this.error.show = true;
+      this.error.message = 'Debes ingresar tu número de socio';
+      return;
+    } else if ( this.preregisterRequest.user_login.length < 32 ){
+      this.zeros(this.preregisterRequest.user_login,this.preregisterRequest.user_login.length);
+    }
     this.loginService.preRegister(this.preregisterRequest).subscribe(
       response => {
         this.preregisterResponse = response;
@@ -71,8 +78,26 @@ export class ReactivationStep1Component {
     var numbers = "0123456789";
     var event = event || window.event;
     var codigoCaracter = event.charCode || event.keyCode;
+    var retro = event.keyCode;
     var caracter = String.fromCharCode(codigoCaracter);
-
+    if( retro == 8 ){
+      return true;
+    }else if ( retro == 37 ){
+      return true;
+    }else if ( retro == 39 ){
+      return true;
+    }else if ( retro == 46 ){
+      return true;
+    }
     return numbers.indexOf(caracter) != -1;
+  }
+
+  zeros(text, longitud){
+    var top = 32 - longitud;
+    var zero="";
+    for ( var i=0; i<top; i++){
+      zero= zero + '0';
+    }
+    this.preregisterRequest.user_login = zero + text;
   }
 }

@@ -20,6 +20,7 @@ export class AccessConfirmationComponent implements OnInit {
   password;
   imageId;
   environment;
+  account;
   loginRequest: LoginRequest;
   loginResponse: LoginResponse;
   @Output() routeView: EventEmitter<String> = new EventEmitter();
@@ -36,6 +37,7 @@ export class AccessConfirmationComponent implements OnInit {
     if(localStorage.getItem("client_application_id") === null){
       localStorage.setItem("client_application_id", Math.floor(Math.random()*1000000)+'-WEB');
     this.environment = environment;
+    this.account = localStorage.getItem('user_login_csn');
     }
   }
 
@@ -45,13 +47,12 @@ export class AccessConfirmationComponent implements OnInit {
 
   login(view: string){
 
-    var validation = PasswordValidator.lengthPassword(this.password);
+    var validation = PasswordValidator.validatePassword(this.account,this.password);
     if ( this.imageId != null && this.password == undefined){
       this.error.show = true;
       this.error.message = 'Por favor, ingresa tu contraseña para continuar';
       return;
-    } 
-    if ( validation != "" ){
+    } else if ( validation != "" ){
       this.error.show = true;
       this.error.message = validation;
       return;

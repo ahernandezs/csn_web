@@ -70,8 +70,17 @@ export class AccessComponent implements OnInit {
     var numbers = "0123456789";
     var event = event || window.event;
     var codigoCaracter = event.charCode || event.keyCode;
+    var retro = event.keyCode;
     var caracter = String.fromCharCode(codigoCaracter);
-
+    if( retro == 8 ){
+      return true;
+    }else if ( retro == 37 ){
+      return true;
+    }else if ( retro == 39 ){
+      return true;
+    }else if ( retro == 46 ){
+      return true;
+    }
     return numbers.indexOf(caracter) != -1;
   }
 

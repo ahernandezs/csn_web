@@ -27,10 +27,6 @@
             <p>Transferencia aplicada</p>
         </div>
     </div>
-    <p *ngIf="error.show">
-        <span class="text-xs-center"><i class="icon icon-hold"></i></span>
-        <span class="errorMessage">{{error.message}}</span>
-    </p>
     <div class="row">
         <div class="col-md-10 offset-md-1">
             <div class="card">
@@ -39,7 +35,8 @@
                 <h3 *ngIf="step === 3" class="transfer-applied"><span><i class="icon icon-thick"></i></span>Revisa los datos de la transferencia, si son correctos ingresa tu contraseña para continuar</h3>
                 <div class="row">
                     <div *ngIf="step === 1" class="col-md-8 offset-md-2">
-                        <label class="options" [ngClass]="{ 'selected': dropOwn, '': !dropOwn}" (click)="dropOwn = !dropOwn;">
+                        <span *ngIf="own_account.content != null">Prueba</span>
+                        <label class="options" [ngClass]="{ 'selected': dropOwn, '': !dropOwn}" (click)="dropOwn = !dropOwn;" #own_account>
                             <span>Cuenta retiro</span>
                             <p>{{ownDescription}}</p>
                             <i class="icon icon-triangle-down"></i>
@@ -71,11 +68,11 @@
                         </label>
                         <label>
                             <span>Importe</span>
-                            <input type="text" placeholder="Importe" id="amount" name="amount" required [(ngModel)] = "amount" (keypress)="numbers($event)" />
+                            <input type="text" placeholder="Importe" id="amount" name="amount" required [(ngModel)] = "amount" (keypress)="numbers($event)" autocomplete="off" />
                         </label>
                         <label>
                             <span>Concepto de pago</span>
-                            <input type="text" placeholder="Concepto de pago" id="concept" name="concept" required [(ngModel)] = "concept" />
+                            <input type="text" placeholder="Concepto de pago" id="concept" name="concept" required [(ngModel)] = "concept" autocomplete="off" />
                         </label>
                     </div>
 
@@ -104,6 +101,10 @@
                         <p *ngIf="step === 3">Número de autorización: <span>{{authnum}}</span></p>
                     </div>
                 </div>
+                <p *ngIf="error.show">
+                    <span class="text-xs-center"><i class="icon icon-hold"></i></span>
+                    <span class="errorMessage">{{error.message}}</span>
+                </p>
                 <div class="row">
                     <div class="col-md-8 offset-md-2 text-xs-right">
                         <button (click)="cancelar()" class="btn-confirm" *ngIf="step === 1 || step === 2">Cancelar</button>

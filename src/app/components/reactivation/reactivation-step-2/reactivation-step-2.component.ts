@@ -9,6 +9,7 @@ import { PreregisterRequest } from '../../../models/preregister-request';
 import { PreregisterResponse } from '../../../models/preregister-response';
 import { RegisterRequest } from '../../../models/register-request';
 import { Error } from '../../../models/error';
+import { PasswordValidator } from '../../../utils/validations/passValidations';
 
 @Component({
   selector: 'app-reactivation-step-2',
@@ -50,9 +51,20 @@ export class ReactivationStep2Component implements OnInit {
   }
 
   register(view: String){
-    if(this.password !== this.confirm_password){
+    var validation = PasswordValidator.validatePassword(this.preregisterRequest.user_login,this.password);
+    if ( this.imageId != null && this.password == undefined){
+      this.error.show = true;
+      this.error.message = 'Por favor, ingresa tu contraseña para continuar';
       return;
-    }else{
+    } else if ( validation != "" ){
+      this.error.show = true;
+      this.error.message = validation;
+      return;
+    } else if ( this.password !== this.confirm_password ){
+      this.error.message = "Las contraseñas no coinciden";
+      this.error.show = true;
+      return;
+    } else {
       this.registerRequest = new RegisterRequest(this.preregisterRequest.user_login, this.imageId, this.preregisterRequest.activation_code, this.password);
       this.loginService.register(this.registerRequest).subscribe(
         response => {

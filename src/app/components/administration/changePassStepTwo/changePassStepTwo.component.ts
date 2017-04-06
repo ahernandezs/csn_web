@@ -39,15 +39,10 @@ export class ChangePassStepTwoComponent implements OnInit {
   }
 
   changePassword(){
-    var validation = PasswordValidator.validatePassword(this.new_password);
-    var validation2 = PasswordValidator.consecutivePassword(this.new_password);
+    var validation = PasswordValidator.validatePassword(this.account,this.new_password);
     if ( validation != ""){
       this.error.show = true;
       this.error.message = validation;
-      return;
-    } else if ( validation2 != ""){
-      this.error.show = true;
-      this.error.message = validation2;
       return;
     } else if(this.new_password !== this.verify_password){
       this.error.message = "Las contraseñas no coinciden";
