@@ -12,6 +12,7 @@ import { Error } from '../../models/error';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.sass']
 })
+
 export class MapComponent implements OnInit {
 
   signed: boolean;
@@ -28,7 +29,13 @@ export class MapComponent implements OnInit {
     this.error = new Error(false, '');
   }
 
+  innerHeight: any;
+
 	ngOnInit() {
+
+    this.innerHeight = (window.innerHeight - 258) + 'px';
+
+    console.log(this.innerHeight);
 
     this.signed = localStorage.getItem('x-data-csn') === null ? false : true;
 
