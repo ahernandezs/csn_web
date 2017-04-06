@@ -7,12 +7,14 @@
     <div class="row">
         <div class="col-md-10 offset-md-1">
             <label class="active">
-                <span>Contraseña</span>
-                <input type="password" placeholder="Contraseña" required [(ngModel)] = "password" formControlName="new_password"/>
+                <span *ngIf="new_password.value !=''">Contraseña</span>
+                <input type="password" placeholder="Contraseña" required [(ngModel)] = "password" #new_password
+                 formControlName="new_password"/>
             </label>
             <label>
-                <span>Contraseña</span>
-                <input type="password" placeholder="Confirmar contraseña" required [(ngModel)] = "confirm_password" formControlName="confirm_password" />
+                <span *ngIf="confir_password.value !=''">Confirmar Contraseña</span>
+                <input type="password" placeholder="Confirmar contraseña" required [(ngModel)] = "confirm_password"
+                #confir_password formControlName="confirm_password" />
             </label>
             <p>Para confirmar tu contraseña debes ingresar exactamente los mismo caracteres del campo anterior.</p>
             <h3>Asegura tu cuenta</h3>
@@ -70,6 +72,6 @@
 <div class="row">
 	<div class="col-md-10 offset-md-1 text-xs-right">
 		<button (click)="changeView('activation')" routerLinkActive="active" class="btn-confirm">Cancelar</button>
-		<button (click)="register('login')" routerLinkActive="active" class="btn-green" [disabled]="!unlock2Form.valid || !imageId">Finalizar</button>
+		<button (click)="register('login')" routerLinkActive="active" class="btn-green">Finalizar</button>
 	</div>
 </div>

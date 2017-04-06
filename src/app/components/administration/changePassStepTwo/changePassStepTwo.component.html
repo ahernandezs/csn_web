@@ -19,6 +19,6 @@
 	</form>
 	<div class="col-md-10 offset-md-1 text-xs-right">
 		<button class="btn-confirm" (click)="changeView('administration')" routerLinkActive="active">Cancelar</button>
-		<button class="btn-green" (click)="changePassword()" [disabled]="!changePassForm.valid">Cambiar</button>
+		<button (click)="changePassword()">Cambiar</button>
 	</div>
 </div>

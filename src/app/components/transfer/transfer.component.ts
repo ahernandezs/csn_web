@@ -24,6 +24,8 @@ export class TransferComponent implements OnInit {
     password: string;
     ownDescription: string;
     thirdDescription: string;
+    accountSelected_own = false;
+    accountSelected_third = false;
     authnum;
     opt;
     step;
@@ -81,7 +83,14 @@ export class TransferComponent implements OnInit {
     }
 
     validate(){
-        this.step = 2;
+        if ( this.amount == "" || this.concept == "" ){
+            this.error.show = true;
+            this.error.message = 'No puede haber campos vacíos';
+            return;
+        } else {
+            this.error.show= false;
+            this.step = 2;
+        }
     }
 
     goToAccounts(){
@@ -112,11 +121,13 @@ export class TransferComponent implements OnInit {
     selectThirdOwn(account: Accounts){
         this.account_id_destination = account._account_id;
         this.thirdDescription = account.description+' '+this.shortAccount(account._account_id)+' $'+account.available_balance;
+        this.accountSelected_own = true;
     }
 
     selectThird(account: ThirdAccount){
         this.account_id_destination = account._account_id;
         this.thirdDescription = account.alias+' ***'+ account._account_id;
+        this.accountSelected_third = true;
     }
 
     shortAccount(account: string): string {
@@ -124,13 +135,21 @@ export class TransferComponent implements OnInit {
         return "***"+short.substr(short.length - 3);
     }
 
-    numbers(event) {
-        var numbers = "0123456789";
-        var event = event || window.event;
-        var codigoCaracter = event.charCode || event.keyCode;
-        var caracter = String.fromCharCode(codigoCaracter);
-
-        return numbers.indexOf(caracter) != -1;
+  numbers(event) {
+    var numbers = "0123456789";
+    var event = event || window.event;
+    var codigoCaracter = event.charCode || event.keyCode;
+    var retro = event.keyCode;
+    var caracter = String.fromCharCode(codigoCaracter);
+    if( retro == 8 ){
+      return true;
+    }else if ( retro == 37 ){
+      return true;
+    }else if ( retro == 39 ){
+      return true;
+    }else if ( retro == 46 ){
+      return true;
     }
-
+    return numbers.indexOf(caracter) != -1;
+  }
 }

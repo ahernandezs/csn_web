@@ -46,7 +46,7 @@ export class Utils {
 		if(error.status === 406){
 			errorMessage = 'Datos inválidos';
 			let cod = JSON.parse(error._body);
-			if(cod.code === 301) errorMessage = 'La contraseña no cumple con las medidas de seguridad';
+			if(cod.code === 301) errorMessage = 'La contraseña no puede contener tu fecha de nacimiento o código postal';
 			if(cod.code === 312) errorMessage = 'Introduzca un número de usuario';
 			if(cod.code === 403) errorMessage = 'Formato de número de cuenta inválido';
 

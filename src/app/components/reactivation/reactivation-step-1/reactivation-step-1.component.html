@@ -6,20 +6,24 @@
 <div class="row">
 	<form [formGroup]="reactivation1Form" class="col-md-10 offset-md-1">
 		<label class="">
-			<span>Código de reactivación</span>
-			<input type="password" placeholder="Código de reactivación" value="" id="activationPassword" name="activation_code" [(ngModel)] = "preregisterRequest.activation_code" formControlName="activation_code" autocomplete="off" (keypress)="numbers($event)" [maxLength]="6" />
-			<i class="icon icon-eye" (click)="showPass('activationPassword');"></i>
+			<span *ngIf="activation_code.value != ''">Código de reactivación</span>
+			<input type="password" placeholder="Código de reactivación" value="" id="activationPassword" name="activation_code" 
+			[(ngModel)] = "preregisterRequest.activation_code" #activation_code formControlName="activation_code" 
+			autocomplete="off" (keypress)="numbers($event)" [maxLength]="6" />
+			<i *ngIf="activation_code.value != ''" class="icon icon-eye" (click)="showPass('activationPassword');"></i>
 		</label>
 		<label class="">
-			<span>Número de socio</span>
-			<input type="password" placeholder="Número de socio" value="" id="partnerNumber" name="user_login" [(ngModel)] = "preregisterRequest.user_login" formControlName="user_login" autocomplete="off" (keypress)="numbers($event)" [maxLength]="32"/>
-			<i class="icon icon-eye" (click)="showPass('partnerNumber');"></i>
+			<span *ngIf="user_login.value !=''">Número de socio</span>
+			<input type="password" placeholder="Número de socio" value="" id="partnerNumber" name="user_login" 
+			[(ngModel)] = "preregisterRequest.user_login" #user_login formControlName="user_login" autocomplete="off" 
+			(keypress)="numbers($event)" [maxLength]="32"/>
+			<i *ngIf="user_login.value !=''" class="icon icon-eye" (click)="showPass('partnerNumber');"></i>
 		</label>
 	</form>
 </div>
 <div class="row">
 	<div class="col-md-10 offset-md-1 text-xs-right">
 		<button routerLink="/login" routerLinkActive="active" class="btn-confirm">Cancelar</button>
-		<button (click)="changeView('step-2')" routerLinkActive="active" class="btn-green" [disabled]="!reactivation1Form.valid">Continuar</button>
+		<button (click)="changeView('step-2')" routerLinkActive="active" class="btn-green">Continuar</button>
 	</div>
 </div>
