@@ -8,13 +8,16 @@
 		<div *ngFor="let promotion of linea">
 			<div class="col-md-4">
 				<div class="card show-second">
-				<h3>{{promotion.title}}</h3>
+				<h3>
+					{{promotion.category}}
+					<i class="ico-promotion{{promotion.category}}"></i>
+				</h3>
 				<div class="promo-image">
 					<img width="352" height="130" src="{{promotion.url}}">
 				</div>
 				<div class="row">
 					<div class="col-md-10 offset-md-1">
-						<p>{{promotion.description}}</p>
+						<p>{{promotion.title}}</p>
 						<button class="btn-green btn-block" (click)="window.open('google.com','_blank')">Ver detalles</button>
 					</div>
 				</div>
