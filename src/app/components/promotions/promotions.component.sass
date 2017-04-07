@@ -1,5 +1,6 @@
 @import ../../../mixins
 @import ../../../variables
+@import ../../../promotions
 
 .promotions
 	padding-top: 120px
@@ -15,6 +16,11 @@
 		h3
 			font-size: 1.2em
 			margin: 0 0 1em
+			position: relative
+			i
+				position: absolute;
+				right: 0
+				top: -0.4em
 		.promo-image
 			margin: 0 -15px
 			img
@@ -23,6 +29,7 @@
 				height: 130px
 				object-fit: cover
 		p
+			font-weight: bold
 			margin: 2em 0 1em
 			padding: 0 0.1em 2em
 			border-bottom: 1px solid $divider-color
