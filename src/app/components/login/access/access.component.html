@@ -5,9 +5,10 @@
         <div class="col-md-10 offset-md-1">
            <label class="input-with-icon">
             <i class="icon icon-user"></i>
-            <input class="user" type="text" placeholder="Número de Socio" id="user_login" name="user_login"
+            <input class="user" type="password" placeholder="Número de Socio" id="user_login" name="user_login"
             [(ngModel)]= "checkLoginRequest.user_login" formControlName="user_login"
             autocomplete="off" (keypress)="numbers($event)" [maxLength]="32" />
+            <i class="icon icon-eye eye" (click)="showPass('partnerNumber');"></i>
            </label>
             <p *ngIf="error.show">
                 <span class="text-xs-center"><i class="icon icon-hold"></i></span>

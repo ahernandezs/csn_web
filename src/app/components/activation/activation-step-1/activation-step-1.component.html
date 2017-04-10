@@ -1,4 +1,8 @@
 <h5>Llama a nuestro Call Center al <b><a href="tel:018002242020">01 800 224 2020</a></b> y solicita tu código de activación.<br>Si ya lo tienes, ingrésalo a continuación.</h5>
+<p *ngIf="error.show">
+	<span class="text-xs-center"><i class="icon icon-hold"></i></span>
+	<span class="errorMessage">{{error.message}}</span>
+</p>
 <div class="row">
 	<form [formGroup]="activation1Form" class="col-md-10 offset-md-1">
 		<label class="">
@@ -19,6 +23,6 @@
 <div class="row">
 	<div class="col-md-10 offset-md-1 text-xs-right">
 		<button routerLink="/login" routerLinkActive="active" class="btn-confirm">Cancelar</button>
-		<button (click)="changeView('step-2')" routerLinkActive="active" class="btn-green">Continuar</button>
+		<button (click)="changeView('step-2')" routerLinkActive="active" class="btn-confirm" >Continuar</button>
 	</div>
 </div>

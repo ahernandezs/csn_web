@@ -31,7 +31,7 @@ export class BlockTwoComponent implements OnInit {
 
 	ngOnInit() {
 		this.dataForUser = JSON.parse(localStorage.getItem('x-data-csn'));
-    this.account = localStorage.getItem('user_login_csn');
+    this.account = localStorage.getItem('user_login_csn').replace(/^0*/, "");    
 	}
 
   changeView(view: String): void {

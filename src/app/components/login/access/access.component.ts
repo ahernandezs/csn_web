@@ -55,7 +55,16 @@ export class AccessComponent implements OnInit {
       }
     );
   }
-  
+
+  showPass(elementToShow: string){
+  let pwd = document.getElementById(elementToShow);
+      if(pwd.getAttribute("type")=="password"){
+          pwd.setAttribute("type","text");
+      } else {
+          pwd.setAttribute("type","password");
+      }
+  }
+
   validations(){
     this.loginForm = this.fb.group({
       user_login: ['',Validators.compose([

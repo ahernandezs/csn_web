@@ -83,9 +83,12 @@ export class TransferComponent implements OnInit {
     }
 
     validate(){
-        if ( this.amount == "" || this.concept == "" ){
+        if ( this.ownDescription == "Cuenta retiro" || this.thirdDescription == "Cuenta de depósito" ){
             this.error.show = true;
-            this.error.message = 'No puede haber campos vacíos';
+            this.error.message = 'La cuenta de retiro o depósito no puede estar vacía';
+        } else if ( this.amount == "" || this.concept == "" ){
+            this.error.show = true;
+            this.error.message = 'Debes ingresar el importe y el concepto, no puede haber campos vacíos';
             return;
         } else {
             this.error.show= false;
@@ -115,18 +118,18 @@ export class TransferComponent implements OnInit {
 
     selectOwn(account: Accounts){
         this.sourceAccountId = account._account_id;
-        this.ownDescription = account.description +' '+ this.shortAccount(account._account_id)+' $'+account.available_balance;
+        this.ownDescription = account.description +'  '+ this.shortAccount(account._account_id)+'  $'+account.available_balance;
     }
 
     selectThirdOwn(account: Accounts){
         this.account_id_destination = account._account_id;
-        this.thirdDescription = account.description+' '+this.shortAccount(account._account_id)+' $'+account.available_balance;
+        this.thirdDescription = account.description+'  '+this.shortAccount(account._account_id)+'  $'+account.available_balance;
         this.accountSelected_own = true;
     }
 
     selectThird(account: ThirdAccount){
         this.account_id_destination = account._account_id;
-        this.thirdDescription = account.alias+' ***'+ account._account_id;
+        this.thirdDescription = account.alias+'  ***'+ account._account_id;
         this.accountSelected_third = true;
     }
 

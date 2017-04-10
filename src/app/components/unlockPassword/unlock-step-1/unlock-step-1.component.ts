@@ -30,7 +30,11 @@ export class UnlockStep1Component {
   }
 
   changeView(view: String): void {
-    if ( this.preregisterRequest.user_login.length < 32 ){
+    if ( this.preregisterRequest.user_login == "" || this.preregisterRequest.activation_code == ""){
+      this.error.show = true;
+      this.error.message = 'Debes ingresar tu número de activación y número de socio';
+      return;
+    } else if ( this.preregisterRequest.user_login.length < 32 ){
       this.zeros (this.preregisterRequest.user_login,this.preregisterRequest.user_login.length);
     }
     this.loginService.unlockPasswordPreRequest(this.preregisterRequest).subscribe(
