@@ -40,8 +40,8 @@ export class Utils {
 		if(error.status === 403){
 			errorMessage = 'Datos incorrectos';
 			let cod = JSON.parse(error._body);
-			if(cod.code === 304) errorMessage = 'El cliente está reseteado en el KBA';
-
+			if(cod.code === 304) errorMessage = 'La imagen seleccionada o el password son incorrectos, intentalo nuevamente';
+			if(cod.code === 605) errorMessage = 'El número de socio o contraseña son incorrectos, intenta nuevamente';
 		}
 		if(error.status === 406){
 			errorMessage = 'Datos inválidos';
@@ -50,6 +50,9 @@ export class Utils {
 			if(cod.code === 312) errorMessage = 'Introduzca un número de usuario';
 			if(cod.code === 403) errorMessage = 'Formato de número de cuenta inválido';
 
+		}
+		if ( error.status === 409 ){
+			errorMessage = 'Existe una sesión vigente en otra aplicación';
 		}
 		if(error.status === 417){
 			errorMessage = 'Formato de datos inválido';
@@ -91,7 +94,7 @@ export class Utils {
 			if(cod.code === 206) errorMessage = 'Error desconocido';
 			if(cod.code === 301) errorMessage = 'Por favor, selecciona la imagen que elegiste al activar tu número de socio';
 			if(cod.code === 302) errorMessage = 'Error al desbloquear usuario';
-			if(cod.code === 303) errorMessage = 'El usuario no existe';
+			if(cod.code === 303) errorMessage = 'El número de socio es incorrecto, intenta nuevamente';
 			if(cod.code === 304) errorMessage = 'Error al consultar el usuario en el KBA';
 			if(cod.code === 305) errorMessage = 'Error al obtener las imagenes';
 			if(cod.code === 306) errorMessage = 'Usuario no activo';

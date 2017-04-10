@@ -35,7 +35,7 @@
                 <h3 *ngIf="step === 3" class="transfer-applied"><span><i class="icon icon-thick"></i></span>Revisa los datos de la transferencia, si son correctos ingresa tu contraseña para continuar</h3>
                 <div class="row">
                     <div *ngIf="step === 1" class="col-md-8 offset-md-2">
-                        <span *ngIf="own_account.content != null">Prueba</span>
+                        <span class="message" *ngIf="ownDescription != 'Cuenta retiro'">Cuenta de Retiro</span>
                         <label class="options" [ngClass]="{ 'selected': dropOwn, '': !dropOwn}" (click)="dropOwn = !dropOwn;" #own_account>
                             <span>Cuenta retiro</span>
                             <p>{{ownDescription}}</p>
@@ -46,6 +46,7 @@
                                 </li>
                             </ul>
                         </label>
+                        <span class="message" *ngIf="thirdDescription != 'Cuenta de depósito'">Cuenta de Dep&oacute;sito</span>
                         <label *ngIf="opt==='own'" class="options" [ngClass]="{ 'selected': dropThird }" (click)="dropThird = !dropThird;">
                             <span>Cuenta de deposito</span>
                             <p>{{thirdDescription}}</p>
@@ -62,17 +63,19 @@
                             <i class="icon icon-triangle-down"></i>
                             <ul class="shadow-second">
                                 <li *ngFor="let thirdAccount of thirdAccounts" (click)="selectThird(thirdAccount);">
-                                    {{thirdAccount.alias}}&nbsp;&nbsp;***{{thirdAccount._account_id}}
+                                    {{thirdAccount.alias}}&nbsp;&nbsp;{{thirdAccount._account_id || shortaccount}}
                                 </li>
                             </ul>
                         </label>
+                        <span class="message" *ngIf="new_amount.value != ''">Importe</span>
                         <label>
                             <span>Importe</span>
-                            <input type="text" placeholder="Importe" id="amount" name="amount" required [(ngModel)] = "amount" (keypress)="numbers($event)" autocomplete="off" />
+                            <input type="text" placeholder="Importe" id="amount" name="amount" required [(ngModel)] = "amount" (keypress)="numbers($event)" autocomplete="off" #new_amount />
                         </label>
+                        <span class="message" *ngIf="new_concept.value != ''">Concepto</span>
                         <label>
                             <span>Concepto de pago</span>
-                            <input type="text" placeholder="Concepto de pago" id="concept" name="concept" required [(ngModel)] = "concept" autocomplete="off" />
+                            <input type="text" placeholder="Concepto de pago" id="concept" name="concept" required [(ngModel)] = "concept" autocomplete="off" #new_concept />
                         </label>
                     </div>
 

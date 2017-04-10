@@ -72,7 +72,7 @@ export class AccessConfirmationComponent implements OnInit {
             this.error.show = true;
         }
       );
-    } 
+    }
   }
 
   selectImage(imageId: string){

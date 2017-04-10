@@ -64,6 +64,9 @@ export class ReactivationStep2Component implements OnInit {
       this.error.message = "Las contraseñas no coinciden";
       this.error.show = true;
       return;
+    } else if( this.imageId === null && this.password != undefined ){
+      this.error.show = true;
+      this.error.message = 'Por favor, selecciona una imagen para continuar';
     } else {
       this.registerRequest = new RegisterRequest(this.preregisterRequest.user_login, this.imageId, this.preregisterRequest.activation_code, this.password);
       this.loginService.register(this.registerRequest).subscribe(
