@@ -30,7 +30,7 @@
 			<sebm-google-map-marker *ngFor="let branch of branches | atm: opt | searchATM: busqueda"
 				[latitude]="branch.coordinates.lat"
 				[longitude]="branch.coordinates.lng"
-				[iconUrl]="branch.description.type === '1' ? 'assets/images/marker-atm.svg' : 'assets/images/marker-bank.svg'">
+				[iconUrl]="branch.description.type === '1' ? 'assets/images/marker-atm.png' : 'assets/images/marker-bank.png'">
 				<sebm-google-map-info-window [disableAutoPan]="true">
 					<strong>{{branch.name}}</strong><br>
 					{{branch.description.address.street}}, {{branch.description.address.colony}}<br>
