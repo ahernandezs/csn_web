@@ -8,7 +8,7 @@
             <input class="user" type="password" placeholder="Número de Socio" id="user_login" name="user_login"
             [(ngModel)]= "checkLoginRequest.user_login" formControlName="user_login"
             autocomplete="off" (keypress)="numbers($event)" [maxLength]="32" />
-            <i class="icon icon-eye eye" (click)="showPass('partnerNumber');"></i>
+            <i class="icon icon-eye eye" (click)="showPass('user_login');"></i>
            </label>
             <p *ngIf="error.show">
                 <span class="text-xs-center"><i class="icon icon-hold"></i></span>

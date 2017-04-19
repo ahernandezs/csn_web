@@ -43,5 +43,4 @@ export class PromotionsComponent implements OnInit {
       () => {this.broadcaster.broadcast('clear')}
     );
   }
-
 }
