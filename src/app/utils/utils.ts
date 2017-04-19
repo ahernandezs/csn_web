@@ -74,6 +74,7 @@ export class Utils {
 			let cod = JSON.parse(error._body);
 			if(cod.code === 92) errorMessage = 'Folio incorrecto';
 			if(cod.code === 95) errorMessage = 'Sucursal cerrada';
+			if (cod.code === 401) errorMessage = 'Error al obtener la información del cliente';
 		}
 		if(error.status === 503){
 			errorMessage = 'Error técnico';

@@ -35,7 +35,7 @@
                 <h3 *ngIf="step === 3" class="transfer-applied"><span><i class="icon icon-thick"></i></span>Revisa los datos de la transferencia, si son correctos ingresa tu contraseña para continuar</h3>
                 <div class="row">
                     <div *ngIf="step === 1" class="col-md-8 offset-md-2">
-                        <span class="message" *ngIf="ownDescription != 'Cuenta retiro'">Cuenta de Retiro</span>
+                        <span class="message margin" *ngIf="ownDescription != 'Cuenta retiro'">Cuenta de Retiro</span>
                         <label class="options" [ngClass]="{ 'selected': dropOwn, '': !dropOwn}" (click)="dropOwn = !dropOwn;" #own_account>
                             <span>Cuenta retiro</span>
                             <p>{{ownDescription}}</p>
