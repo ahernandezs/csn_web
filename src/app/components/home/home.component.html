@@ -2,17 +2,17 @@
 <div class="subheader">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-2" (click)="opt = '00'">
-				<p [ngClass]="{'active': opt == '00'}">Todas</p>
+			<div class="col-md-2" (click)="opt = '0'">
+				<p [ngClass]="{'active': opt == '0'}">Todas</p>
 			</div>
-			<div class="col-md-2" (click)="opt = '10'">
-				<p [ngClass]="{'active': opt == '10'}">Dep&oacute;sito</p>
+			<div class="col-md-2" (click)="opt = '1'">
+				<p [ngClass]="{'active': opt == '1'}">Ahorro</p>
 			</div>
-			<div class="col-md-3" (click)="opt = '20'">
-				<p [ngClass]="{'active': opt == '20'}">Tarjetas de crédito</p>
+			<div class="col-md-2" (click)="opt = '2'">
+				<p [ngClass]="{'active': opt == '2'}">Créditos</p>
 			</div>
-			<div class="col-md-2" (click)="opt = '30'">
-				<p [ngClass]="{'active': opt == '30'}">Inversiones</p>
+			<div class="col-md-2" (click)="opt = '3'">
+				<p [ngClass]="{'active': opt == '3'}">Inversiones</p>
 			</div>
 		</div>
 	</div>
@@ -24,13 +24,14 @@
 			<span class="errorMessage">{{error.message}}</span>
 		</p>
 		<div class="col-md-4" *ngFor="let account of accounts">
-			<div class="card shadow-second" *ngIf="account.account_type === opt || opt === '00'">
+			<div class="card shadow-second" *ngIf="account.account_type.substr(0,1) === opt || opt === '0'">
 				<h3>
 					{{account.description}}
 					<span>{{account._account_id | shortaccount}}</span>
 				</h3>
 				<h4>
-					${{account.total_balance | number:'1.2-2' }}
+					<span *ngIf="account.total_balance === ''">${{account.total_balance}}</span>
+					<span *ngIf="account.total_balance != ''">${{account.total_balance | number:'1.2-2' }}</span>
 					<span>Saldo actual</span>
 				</h4>
 				<p>&Uacute;ltimo movimiento:</p>

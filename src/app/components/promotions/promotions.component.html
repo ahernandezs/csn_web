@@ -9,7 +9,15 @@
 			<div class="col-md-4">
 				<div class="card show-second">
 				<h3>
-					{{promotion.category}}
+					{{promotion.category}}&nbsp;
+					<span *ngIf="promotion.category === '1'">Cupones</span>
+					<span *ngIf="promotion.category === '2'">Reembolsos o devoluciones</span>
+					<span *ngIf="promotion.category === '3'">Descuentos</span>
+					<span *ngIf="promotion.category === '4'">Premios</span>
+					<span *ngIf="promotion.category === '5'">Concursos</span>
+					<span *ngIf="promotion.category === '6'">Oferta de Productos</span>
+					<span *ngIf="promotion.category === '7'">Viajes</span>
+					<span *ngIf="promotion.category === '8'">Otros</span>
 					<i class="ico-promotion{{promotion.category}}"></i>
 				</h3>
 				<div class="promo-image">
