@@ -24,7 +24,7 @@ export class ModalComponent implements OnInit {
   constructor(
       private router: Router,
       private loginService: LoginService,
-      private broadcaster: Broadcaster,
+      private broadcaster: Broadcaster
     ){ }
 
     ngOnInit(){

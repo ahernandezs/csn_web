@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit{
   }
 
   ngOnInit( ) {
-    this.opt = "00"
+    this.opt = "0"
     this.accountService.getAccounts().subscribe(
       response => {
         this.accounts = response;
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit{
                   this.error.show = true;
               }
           );
-        }
+      }
       },
         error => {
             this.error.message = error;
@@ -45,6 +45,5 @@ export class HomeComponent implements OnInit{
         }
     );
   }
-
 }
 
