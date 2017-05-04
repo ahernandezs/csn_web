@@ -42,6 +42,8 @@ export class MapComponent implements OnInit {
     this.lat = localStorage.getItem('lat') === null ? 25.666667 : Number(localStorage.getItem('lat'));
     this.lng = localStorage.getItem('lng') === null ? -100.316667 : Number(localStorage.getItem('lng'));
 
+    console.log('Position for the map: ' + this.lat + " / " + this.lng);
+
     this.mapService.getGeoLocation().subscribe(
       response =>
         this.branches = response,

@@ -32,6 +32,7 @@ export class AppComponent {
 			navigator.geolocation.getCurrentPosition(function(position){
         localStorage.setItem('lat',position.coords.latitude+"");
         localStorage.setItem('lng',position.coords.longitude+"");
+        console.log('Current position: ' + localStorage.getItem('lat') + " / " + localStorage.getItem('lng'));
       });
 		}
   }
