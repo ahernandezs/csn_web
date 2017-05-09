@@ -20,5 +20,4 @@ export class LoginComponent {
     changeViewConfirm(view: string): void{
       this.myUrl = view;
     }
-
 }
